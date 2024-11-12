@@ -42,12 +42,12 @@
 ## 🛠️ 课程设置与要求
 为了顺利进行课程学习，您需要以下设备和工具：
 
-### **硬件要求**
-+ **reComputer J1020 v2**（基于Jetson Nano 4GB）
-+ **128GB NVMe M.2 SSD**
-+ **罗技 C270 高清摄像头**
+### 硬件要求
++ reComputer J1020 v2（基于Jetson Nano 4GB）
++ 128GB NVMe M.2 SSD
++ 罗技 C270 高清摄像头
 
-### **软件要求**
+### 软件要求
 + JetPack 操作系统（适用于Jetson平台）
 + Python 3.x 开发环境
 + OpenCV、PyTorch、YOLOv8 等 AI 库
