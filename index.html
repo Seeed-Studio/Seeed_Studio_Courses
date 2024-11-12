@@ -21,15 +21,15 @@
     window.$docsify = {
       name: 'Edge AI 101 with Nvidia Jetson',
       repo: 'https://github.com/Seeed-Studio/Seeed_Studio_Courses',
-      loadSidebar: true,      // 启用侧边栏
+      loadSidebar: true,
+      sidebar: '/_sidebar.md',  // 显式指定路径
       auto2top: true,
-      routerMode: 'hash',     // 使用 hash 模式
+      routerMode: 'hash',
       homepage: 'README.md',
       relativePath: true,
-      notFoundPage: true,
-      sidebar: '_sidebar.md'  // 显式指定侧边栏文件
+      notFoundPage: true
     };
-  </script>
+  </script>  
 
   <!-- 引入 Docsify 核心库 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@4.12.2/lib/docsify.min.js"></script>
