@@ -24,9 +24,9 @@
       loadSidebar: true,
       sidebar: '/_sidebar.md',  // 显式指定路径
       auto2top: true,
-      routerMode: 'hash',
+      routerMode: 'history', // 使用 history 模式避免路径嵌套
+      relativePath: false,   // 禁用相对路径，确保路径从根目录解析
       homepage: 'README.md',
-      relativePath: true,
       notFoundPage: true
     };
   </script>  
