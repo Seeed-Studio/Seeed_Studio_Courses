@@ -40,12 +40,12 @@ The course is divided into four main modules:
 ## 🛠️ Course Setup and Requirements
 To successfully follow along with the course, you’ll need the following equipment and tools:
 
-### **Hardware Requirements**
-+ **reComputer J1020 v2** (based on Jetson Nano 4GB)
-+ **128GB NVMe M.2 SSD**
-+ **Logitech C270 HD Camera**
+### Hardware Requirements
++ reComputer J1020 v2 (based on Jetson Nano 4GB)
++ 128GB NVMe M.2 SSD
++ Logitech C270 HD Camera
 
-### **Software Requirements**
+### Software Requirements
 + JetPack OS (for Jetson platforms)
 + Python 3.x development environment
 + AI libraries like OpenCV, PyTorch, YOLOv8
