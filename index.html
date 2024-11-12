@@ -23,9 +23,10 @@
       repo: 'https://github.com/Seeed-Studio/Seeed_Studio_Courses',
       loadSidebar: true,
       sidebar: '_sidebar.md',  // 显式指定路径
+      basePath: '/Seeed_Studio_Courses/',  // 添加 basePath
       auto2top: true,
-      routerMode: 'history', // 使用 history 模式避免路径嵌套
-      relativePath: false,
+      routerMode: 'hash', // 使用 hash 模式避免路径嵌套问题
+      relativePath: true,
       homepage: 'README.md',
       notFoundPage: true
     };
