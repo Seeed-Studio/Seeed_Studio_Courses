@@ -2,27 +2,68 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Edge AI 101 with Nvidia Jetson</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Edge AI Course for Beginners">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+    <meta charset="UTF-8">
+    <title>Edge AI 101 with Nvidia Jetson</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edge AI course for beginners, using Nvidia Jetson.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- 引入自定义样式 -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        #app {
+            padding: 20px;
+        }
+        .title {
+            font-size: 2rem;
+            color: #007acc;
+            margin-top: 20px;
+        }
+        .description {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 10px;
+        }
+        a {
+            color: #007acc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-  <div id="app"></div>
-  <script>
-    window.$docsify = {
-      name: 'Edge AI 101 with Nvidia Jetson',
-      repo: 'https://github.com/Seeed-Studio/Seeed_Studio_Courses',
-      relativePath: true,
-      auto2top: true,
-      routerMode: 'history'
-    }
-  </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <!-- 页面内容 -->
+    <div id="app">
+        <div class="title">Edge AI 101 with Nvidia Jetson</div>
+        <p class="description">Learn AI on the Edge with Nvidia Jetson</p>
+        <p><a href="https://github.com/Seeed-Studio/Seeed_Studio_Courses" target="_blank">Visit the GitHub Repository</a></p>
+    </div>
+
+    <!-- Docsify 配置 -->
+    <script>
+        (function() {
+            window.$docsify = {
+                name: 'Edge AI 101',
+                repo: 'https://github.com/Seeed-Studio/Seeed_Studio_Courses',
+                auto2top: true,
+                routerMode: 'history',
+                loadSidebar: false,
+                loadNavbar: false,
+                homepage: 'README.md'
+            };
+        })();
+    </script>
+
+    <!-- 引入 Docsify 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
 </body>
 
 </html>
