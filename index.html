@@ -4,35 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Edge AI 101 with Nvidia Jetson</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Edge AI course using Nvidia Jetson">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <!-- 引入 Docsify 的主题样式 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
 </head>
 
 <body>
-  <!-- Docsify 的应用容器 -->
   <div id="app"></div>
 
-  <!-- Docsify 配置 -->
   <script>
     window.$docsify = {
       name: 'Edge AI 101 with Nvidia Jetson',
       repo: 'https://github.com/Seeed-Studio/Seeed_Studio_Courses',
       loadSidebar: true,
-      sidebar: '_sidebar.md',  // 显式指定路径
-      basePath: '/Seeed_Studio_Courses/',  // 添加 basePath
       auto2top: true,
-      routerMode: 'hash', // 使用 hash 模式避免路径嵌套问题
+      routerMode: 'hash',
       relativePath: true,
       homepage: 'README.md',
-      notFoundPage: true
+      notFoundPage: true,
     };
-  </script>  
+  </script>
 
-  <!-- 引入 Docsify 核心库 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@4.12.2/lib/docsify.min.js"></script>
 </body>
 
