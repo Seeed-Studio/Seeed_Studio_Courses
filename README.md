@@ -68,7 +68,7 @@ The course includes GitHub text-based content and corresponding video lessons on
 | Lesson No. | Topic | Objectives | Video Link |
 | --- | --- | --- | --- |
 | **1. Basics of Edge AI Programming** | | | |
-| ✅ 00 | Introduction | Understand the course structure and learning path, clarify learning objectives and expected outcomes. | |
+| ✅ 00 | [Introduction](docs/en/00-Introduction/README.md) | Understand the course structure and learning path, clarify learning objectives and expected outcomes. | |
 | ⏳ 01 | Introduction to Edge AI and Jetson Hardware Platform | Understand the course structure and edge AI concepts; familiarize with the reComputer J1020 v2 hardware platform and JetPack OS. | ⏳ Video Link |
 | ⏳ 02 | Python Development Environment Setup & Basics | Master basic Python syntax and AI programming tools; write simple Python programs. | ⏳ Video Link |
 | ⏳ 03 | Python Control Flow | Understand conditional statements and loops; write programs with control flow and optimize code. | ⏳ Video Link |
@@ -129,7 +129,7 @@ We especially encourage educators to use this course for teaching:
 ## 🎒 Other Courses
 Our team has developed additional introductory courses to help you expand your learning horizons:
 
-+ [XXXX](about:blank)
++ [Wio Terminal Classroom](https://www.youtube.com/watch?v=af_I0n5iyzk)
 
 
 

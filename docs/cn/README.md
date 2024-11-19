@@ -134,5 +134,7 @@
 ## 🎒 其他课程
 我们的团队还制作了其他入门课程，帮助你拓宽学习领域：
 
-+ [XXXX](about:blank)
++ [Arduino小型化与TinyML应用——从入门到精通 系列课](https://www.bilibili.com/video/BV1WY3WeZEVa)
+
++ [玩转物联网：Wio Terminal 之 Arduino 新手系列教程](https://www.bilibili.com/video/BV1US411c793)
 
