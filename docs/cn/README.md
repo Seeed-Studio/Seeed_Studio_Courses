@@ -2,7 +2,7 @@
 
 <h1>Nvidia Jetson 边缘 AI 快速上手系列课</h1>
 
-<img src="https://files.seeedstudio.com/wiki/wiki-platform/S-tempor.png" /><br>
+<img src="../../image/cn/cover.jpg" /><br>
 
 [**English**](../../README.md) | **中文简体** 
 
@@ -134,7 +134,4 @@
 ## 🎒 其他课程
 我们的团队还制作了其他入门课程，帮助你拓宽学习领域：
 
-+ [Arduino小型化与TinyML应用——从入门到精通 系列课](https://www.bilibili.com/video/BV1WY3WeZEVa)
-
-+ [玩转物联网：Wio Terminal 之 Arduino 新手系列教程](https://www.bilibili.com/video/BV1US411c793)
-
++ [Arduino 小型化与 TinyML 应用 B 站视频课](https://space.bilibili.com/3546665994685307/channel/collectiondetail?sid=3390593)

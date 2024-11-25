@@ -2,7 +2,7 @@
 
 <h1>Edge AI 101 with Nvidia Jetson</h1>
 
-<img src="https://files.seeedstudio.com/wiki/wiki-platform/S-tempor.png" /><br>
+<img src="image/en/cover.jpg" /><br>
 
 **English** | [**中文简体**](./docs/cn/README.md)
 
