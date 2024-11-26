@@ -2,7 +2,7 @@
 
 <h1>Nvidia Jetson 边缘 AI 快速上手系列课</h1>
 
-<img src="../../../Seeed_Studio_Courses/image/cn/cover.jpg" /><br>
+<img src="https://seeed-studio.github.io/Seeed_Studio_Courses/image/cn/cover.jpg" /><br>
 
 [**English**](../../README.md) | **中文简体** 
 
