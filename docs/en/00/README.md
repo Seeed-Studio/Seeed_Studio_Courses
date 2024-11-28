@@ -1,4 +1,6 @@
-# Course Introduction
+# Introduction
+
+## Course Introduction
 This course will guide you through a deep dive into the world of Edge AI, helping you master the fundamentals of Python programming, understand the basics of computer vision, and explore the applications of deep learning and Edge AI. By developing hands-on projects, you'll enhance your skills in AI application development.
 
 **Main Course Content:**
