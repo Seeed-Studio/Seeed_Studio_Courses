@@ -10,11 +10,45 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
   <!-- 引入 Docsify 的主题样式 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+  <!-- 自定义 CSS 样式 -->
+  <style>
+    /* 左边栏样式 (Docsify 默认样式) */
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #f8f9fa;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      z-index: 10;  /* 确保左边栏在上层 */
+    }
+
+    /* 右边栏样式 */
+    .sidebar-right {
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #f8f9fa;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      z-index: 10;  /* 确保右边栏在上层 */
+    }
+
+    /* 主内容区域向左和向右移，以避免被左右栏遮住 */
+    .content {
+      margin-left: 250px;
+      margin-right: 250px;
+    }
+  </style>
 </head>
 
 <body>
   <!-- Docsify 的应用容器 -->
-  <div id="app"></div>
+  <div id="app" class="content"></div>
 
   <!-- Docsify 配置 -->
   <script>
@@ -28,14 +62,24 @@
       relativePath: true,
       homepage: 'README.md',
       notFoundPage: true,
-      subMaxLevel: 2 // 设置子标题层级
+      subMaxLevel: 1, // 设置子标题层级
     };
-  </script>  
+  </script>
 
   <!-- 引入 Docsify 核心库 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <!-- 引入 Docsify 折叠插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+
+  <!-- 右侧栏的内容 -->
+  <div class="sidebar-right">
+    <h3>Right Sidebar</h3>
+    <ul>
+      <li><a href="#">Link 1</a></li>
+      <li><a href="#">Link 2</a></li>
+      <li><a href="#">Link 3</a></li>
+    </ul>
+  </div>
 </body>
 
 </html>
