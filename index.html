@@ -10,40 +10,6 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
   <!-- 引入 Docsify 的主题样式 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
-
-  <style>
-    /* 设置右边栏样式 */
-    .toc {
-      position: fixed;
-      right: 20px;
-      top: 100px;
-      width: 200px;
-      background: #f9f9f9;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      font-size: 14px;
-      z-index: 10;
-    }
-
-    .toc ul {
-      padding-left: 20px;
-    }
-
-    .toc ul li {
-      margin-bottom: 5px;
-    }
-    
-    .toc ul li a {
-      text-decoration: none;
-      color: #333;
-    }
-
-    .toc ul li a:hover {
-      color: #007bff;
-    }
-  </style>
 </head>
 
 <body>
@@ -62,57 +28,14 @@
       relativePath: true,
       homepage: 'README.md',
       notFoundPage: true,
-      subMaxLevel: 1, // 设置子标题层级
-      toc: {
-        includeLevel: [1, 2, 3]  // 设置目录包含的标题级别
-      }
+      subMaxLevel: 2 // 设置子标题层级
     };
-  </script>
+  </script>  
 
   <!-- 引入 Docsify 核心库 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <!-- 引入 Docsify 折叠插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-
-  <!-- 右边栏目录容器 -->
-  <div class="toc" id="toc"></div>
-
-  <script>
-    // Docsify 插件：在页面加载后动态生成目录并插入到右边栏
-    window.$docsify.plugins = [
-      function(hook) {
-        hook.afterEach(function(html) {
-          var tocHtml = '';
-          var headings = [];
-
-          // 解析页面中的标题 (h1, h2, h3 等)
-          var headingsPattern = /<h([1-6])>(.*?)<\/h\1>/g;
-          var match;
-
-          // 生成每个标题的目录项
-          while (match = headingsPattern.exec(html)) {
-            var level = match[1];
-            var title = match[2];
-            var id = title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
-            
-            headings.push({ level, title, id });
-          }
-
-          // 生成目录HTML
-          tocHtml += '<ul>';
-          headings.forEach(function(heading) {
-            tocHtml += `<li style="margin-left: ${heading.level - 1}em;"><a href="#${heading.id}">${heading.title}</a></li>`;
-          });
-          tocHtml += '</ul>';
-
-          // 将目录插入到右边栏
-          document.getElementById('toc').innerHTML = tocHtml;
-
-          return html;
-        });
-      }
-    ];
-  </script>
 </body>
 
 </html>

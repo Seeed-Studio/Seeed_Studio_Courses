@@ -10,7 +10,7 @@
 
 ---
 
-## Course Overview
+### Course Overview
 This course is designed for beginners in edge computing, aiming to help students master edge AI technology by introducing edge computing hardware platforms, the basics of Python programming, and AI project development. Through practical projects, particularly the development of an intelligent surveillance system, the course encourages students to apply the knowledge they’ve learned to real-world problem-solving, fostering critical thinking and innovation.
 
 + **Course Platform**: reComputer J1020 v2 (Jetson Nano 4GB)
@@ -18,7 +18,7 @@ This course is designed for beginners in edge computing, aiming to help students
 + **Tools Used**: OpenCV, PyTorch, YOLOv8
 + **Project Goal**: Intelligent Surveillance System
 
-## 🌱 Getting Started
+### 🌱 Getting Started
 This course includes 26 lessons, each focusing on different AI skills and applications. You can start with any lesson of interest; each lesson includes both theoretical explanations and practical code examples.
 
 Each lesson includes:
@@ -27,7 +27,7 @@ Each lesson includes:
 + **Reading Materials**: Detailed course instructions and code implementation.
 + **Code Examples**: Python code examples supporting common AI libraries like OpenCV, PyTorch, etc.
 
-### Course Structure
+#### Course Structure
 The course is divided into four main modules:
 
 1. **Basics of Edge AI Programming**: Learn the basics of edge computing and Python programming.
@@ -37,15 +37,15 @@ The course is divided into four main modules:
 
 ---
 
-## 🛠️ Course Setup and Requirements
+### 🛠️ Course Setup and Requirements
 To successfully follow along with the course, you’ll need the following equipment and tools:
 
-### Hardware Requirements
+#### Hardware Requirements
 + reComputer J1020 v2 (based on Jetson Nano 4GB)
 + 128GB NVMe M.2 SSD
 + Logitech C270 HD Camera
 
-### Software Requirements
+#### Software Requirements
 + JetPack OS (for Jetson platforms)
 + Python 3.x development environment
 + AI libraries like OpenCV, PyTorch, YOLOv8
@@ -53,7 +53,7 @@ To successfully follow along with the course, you’ll need the following equipm
 
 ---
 
-## 🔍 Further Learning
+### 🔍 Further Learning
 After completing each lesson, you can deepen your understanding through these resources:
 
 + [OpenCV Documentation](https://opencv.org/) - Explore more on OpenCV for image processing and computer vision applications.
@@ -62,7 +62,7 @@ After completing each lesson, you can deepen your understanding through these re
 
 ---
 
-## 📋 Course Content
+### 📋 Course Content
 The course includes GitHub text-based content and corresponding video lessons on Bilibili.
 
 | Lesson No. | Topic | Objectives | Video Link |
@@ -101,12 +101,12 @@ The course includes GitHub text-based content and corresponding video lessons on
 
 ---
 
-## 🙏 Contributions
+### 🙏 Contributions
 If you have suggestions for course improvement or spot code issues, please help us enhance the course by creating an [Issue](https://github.com/Seeed-Studio/Edge_AI_101_with_Nvidia_Jetson_Course/issues) or [Pull Request](https://github.com/Seeed-Studio/Edge_AI_101_with_Nvidia_Jetson_Course/pulls).
 
 ---
 
-## 📜 Open Source License
+### 📜 Open Source License
 This course is released under the [MIT License](LICENSE), meaning you can:
 
 + ✅ Freely use, modify, and distribute the course content
@@ -126,7 +126,7 @@ We especially encourage educators to use this course for teaching:
 
 ---
 
-## 🎒 Other Courses
+### 🎒 Other Courses
 Our team has developed additional introductory courses to help you expand your learning horizons:
 
 + [Wio Terminal Classroom](https://www.youtube.com/watch?v=af_I0n5iyzk)
