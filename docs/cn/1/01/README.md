@@ -806,9 +806,9 @@ reComputer J1020 的接口说明请参考图 1.18，连接示意请参考图 1.1
 ##### 练习 3：复制与删除文件
 创建一个名为 backup.txt 的文件，将其复制为 backup_copy.txt，然后删除原文件。
 
-参考答案：[01-边缘 AI 与 Jetson 硬件平台简介课后题参考答案](https://github.com/Seeed-Studio/Seeed_Studio_Courses/blob/Edge-AI-101-with-Nvidia-Jetson-Course/docs/cn/1.%E8%BE%B9%E7%BC%98AI%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/01/%E8%AF%BE%E5%90%8E%E6%8B%93%E5%B1%95%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.md)
-
+参考答案：[01-边缘 AI 与 Jetson 硬件平台简介课后题参考答案](https://github.com/Seeed-Studio/Seeed_Studio_Courses/blob/Edge-AI-101-with-Nvidia-Jetson-Course/docs/cn/1/01/Homework_Answer.md)
 
 ### 6.3. 课后阅读
-- 访问 NVIDIA 官方文档，了解 Jetson Nano 的更多细节：[https://developer.nvidia.com/embedded-computing](https://developer.nvidia.com/embedded-computing)
-- 提供 Python 编程的入门资料，可以建议学生提前了解：[https://docs.python.org/zh-cn/3/tutorial/index.html](https://docs.python.org/zh-cn/3/tutorial/index.html)
+
++ 访问 NVIDIA 官方文档，了解 Jetson Nano 的更多细节：[https://developer.nvidia.com/embedded-computing](https://developer.nvidia.com/embedded-computing)
++ 提供 Python 编程的入门资料，可以建议学生提前了解：[https://docs.python.org/zh-cn/3/tutorial/index.html](https://docs.python.org/zh-cn/3/tutorial/index.html)
