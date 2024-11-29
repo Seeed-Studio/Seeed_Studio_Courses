@@ -1253,3 +1253,5 @@ if __name__ == "__main__":
 
     + 使用取余运算符 `%`
     + 使用条件语句输出不同的信息。
+
+参考答案：[02-Python 开发环境配置与基础语法课后题参考答案](https://github.com/Seeed-Studio/Seeed_Studio_Courses/blob/Edge-AI-101-with-Nvidia-Jetson-Course/docs/cn/1.%E8%BE%B9%E7%BC%98AI%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/01.md)
