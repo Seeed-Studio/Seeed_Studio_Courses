@@ -5,3 +5,4 @@
   * [**第一章：边缘 AI 编程基础**]()
     * [01-边缘 AI 与 Jetson 硬件平台简介](/docs/cn/1/01/README.md)
     * [02-Python 开发环境配置与基础语法](/docs/cn/1/02/README.md)
+    * [03-Python 条件与循环语句](/docs/cn/1/03/README.md)
