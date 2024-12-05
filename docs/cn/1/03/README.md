@@ -218,7 +218,7 @@ for data in sensor_data:
 ### 3.1. 流程图
 
 在开始编写复杂程序前，使用流程图可以帮助我们理清程序的逻辑。流程图就像是程序的设计图纸，它使用不同的图形来表示程序的各个步骤，如图 1 所示。
-![画板](../../../../image/cn/03/3.1.jpg)
+<img src="../../../../image/cn/03/3.1.jpg" alt="图" width="600" style="display: block; margin: auto;"/>
 
 > 图 3.1 流程图的基本结构
 >
@@ -242,7 +242,7 @@ for data in sensor_data:
 
 绘制这个系统的流程图如图 3.2 所示。
 
-![画板](../../../../image/cn/03/3.2.jpg)
+<img src="../../../../image/cn/03/3.2.jpg" alt="图" width="600" style="display: block; margin: auto;"/>
 
 > 图 3.2 边缘设备的简单数据处理程序的流程图
 >
@@ -373,7 +373,7 @@ for i in range(5):
 
 为任务绘制流程图，如图 3.3 所示。
 
-![画板](../../../../image/cn/03/3.3.jpg)
+<img src="../../../../image/cn/03/3.3.jpg" alt="图" width="600" style="display: block; margin: auto;"/>
 
 > 图 3.3 图像二值化流程图
 >
@@ -402,7 +402,7 @@ for i in range(5):
 
 用不同的 AI 尝试这个提示词，看看它们输出程序的结果是否有差异。
 
-![图](../../../../image/cn/03/3.4.png)
+<img src="../../../../image/cn/03/3.4.png" alt="图" width="1000" style="display: block; margin: auto;"/>
 
 Claude 输出第程序如下所示：
 
@@ -611,7 +611,7 @@ if __name__ == "__main__":
   + 如果行索引和列索引之和是奇数，像素值设为 1（表示白色）。
 + 最终输出这个像素矩阵，呈现棋盘格图案。
 
-![图](../../../../image/cn/03/3.5.png)
+<img src="../../../../image/cn/03/3.5.png" alt="图" width="200"/>
 
 **提示：**
 
@@ -630,4 +630,4 @@ if __name__ == "__main__":
 0 1 0 1 0
 ```
 
-参考答案：[02-Python 开发环境配置与基础语法课后题参考答案](https://github.com/Seeed-Studio/Seeed_Studio_Courses/blob/Edge-AI-101-with-Nvidia-Jetson-Course/docs/cn/1/03/Homework_Answer.md)
+参考答案：[03-Python 条件与循环语句课后题参考答案](https://github.com/Seeed-Studio/Seeed_Studio_Courses/blob/Edge-AI-101-with-Nvidia-Jetson-Course/docs/cn/1/03/Homework_Answer.md)
