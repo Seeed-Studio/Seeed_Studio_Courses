@@ -1231,27 +1231,28 @@ if __name__ == "__main__":
 
 ## 7. 课后拓展
 
-### 7.1. 阅读材料
++ **阅读材料**
+  + [Python 官方教程（中文版）](https://docs.python.org/zh-cn/3/tutorial/introduction.html)
+  + [新手教程 - Python3 教程](https://www.runoob.com/python/python-basic-syntax.html)
 
-+ [Python 官方教程（中文版）](https://docs.python.org/zh-cn/3/tutorial/introduction.html)
-+ [新手教程 - Python3 教程](https://www.runoob.com/python/python-basic-syntax.html)
++ **实践练习**
 
-### 7.2. 实践练习
+    1. **编写一个程序，模拟边缘设备的温度监控功能。程序应当：**
+        + 输入当前设备的摄氏温度。
+        + 判断温度是否超过安全运行阈值（例如 70°C）。
+            + 如果超过，输出警告信息：“警告：设备温度过高！”。
+            + 如果未超过，输出信息：“设备温度正常。”。
+        + 将摄氏温度转换为华氏温度并输出。
 
-1. **编写一个程序，模拟边缘设备的温度监控功能。程序应当：**
-    + 输入当前设备的摄氏温度。
-    + 判断温度是否超过安全运行阈值（例如 70°C）。
-        + 如果超过，输出警告信息：“警告：设备温度过高！”。
-        + 如果未超过，输出信息：“设备温度正常。”。
-    + 将摄氏温度转换为华氏温度并输出。
+        转换公式：$ F = C \times \frac{9}{5} + 32 $
 
-    转换公式：$ F = C \times \frac{9}{5} + 32 $
+    2. **在视频处理和计算机视觉中，不同的帧可能需要不同的处理策略。编写一个程序，输入当前帧的编号，判断它是关键帧（奇数编号）还是普通帧（偶数编号），并输出相应的信息。**
 
-2. **在视频处理和计算机视觉中，不同的帧可能需要不同的处理策略。编写一个程序，输入当前帧的编号，判断它是关键帧（奇数编号）还是普通帧（偶数编号），并输出相应的信息。**
+        **提示：**
 
-    **提示：**
+        + 使用取余运算符 `%`
+        + 使用条件语句输出不同的信息。
 
-    + 使用取余运算符 `%`
-    + 使用条件语句输出不同的信息。
+        <br>
 
-参考答案：[02-Python 开发环境配置与基础语法课后题参考答案](https://github.com/Seeed-Studio/Seeed_Studio_Courses/blob/Edge-AI-101-with-Nvidia-Jetson-Course/docs/cn/1/02/Homework_Answer.md)
+    参考答案：[02-Python 开发环境配置与基础语法课后题参考答案](https://github.com/Seeed-Studio/Seeed_Studio_Courses/blob/Edge-AI-101-with-Nvidia-Jetson-Course/docs/cn/1/02/Homework_Answer.md)

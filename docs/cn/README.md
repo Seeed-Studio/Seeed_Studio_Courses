@@ -4,15 +4,14 @@
 
 <img src="https://seeed-studio.github.io/Seeed_Studio_Courses/image/cn/cover.jpg" /><br>
 
-[**English**](../../README.md) | **中文简体** 
+[**English**](../../README.md) | **中文简体**
 
 </div>
 
 ---
 
-
-
 ### 课程简介
+
 本课程专为边缘计算的初学者设计，旨在通过介绍边缘计算硬件平台、Python 编程基础以及 AI 项目开发，帮助学员掌握边缘AI技术，培养批判性思维与创新能力。课程结合实践项目，特别是智能监控系统的开发，鼓励学生将所学知识应用于现实世界中的问题解决。
 
 + **课程平台**：reComputer J1020 v2 (Jetson Nano 4GB)
@@ -21,6 +20,7 @@
 + **目标项目**：智能监控系统
 
 ### 🌱 开始学习
+
 本课程包含 26 个课时，每个课时专注于不同的 AI 技能和应用。你可以根据兴趣选择任何一个课时开始学习，每个课时都包含理论讲解和实际代码示例。
 
 每个课时都包括：
@@ -30,34 +30,37 @@
 + **代码示例**：Python 代码示例支持 OpenCV、PyTorch 等常用 AI 库。
 
 #### 课程结构
+
 课程分为四个主要模块：
 
 1. **边缘 AI 编程基础**：学习边缘计算和 Python 编程基础。
 2. **计算机视觉应用入门**：掌握 OpenCV 和计算机视觉基础。
-3. **深度学习进阶**：学习神经网络、卷积神经网络（CNN）及目标检测技术。 
+3. **深度学习进阶**：学习神经网络、卷积神经网络（CNN）及目标检测技术。
 4. **智能监控系统开发**：开发 AI 驱动的智能监控系统项目。
 
 ---
 
 ### 🛠️ 课程设置与要求
+
 为了顺利进行课程学习，您需要以下设备和工具：
 
 #### 硬件要求
+
 + reComputer J1020 v2（基于Jetson Nano 4GB）
 + 128GB NVMe M.2 SSD
 + 罗技 C270 高清摄像头
 
 #### 软件要求
+
 + JetPack 操作系统（适用于Jetson平台）
 + Python 3.x 开发环境
 + OpenCV、PyTorch、YOLOv8 等 AI 库
 + Visual Studio Code（推荐使用 VSCode 编写 Python 代码）  
 
-
-
 ---
 
 ### 🔍 继续学习
+
 在完成每一节课程后，您可以进一步深化学习，通过以下资源来扩展知识：
 
 + [OpenCV 文档](https://opencv.org/) - 探索更多 OpenCV 图像处理和计算机视觉应用。
@@ -67,16 +70,17 @@
 ---
 
 ### 📋 课程内容
+
 课程包括 Github 的文本内容以及每课对应的 B 站视频课。
 
 | 课程编号 | 课程主题 | 课程目标 | 视频链接 |
 | --- | --- | --- | --- |
 | **一、边缘 AI 编程基础** | | | |
 | ✅ 00 | [前言](../../docs/cn/00/README.md) | 了解课程整体结构和学习路径，明确学习目标和预期成果。 |  |
-| ✅ 01 | [边缘 AI 简介与 Jetson 硬件平台](../../docs/cn/1/01/README.md) | 了解课程结构与边缘 AI 概念，熟悉 reComputer J1020 v2 硬件平台与 JetPack 操作系统。 | ✅ [视频链接](https://www.bilibili.com/video/BV1yEzBYQEMt/?spm_id_from=333.999.0.0) |
-| ✅ 02 | [Python 开发环境配置与基础语法](../../docs/cn/1/02/README.md) | 掌握 Python 基本语法与 AI 辅助编程工具，编写简单的 Python 程序。 | ⏳ 视频链接 |
-| ✅ 03 | [Python 条件与循环语句](../../docs/cn/1/03/README.md) | 理解条件语句与循环结构，编写包含控制流程的程序，优化代码。 | ⏳ 视频链接 |
-| ⏳ 04 | Python 函数与模块 | 理解函数与模块，掌握函数调用、传参和返回值，编写可重用的模块。 | ⏳ 视频链接 |
+| ✅ 01 | [边缘 AI 简介与 Jetson 硬件平台](../../docs/cn/1/01/README.md) | 了解课程结构与边缘 AI 概念，熟悉 reComputer J1020 v2 硬件平台与 JetPack 操作系统。 | ✅ [视频链接](https://www.bilibili.com/video/BV1yEzBYQEMt) |
+| ✅ 02 | [Python 开发环境配置与基础语法](../../docs/cn/1/02/README.md) | 掌握 Python 基本语法与 AI 辅助编程工具，编写简单的 Python 程序。 | ✅ [视频链接](https://www.bilibili.com/video/BV19tieYEExi) |
+| ✅ 03 | [Python 条件与循环语句](../../docs/cn/1/03/README.md) | 理解条件语句与循环结构，编写包含控制流程的程序，优化代码。 | ✅[视频链接](https://www.bilibili.com/video/BV1a7q3YDEbY) |
+| ✅ 04 | [Python 函数与模块](../../docs/cn/1/04/README.md) | 理解函数与模块，掌握函数调用、传参和返回值，编写可重用的模块。 | ⏳ 视频链接 |
 | ⏳ 05 | Python 数据结构 | 掌握列表、字典等数据结构的操作，解决实际问题。 | ⏳ 视频链接 |
 | ⏳ 06 | Python 文件操作与异常处理 | 学会文件读取写入与异常处理，提高程序健壮性。 | ⏳ 视频链接 |
 | ⏳ 07 | Python 综合实践 | 综合运用 Python 知识完成小项目，体验 AI 辅助工具。 | ⏳ 视频链接 |
@@ -103,15 +107,16 @@
 | ⏳ 25 | 模型优化与性能提升 | 使用 TensorRT 等工具优化模型，提升推理速度。 | ⏳ 视频链接 |
 | ⏳ 26 | 高级功能开发 | 探索行为分析与异常检测功能，提升系统智能化水平。 | ⏳ 视频链接 |
 
-
 ---
 
 ### 🙏 贡献
+
 如果你有任何课程内容改进建议或发现代码错误，请通过创建 [Issues](https://github.com/Seeed-Studio/Edge_AI_101_with_Nvidia_Jetson_Course/issues) 或 [PullRequests](https://github.com/Seeed-Studio/Edge_AI_101_with_Nvidia_Jetson_Course/pulls) 来帮助我们改进课程。
 
 ---
 
 ### 📜 开源许可
+
 本课程采用 [MIT 许可证](../../LICENSE) 开源。这意味着您可以：
 
 + ✅ 自由使用、修改和分发本课程的内容
@@ -122,6 +127,7 @@
 ---
 
 ### 教育工作者指南
+
 我们特别欢迎教育工作者使用本课程进行教学：
 
 + 可以根据实际教学需求调整课程内容和进度
@@ -132,6 +138,7 @@
 ---
 
 ### 🎒 其他课程
+
 我们的团队还制作了其他入门课程，帮助你拓宽学习领域：
 
 + [Arduino 小型化与 TinyML 应用 B 站视频课](https://space.bilibili.com/3546665994685307/channel/collectiondetail?sid=3390593)
