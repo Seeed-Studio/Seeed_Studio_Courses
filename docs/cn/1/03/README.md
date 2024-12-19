@@ -219,6 +219,7 @@ for data in sensor_data:
 
 在开始编写复杂程序前，使用流程图可以帮助我们理清程序的逻辑。流程图就像是程序的设计图纸，它使用不同的图形来表示程序的各个步骤，如图 1 所示。
 <img src="../../../../image/cn/03/3.1.jpg" alt="图" width="600" style="display: block; margin: auto;"/>
+![画板](../../../../image/cn/03/3.1.jpg)
 
 > 图 3.1 流程图的基本结构
 >

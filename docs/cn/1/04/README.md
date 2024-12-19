@@ -90,6 +90,13 @@ def check_temperature():
 ```python
 import time
 
+def check_temperature():
+    """简单的设备温度检查函数（模拟数据）"""
+    print("正在检查设备温度...")
+# 这里使用模拟数据，实际应从传感器读取
+    temperature = 45
+    print(f"当前设备温度: {temperature}°C")
+
 # 单次调用
 check_temperature()
 
@@ -478,9 +485,9 @@ configure_device(
 def deploy_model(
     model_name,           # 必需的位置参数
     input_shape,         # 必需的位置参数
+    *additional_models,  # 可变位置参数
     framework="onnx",    # 默认参数
     device="CPU",        # 默认参数
-    *additional_models,  # 可变位置参数
     **custom_config     # 可变关键字参数
 ):
     """
@@ -510,17 +517,17 @@ def deploy_model(
         for key, value in custom_config.items():
             print(f"- {key}: {value}")
 
-# 混合使用各种参数类型
+# 修正后的函数调用
 deploy_model(
     "yolov5",                        # 位置参数
     (640, 640, 3),                   # 位置参数
-    framework="tensorrt",            # 默认参数
-    device="GPU",                    # 默认参数
-    "face_detection",                # 可变位置参数
-    "person_detection",              # 可变位置参数
-    batch_size=4,                    # 可变关键字参数
-    enable_fp16=True,                # 可变关键字参数
-    workspace_size=4096              # 可变关键字参数
+    "face_detection",                # 位置参数
+    "person_detection",              # 位置参数
+    framework="tensorrt",            # 关键字参数
+    device="GPU",                    # 关键字参数
+    batch_size=4,                    # 关键字参数
+    enable_fp16=True,                # 关键字参数
+    workspace_size=4096              # 关键字参数
 )
 ```
 
