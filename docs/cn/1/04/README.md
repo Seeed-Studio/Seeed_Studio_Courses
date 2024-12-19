@@ -1025,7 +1025,9 @@ if __name__ == "__main__":
 
 #### 2.4.1. 模块和包的结构
 
-<img src="../../../../image/cn/04/4.1.jpg" alt="图" width="600" style="display: block; margin: auto;"/>
+<!-- <img src="../../../../image/cn/04/4.1.jpg" alt="图" width="600" style="display: block; margin: auto;"/> -->
+
+![画板](../../../../image/cn/04/4.1.jpg)
 
 > 图 4.1 模块和包的结构示意图
 >
@@ -1087,7 +1089,9 @@ print(sys.path)
 
 让我们先通过流程图理清程序的结构：
 
-<img src="../../../../image/cn/04/4.2.jpg" alt="图" width="600" style="display: block; margin: auto;"/>
+<!-- <img src="../../../../image/cn/04/4.2.jpg" alt="图" width="600" style="display: block; margin: auto;"/> -->
+
+![画板](../../../../image/cn/04/4.2.jpg)
 
 > 图 4.2 边缘设备数据处理流程图
 >
@@ -1262,7 +1266,9 @@ if __name__ == "__main__":
 
 让我们先通过流程图理清程序的结构：
 
-<img src="../../../../image/cn/04/4.3.jpg" alt="图" width="600" style="display: block; margin: auto;"/>
+<!-- <img src="../../../../image/cn/04/4.3.jpg" alt="图" width="600" style="display: block; margin: auto;"/> -->
+
+![画板](../../../../image/cn/04/4.3.jpg)
 
 > 图 4.3 AI 推理结果处理流程图
 >
