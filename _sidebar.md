@@ -7,3 +7,4 @@
     * [02-Python 开发环境配置与基础语法](/docs/cn/1/02/README.md)
     * [03-Python 条件与循环语句](/docs/cn/1/03/README.md)
     * [04-Python 函数与模块](/docs/cn/1/04/README.md)
+    * [05-Python 数据结构](/docs/cn/1/05/README.md)

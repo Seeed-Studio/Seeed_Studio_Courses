@@ -81,7 +81,7 @@
 | ✅ 02 | [Python 开发环境配置与基础语法](../../docs/cn/1/02/README.md) | 掌握 Python 基本语法与 AI 辅助编程工具，编写简单的 Python 程序。 | ✅ [视频链接](https://www.bilibili.com/video/BV19tieYEExi) |
 | ✅ 03 | [Python 条件与循环语句](../../docs/cn/1/03/README.md) | 理解条件语句与循环结构，编写包含控制流程的程序，优化代码。 | ✅ [视频链接](https://www.bilibili.com/video/BV1a7q3YDEbY) |
 | ✅ 04 | [Python 函数与模块](../../docs/cn/1/04/README.md) | 理解函数与模块，掌握函数调用、传参和返回值，编写可重用的模块。 | ✅ [视频链接](https://www.bilibili.com/video/BV1o8k1YMEdX) |
-| ⏳ 05 | Python 数据结构 | 掌握列表、字典等数据结构的操作，解决实际问题。 | ⏳ 视频链接 |
+| ✅ 05 | [Python 数据结构](../../docs/cn/1/05/README.md) | 掌握列表、字典等数据结构的操作，解决实际问题。 | ⏳ 视频链接 |
 | ⏳ 06 | Python 文件操作与异常处理 | 学会文件读取写入与异常处理，提高程序健壮性。 | ⏳ 视频链接 |
 | ⏳ 07 | Python 综合实践 | 综合运用 Python 知识完成小项目，体验 AI 辅助工具。 | ⏳ 视频链接 |
 | 二、**计算机视觉应用入门** | | | |
