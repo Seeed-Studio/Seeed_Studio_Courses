@@ -8,3 +8,4 @@
     * [03-Python 条件与循环语句](/docs/cn/1/03/README.md)
     * [04-Python 函数与模块](/docs/cn/1/04/README.md)
     * [05-Python 数据结构](/docs/cn/1/05/README.md)
+    * [06-Python 文件操作与异常处理](/docs/cn/1/06/README.md)

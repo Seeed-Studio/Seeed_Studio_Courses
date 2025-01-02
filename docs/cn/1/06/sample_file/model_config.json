@@ -1,0 +1,10 @@
+{
+    "model_name": "yolov5s",
+    "version": "v1.0",
+    "input_size": [640, 640],
+    "confidence_threshold": 0.5,
+    "device": "GPU",
+    "classes": ["person", "car", "dog"],
+    "anchors": [[10,13], [16,30], [33,23]],
+    "last_modified": "2024-02-20 10:00:00"
+}
