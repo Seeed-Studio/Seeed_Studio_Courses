@@ -687,7 +687,7 @@ import json
 
 def save_config_with_encoding():
     """保存配置文件并处理编码问题"""
-# 配置数据
+    # 配置数据
     config = {
         "模型名称": "目标检测模型",
         "设备类型": "边缘计算单元",
@@ -702,28 +702,47 @@ def save_config_with_encoding():
         print(f"编码错误: {e}")
 
 def handle_system_log_encoding():
-    """处理系统日志的编码问题"""
-    content = "检测到异常：温度传感器故障"
-    
+    """处理 systemtest.log 文件的编码问题，并将结果写入 system.log"""
+    input_filename = 'systemtest.log'  # 读取的文件是 systemtest.log
+    output_filename = 'system.log'  # 结果写入的文件是 system.log
+
+    try:
+        # 读取 systemtest.log 文件的内容
+        with open(input_filename, 'r', encoding='utf-8') as file:
+            content = file.read()  # 读取文件的所有内容
+
+    except FileNotFoundError:
+        print(f"错误: 文件 {input_filename} 未找到。")
+        return
+    except UnicodeDecodeError as e:
+        print(f"错误: 读取 {input_filename} 时发生编码错误: {e}")
+        return
+
+    # 定义四种错误处理策略
     error_handlers = {
-        'strict': '严格模式：报错',
-        'ignore': '忽略无法编码的字符',
-        'replace': '使用?替换无法编码的字符',
-        'xmlcharrefreplace': '使用XML字符引用替换'
+        'strict': '严格模式：遇到无法编码的字符时抛出错误',
+        'ignore': '忽略模式：跳过无法编码的字符',
+        'replace': '替换模式：用“?”替代无法编码的字符',
+        'xmlcharrefreplace': 'XML字符引用替换模式：用XML字符引用替代无法编码的字符'
     }
-    
+
+    # 循环遍历所有的错误处理策略，模拟写入并读取 log 文件
     for handler, desc in error_handlers.items():
         try:
-# 写入日志文件，应用不同的编码错误处理方式
-            with open('system.log', 'a', encoding='utf-8', errors=handler) as file:
+            # 使用指定的错误处理方式，写入 system.log
+            with open(output_filename, 'a', encoding='ascii', errors=handler) as file:
+                # 将时间戳和内容写入日志
                 file.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {content}\n")
             
-# 读取并输出最后一行日志
-            with open('system.log', 'r', encoding='utf-8') as file:
+            # 读取并输出 systemtest.log 文件中的最后一行
+            with open(output_filename, 'r', encoding='utf-8') as file:
                 last_line = file.readlines()[-1]
-            print(f"{desc} - 结果: {last_line.strip()}")
             
+            # 输出每种错误处理模式的结果
+            print(f"{desc} - 结果: {last_line.strip()}")
+
         except UnicodeEncodeError as e:
+            # 如果出现编码错误，打印错误信息
             print(f"{desc} - 错误: {e}")
 
 # 运行示例
@@ -735,10 +754,10 @@ handle_system_log_encoding()
 
 ```plain
 配置已成功保存
-严格模式：报错 - UnicodeEncodeError: 'ascii' codec can't encode characters
-忽略无法编码的字符 - 结果: [2024-02-20 15:35:10] INFO: 检测到异常：温度传感器故障
-使用?替换无法编码的字符 - 结果: [2024-02-20 15:35:10] INFO: 检测到异常：温度传感器故障
-使用XML字符引用替换 - 结果: [2024-02-20 15:35:10] INFO: 检测到异常：温度传感器故障
+严格模式：遇到无法编码的字符时抛出错误 - 错误: 'ascii' codec can't encode characters in position 44-54: ordinal not in range(128)
+忽略模式：跳过无法编码的字符 - 结果: [2025-01-06 16:09:32]  4
+替换模式：用“?”替代无法编码的字符 - 结果: [2025-01-06 16:09:32] ??????????? 4 ?? ? ????
+XML字符引用替换模式：用XML字符引用替代无法编码的字符 - 结果: [2025-01-06 16:09:32] &#26816;&#27979;&#21040;&#24322;&#24120;&#65306;&#28201;&#24230;&#20256;&#24863;&#22120; 4 &#25925;&#38556; &#128680; &#35831;&#27880;&#24847;&#65281;
 ```
 
 ### 1.8. 文件操作的注意事项

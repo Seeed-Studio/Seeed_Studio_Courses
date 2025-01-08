@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>Edge AI 101 with Nvidia Jetson</h1>
+<h1>Edge AI 101 with NVIDIA Jetson</h1>
 
 <img src="image/en/cover.jpg" /><br>
 

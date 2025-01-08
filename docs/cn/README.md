@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>Nvidia Jetson 边缘 AI 快速上手系列课</h1>
+<h1>NVIDIA Jetson 边缘 AI 快速上手系列课</h1>
 
 <img src="https://seeed-studio.github.io/Seeed_Studio_Courses/image/cn/cover.jpg" /><br>
 
@@ -82,7 +82,7 @@
 | ✅ 03 | [Python 条件与循环语句](../../docs/cn/1/03/README.md) | 理解条件语句与循环结构，编写包含控制流程的程序，优化代码。 | ✅ [视频链接](https://www.bilibili.com/video/BV1a7q3YDEbY) |
 | ✅ 04 | [Python 函数与模块](../../docs/cn/1/04/README.md) | 理解函数与模块，掌握函数调用、传参和返回值，编写可重用的模块。 | ✅ [视频链接](https://www.bilibili.com/video/BV1o8k1YMEdX) |
 | ✅ 05 | [Python 数据结构](../../docs/cn/1/05/README.md) | 掌握列表、字典等数据结构的操作，解决实际问题。 | ✅ [视频链接](https://www.bilibili.com/video/BV1JDCnYrEpi) |
-| ✅ 06 | [Python 文件操作与异常处理](../../docs/cn/1/06/README.md) | 学会文件读取写入与异常处理，提高程序健壮性。 | ⏳ 视频链接 |
+| ✅ 06 | [Python 文件操作与异常处理](../../docs/cn/1/06/README.md) | 学会文件读取写入与异常处理，提高程序健壮性。 | ✅ [视频链接](https://www.bilibili.com/video/BV1XdrVYTEVZ) |
 | ⏳ 07 | Python 综合实践 | 综合运用 Python 知识完成小项目，体验 AI 辅助工具。 | ⏳ 视频链接 |
 | 二、**计算机视觉应用入门** | | | |
 | ⏳ 08 | 图像处理概述 | 了解数字图像基础，掌握 OpenCV 库的使用，编写图像显示程序。 | ⏳ 视频链接 |
