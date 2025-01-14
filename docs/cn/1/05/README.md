@@ -2107,4 +2107,4 @@ total_current_objects:
 
         <br>
 
-        参考答案：[05-Python 数据结构课后题参考答案](https://github.com/Seeed-Studio/Seeed_Studio_Courses/blob/Edge-AI-101-with-Nvidia-Jetson-Course/docs/cn/1/05/Homework_Answer.md)
+    参考答案：[05-Python 数据结构课后题参考答案](https://github.com/Seeed-Studio/Seeed_Studio_Courses/blob/Edge-AI-101-with-Nvidia-Jetson-Course/docs/cn/1/05/Homework_Answer.md)

@@ -1510,4 +1510,4 @@ AI推理结果处理工具启动...
 
         <br>
 
-        参考答案：[04-Python 函数与模块课后题参考答案](https://github.com/Seeed-Studio/Seeed_Studio_Courses/blob/Edge-AI-101-with-Nvidia-Jetson-Course/docs/cn/1/04/Homework_Answer.md)
+    参考答案：[04-Python 函数与模块课后题参考答案](https://github.com/Seeed-Studio/Seeed_Studio_Courses/blob/Edge-AI-101-with-Nvidia-Jetson-Course/docs/cn/1/04/Homework_Answer.md)

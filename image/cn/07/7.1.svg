@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+    <!-- 类的框架 -->
+    <rect x="50" y="50" width="300" height="220" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+    <text x="200" y="80" text-anchor="middle" font-size="20" font-weight="bold" fill="#1976D2">类（Class）</text>
+    <text x="200" y="100" text-anchor="middle" font-size="16">TemperatureSensor</text>
+    
+    <!-- 类的属性和方法 -->
+    <line x1="50" y1="115" x2="350" y2="115" stroke="#1976D2" stroke-width="1"/>
+    <text x="60" y="130" font-size="14">属性：</text>
+    <text x="80" y="150" font-size="14">location</text>
+    <text x="80" y="170" font-size="14">temperature</text>
+    <text x="80" y="190" font-size="14">is_active</text>
+    
+    <line x1="50" y1="200" x2="350" y2="200" stroke="#1976D2" stroke-width="1"/>
+    <text x="60" y="220" font-size="14">方法：</text>
+    <text x="80" y="240" font-size="14">activate_sensor()</text>
+    <text x="80" y="260" font-size="14">read_temperature()</text>
+
+    <!-- 箭头指向对象 -->
+    <path d="M200 270 L200 330" stroke="#1976D2" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#1976D2"/>
+        </marker>
+    </defs>
+
+    <!-- 对象实例 -->
+    <rect x="50" y="330" width="150" height="60" fill="#FFECB3" stroke="#FFA000" stroke-width="2"/>
+    <text x="125" y="355" text-anchor="middle" font-size="14">cpu_sensor</text>
+    <text x="125" y="375" text-anchor="middle" font-size="12">location = "CPU"</text>
+
+    <rect x="250" y="330" width="150" height="60" fill="#FFECB3" stroke="#FFA000" stroke-width="2"/>
+    <text x="325" y="355" text-anchor="middle" font-size="14">gpu_sensor</text>
+    <text x="325" y="375" text-anchor="middle" font-size="12">location = "GPU"</text>
+
+    <!-- 说明文字 -->
+    <text x="450" y="100" font-size="14" fill="#333">类是一个模板，定义了：</text>
+    <text x="470" y="130" font-size="14" fill="#333">• 对象应该具有的属性</text>
+    <text x="470" y="160" font-size="14" fill="#333">• 对象可以执行的操作</text>
+
+    <text x="450" y="340" font-size="14" fill="#333">对象是类的具体实例，</text>
+    <text x="450" y="360" font-size="14" fill="#333">具有实际的属性值</text>
+</svg>

@@ -83,7 +83,7 @@
 | ✅ 04 | [Python 函数与模块](../../docs/cn/1/04/README.md) | 理解函数与模块，掌握函数调用、传参和返回值，编写可重用的模块。 | ✅ [视频链接](https://www.bilibili.com/video/BV1o8k1YMEdX) |
 | ✅ 05 | [Python 数据结构](../../docs/cn/1/05/README.md) | 掌握列表、字典等数据结构的操作，解决实际问题。 | ✅ [视频链接](https://www.bilibili.com/video/BV1JDCnYrEpi) |
 | ✅ 06 | [Python 文件操作与异常处理](../../docs/cn/1/06/README.md) | 学会文件读取写入与异常处理，提高程序健壮性。 | ✅ [视频链接](https://www.bilibili.com/video/BV1XdrVYTEVZ) |
-| ⏳ 07 | Python 综合实践 | 综合运用 Python 知识完成小项目，体验 AI 辅助工具。 | ⏳ 视频链接 |
+| ✅ 07 | [Python 综合实践](../../docs/cn/1/07/README.md) | 综合运用 Python 知识完成小项目，体验 AI 辅助工具。 | ⏳ 视频链接 |
 | 二、**计算机视觉应用入门** | | | |
 | ⏳ 08 | 图像处理概述 | 了解数字图像基础，掌握 OpenCV 库的使用，编写图像显示程序。 | ⏳ 视频链接 |
 | ⏳ 09 | OpenCV 基础操作 | 学会图像缩放、旋转、裁剪等基本操作，应用滤波器处理图像。 | ⏳ 视频链接 |

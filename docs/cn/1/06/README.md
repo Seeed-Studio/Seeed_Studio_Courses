@@ -2002,4 +2002,4 @@ if __name__ == "__main__":
 
         <br>
 
-        参考答案：[06-Python 文件操作与异常处理课后题参考答案](https://github.com/Seeed-Studio/Seeed_Studio_Courses/blob/Edge-AI-101-with-Nvidia-Jetson-Course/docs/cn/1/06/Homework_Answer.md)
+    参考答案：[06-Python 文件操作与异常处理课后题参考答案](https://github.com/Seeed-Studio/Seeed_Studio_Courses/blob/Edge-AI-101-with-Nvidia-Jetson-Course/docs/cn/1/06/Homework_Answer.md)
