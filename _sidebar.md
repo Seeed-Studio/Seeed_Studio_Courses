@@ -10,3 +10,5 @@
     * [05-Python 数据结构](/docs/cn/1/05/README.md)
     * [06-Python 文件操作与异常处理](/docs/cn/1/06/README.md)
     * [07-Python 综合实践](/docs/cn/1/07/README.md)
+  * [**第二章：计算机视觉应用入门**]()
+    * [08-数字图像处理基础](/docs/cn/2/08/README.md)
