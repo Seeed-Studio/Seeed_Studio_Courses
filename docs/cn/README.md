@@ -85,7 +85,7 @@
 | ✅ 06 | [Python 文件操作与异常处理](../../docs/cn/1/06/README.md) | 学会文件读取写入与异常处理，提高程序健壮性。 | ✅ [视频链接](https://www.bilibili.com/video/BV1XdrVYTEVZ) |
 | ✅ 07 | [Python 综合实践](../../docs/cn/1/07/README.md) | 综合运用 Python 知识完成小项目，体验 AI 辅助工具。 | ✅ [视频链接](https://www.bilibili.com/video/BV1ivw5eAERZ) |
 | 二、**计算机视觉应用入门** | | | |
-| ✅ 08 | [数字图像处理基础](../../docs/cn/2/08/README.md) | 了解数字图像基础，掌握 OpenCV、NumPy 和 Matplotlib 等工具的使用。 | ⏳ 视频链接 |
+| ✅ 08 | [数字图像处理基础](../../docs/cn/2/08/README.md) | 了解数字图像基础，掌握 OpenCV、NumPy 和 Matplotlib 等工具的使用。 | ✅ [视频链接](https://www.bilibili.com/video/BV1gZNteiEvx) |
 | ⏳ 09 | OpenCV 基础操作 | 学会图像缩放、旋转、裁剪等基本操作，应用滤波器处理图像。 | ⏳ 视频链接 |
 | ⏳ 10 | OpenCV 视频流处理 | 理解视频流概念，实现视频捕获与实时视频处理。 | ⏳ 视频链接 |
 | ⏳ 11 | 边缘检测与形态学操作 | 使用 Canny 算法进行边缘检测，掌握形态学操作（腐蚀、膨胀）。 | ⏳ 视频链接 |
