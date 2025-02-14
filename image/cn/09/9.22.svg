@@ -1,0 +1,60 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+    <!-- 灰度直方图 -->
+    <g transform="translate(50,50)">
+        <text x="0" y="-25" font-size="16" font-weight="bold" font-family="Arial, 宋体">全局阈值化原理</text>
+        <!-- 坐标轴 -->
+        <line x1="0" y1="250" x2="300" y2="250" stroke="black" stroke-width="2"/>  <!-- 横坐标轴 -->
+        <line x1="0" y1="250" x2="0" y2="0" stroke="black" stroke-width="2"/>  <!-- 纵坐标轴 -->
+        <!-- 灰度直方图 -->
+        <path d="M 0,250 
+                 C 50,250 50,200 100,150 
+                 S 150,100 200,70 
+                 S 250,130 300,250" 
+              fill="#e0e0e0" stroke="black" stroke-width="1"/>
+
+        <!-- 阈值线 -->
+        <line x1="0" y1="125" x2="300" y2="125" stroke="red" stroke-width="2" stroke-dasharray="5,5"/>
+        <text x="310" y="130" fill="red" font-size="14" font-family="Arial, 宋体">阈值 = 125</text>
+
+        <!-- 标注 -->
+        <text x="150" y="270" font-size="14" text-anchor="middle" font-family="Arial, 宋体">像素数量</text>
+        <text x="-20" y="125" font-size="14" transform="rotate(-90,-20,125)" font-family="Arial, 宋体">像素灰度值 (0-255)</text>
+
+        <!-- 区域标注 -->
+        <text x="60" y="100" font-size="14" fill="black" font-family="Arial, 宋体">背景区域</text>
+        <text x="180" y="150" font-size="14" font-family="Arial, 宋体">前景区域</text>
+    </g>
+
+    <!-- 处理效果 -->
+    <g transform="translate(450,50)">
+        <text x="0" y="-25" font-size="16" font-weight="bold" font-family="Arial, 宋体">阈值化效果</text>
+        <!-- 原始灰度图 -->
+        <g transform="translate(0,0)">
+            <text x="0" y="20" font-size="14" font-family="Arial, 宋体">处理前</text>
+            <rect x="0" y="30" width="300" height="100" fill="url(#gradient1)"/>
+        </g>
+        <!-- 阈值化后 -->
+        <g transform="translate(0,150)">
+            <text x="0" y="20" font-size="14" font-family="Arial, 宋体">处理后</text>
+            <!-- 黑色区域 -->
+            <rect x="0" y="30" width="150" height="100" fill="black" stroke="#777" stroke-width="1"/>
+            <!-- 白色区域 -->
+            <rect x="150" y="30" width="150" height="100" fill="white" stroke="#777" stroke-width="1"/>
+        </g>
+    </g>
+
+    <!-- 渐变定义 -->
+    <defs>
+        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#000000"/>
+            <stop offset="100%" stop-color="#ffffff"/>
+        </linearGradient>
+    </defs>
+
+    <!-- 说明文本 -->
+    <g transform="translate(50,350)">
+        <text x="0" y="0" font-size="14" font-family="Arial, 宋体">全局阈值化特点：</text>
+        <text x="0" y="25" font-size="14" font-family="Arial, 宋体">1. 使用单一阈值处理整张图像</text>
+        <text x="0" y="50" font-size="14" font-family="Arial, 宋体">2. 高于阈值的像素设为白色（255），低于阈值的设为黑色（0）</text>
+    </g>
+</svg>

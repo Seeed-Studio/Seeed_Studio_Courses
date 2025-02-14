@@ -1,0 +1,88 @@
+<svg viewBox="0 0 950 250" xmlns="http://www.w3.org/2000/svg">
+    <!-- 原始3x3区域 -->
+    <g transform="translate(50,50)">
+        <text x="0" y="-25" font-size="16" fill="#444">原始3x3区域</text>
+        <!-- 网格 -->
+        <rect x="0" y="0" width="150" height="150" fill="#f8f9fa" stroke="#666"/>
+        <line x1="0" y1="50" x2="150" y2="50" stroke="#666"/>
+        <line x1="0" y1="100" x2="150" y2="100" stroke="#666"/>
+        <line x1="50" y1="0" x2="50" y2="150" stroke="#666"/>
+        <line x1="100" y1="0" x2="100" y2="150" stroke="#666"/>
+        
+        <!-- 像素值 -->
+        <g font-size="16" text-anchor="middle" fill="#444">
+            <text x="25" y="30">100</text>
+            <text x="75" y="30">150</text>
+            <text x="125" y="30">100</text>
+            
+            <text x="25" y="80">120</text>
+            <text x="75" y="80" fill="#d32f2f" font-weight="bold">255</text>
+            <text x="125" y="80">130</text>
+            
+            <text x="25" y="130">110</text>
+            <text x="75" y="130">140</text>
+            <text x="125" y="130">120</text>
+        </g>
+        
+        <!-- 高亮3x3区域 -->
+        <rect x="50" y="50" width="50" height="50" 
+              fill="none" stroke="red" stroke-width="2"/>
+    </g>
+
+    <!-- 箭头 -->
+    <path d="M 300,100 L 380,100 L 370,90 M 380,100 L 370,110" 
+          fill="none" stroke="black" stroke-width="2"/>
+
+    <!-- 计算过程 -->
+    <g transform="translate(400,50)">
+        <text x="0" y="-20" font-size="16">3x3区域均值计算</text>
+        <rect x="0" y="0" width="200" height="120" 
+              fill="#f0f0f0" stroke="gray"/>
+        <text x="10" y="30" font-size="14">
+            (100 + 150 + 100 +
+        </text>
+        <text x="10" y="50" font-size="14">
+            120 + 255 + 130 +
+        </text>
+        <text x="10" y="70" font-size="14">
+            110 + 140 + 120) ÷ 9 =
+        </text>
+        <text x="10" y="100" font-size="16" font-weight="bold">
+            平均值 = 136
+        </text>
+    </g>
+
+    <!-- 箭头 -->
+    <path d="M 650,100 L 730,100 L 720,90 M 730,100 L 720,110" 
+          fill="none" stroke="black" stroke-width="2"/>
+
+    <!-- 结果 -->
+    <g transform="translate(750,50)">
+        <text x="0" y="-25" font-size="16" fill="#444">处理后的3x3区域</text>
+        <!-- 网格 -->
+        <rect x="0" y="0" width="150" height="150" fill="#f8f9fa" stroke="#666"/>
+        <line x1="0" y1="50" x2="150" y2="50" stroke="#666"/>
+        <line x1="0" y1="100" x2="150" y2="100" stroke="#666"/>
+        <line x1="50" y1="0" x2="50" y2="150" stroke="#666"/>
+        <line x1="100" y1="0" x2="100" y2="150" stroke="#666"/>
+        
+        <!-- 像素值 -->
+        <g font-size="16" text-anchor="middle" fill="#444">
+            <text x="25" y="30">100</text>
+            <text x="75" y="30">150</text>
+            <text x="125" y="30">100</text>
+            
+            <text x="25" y="80">120</text>
+            <text x="75" y="80" fill="#d32f2f" font-weight="bold">136</text>
+            <text x="125" y="80">130</text>
+            
+            <text x="25" y="130">110</text>
+            <text x="75" y="130">140</text>
+            <text x="125" y="130">120</text>
+        </g>
+        
+        <!-- 高亮3x3区域 -->
+        <rect x="50" y="50" width="50" height="50" 
+              fill="none" stroke="red" stroke-width="2"/>
+    </g>
+</svg>

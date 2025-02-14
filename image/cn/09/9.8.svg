@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 240">
+  <!-- 标题 -->
+  <text x="260" y="30" text-anchor="middle" font-size="16" font-weight="bold">区域插值示意图</text>
+
+  <!-- 原始图像 -->
+  <g transform="translate(75,70)">
+    <rect width="160" height="80" fill="none" stroke="black"/>
+    <line x1="40" y1="0" x2="40" y2="80" stroke="black"/>
+    <line x1="80" y1="0" x2="80" y2="80" stroke="black"/>
+    <line x1="120" y1="0" x2="120" y2="80" stroke="black"/>
+    <line x1="0" y1="40" x2="160" y2="40" stroke="black"/>
+    <text x="20" y="25" text-anchor="middle">A</text>
+    <text x="60" y="25" text-anchor="middle">B</text>
+    <text x="100" y="25" text-anchor="middle">C</text>
+    <text x="140" y="25" text-anchor="middle">D</text>
+    <text x="20" y="65" text-anchor="middle">E</text>
+    <text x="60" y="65" text-anchor="middle">F</text>
+    <text x="100" y="65" text-anchor="middle">G</text>
+    <text x="140" y="65" text-anchor="middle">H</text>
+    <text x="80" y="-10" text-anchor="middle" font-size="12">原始像素区域</text>
+  </g>
+  
+  <!-- 箭头 -->
+  <g transform="translate(265,100)">
+    <path d="M0,0 L60,0" stroke="black" marker-end="url(#arrow2)"/>
+    <text x="30" y="-10" text-anchor="middle">区域平均</text>
+  </g>
+  
+  <!-- 箭头标记 -->
+  <defs>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5"
+      markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z"/>
+    </marker>
+  </defs>
+  
+  <!-- 缩小后的图像 -->
+  <g transform="translate(355,70)">
+    <rect width="80" height="80" fill="none" stroke="black"/>
+    <text x="40" y="45" text-anchor="middle">P</text>
+    <text x="40" y="-10" text-anchor="middle" font-size="12">缩小后的像素</text>
+    <text x="40" y="65" text-anchor="middle" font-size="10">P = avg(A-H)</text>
+  </g>
+
+  <!-- 说明文字 -->
+  <text x="250" y="200" text-anchor="middle" font-size="12">区域插值通过计算原始区域内所有像素的平均值得到新像素值</text>
+  <text x="250" y="220" text-anchor="middle" font-size="12">特别适合图像缩小操作，可以避免采样不足导致的失真</text>
+</svg>

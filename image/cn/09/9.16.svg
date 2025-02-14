@@ -1,0 +1,71 @@
+<svg viewBox="0 0 750 450" xmlns="http://www.w3.org/2000/svg">
+    <!-- 高斯核权重示意 -->
+    <g transform="translate(50,50)">
+        <text x="0" y="-20" font-size="16">高斯核权重分布</text>
+        <!-- 5x5网格 -->
+        <g stroke="gray" stroke-width="1">
+            <rect x="0" y="0" width="250" height="250" fill="#f0f0f0"/>
+            <line x1="0" y1="50" x2="250" y2="50"/>
+            <line x1="0" y1="100" x2="250" y2="100"/>
+            <line x1="0" y1="150" x2="250" y2="150"/>
+            <line x1="0" y1="200" x2="250" y2="200"/>
+            <line x1="50" y1="0" x2="50" y2="250"/>
+            <line x1="100" y1="0" x2="100" y2="250"/>
+            <line x1="150" y1="0" x2="150" y2="250"/>
+            <line x1="200" y1="0" x2="200" y2="250"/>
+        </g>
+        <!-- 权重值 -->
+        <g font-size="14" text-anchor="middle">
+            <text x="25" y="30">1</text>
+            <text x="75" y="30">4</text>
+            <text x="125" y="30">6</text>
+            <text x="175" y="30">4</text>
+            <text x="225" y="30">1</text>
+            
+            <text x="25" y="80">4</text>
+            <text x="75" y="80">16</text>
+            <text x="125" y="80">24</text>
+            <text x="175" y="80">16</text>
+            <text x="225" y="80">4</text>
+            
+            <text x="25" y="130">6</text>
+            <text x="75" y="130">24</text>
+            <text x="125" y="130" fill="red">36</text>
+            <text x="175" y="130">24</text>
+            <text x="225" y="130">6</text>
+            
+            <text x="25" y="180">4</text>
+            <text x="75" y="180">16</text>
+            <text x="125" y="180">24</text>
+            <text x="175" y="180">16</text>
+            <text x="225" y="180">4</text>
+            
+            <text x="25" y="230">1</text>
+            <text x="75" y="230">4</text>
+            <text x="125" y="230">6</text>
+            <text x="175" y="230">4</text>
+            <text x="225" y="230">1</text>
+        </g>
+    </g>
+
+    <!-- 高斯分布曲线 -->
+    <g transform="translate(400,50)">
+        <text x="0" y="-20" font-size="16">高斯分布曲线</text>
+        <!-- 坐标轴 -->
+        <line x1="0" y1="250" x2="300" y2="250" stroke="black"/>
+        <line x1="150" y1="0" x2="150" y2="250" stroke="black"/>
+        <!-- 高斯曲线 -->
+        <path d="M 0,250 C 50,250 100,50 150,20 C 200,50 250,250 300,250" 
+              fill="none" stroke="blue" stroke-width="2"/>
+        <text x="150" y="270" text-anchor="middle">距离中心点</text>
+        <text x="-20" y="125" transform="rotate(-90,0,125)">权重</text>
+    </g>
+
+    <!-- 说明文本 -->
+    <g transform="translate(50,350)">
+        <text x="0" y="0" font-size="14">特点:</text>
+        <text x="0" y="25" font-size="14">1. 中心点权重最大(36)</text>
+        <text x="0" y="50" font-size="14">2. 权重随距离递减</text>
+        <text x="0" y="75" font-size="14">3. 所有权重和为256(便于归一化)</text>
+    </g>
+</svg>

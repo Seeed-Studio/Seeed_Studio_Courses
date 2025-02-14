@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380">
+  <!-- 标题 -->
+  <text x="320" y="30" text-anchor="middle" font-size="16" font-weight="bold">双三次插值示意图</text>
+
+  <!-- 16个像素网格 -->
+  <g transform="translate(175,50)">
+    <rect width="300" height="300" fill="none" stroke="black"/>
+    <line x1="75" y1="0" x2="75" y2="300" stroke="black"/>
+    <line x1="150" y1="0" x2="150" y2="300" stroke="black"/>
+    <line x1="225" y1="0" x2="225" y2="300" stroke="black"/>
+    <line x1="0" y1="75" x2="300" y2="75" stroke="black"/>
+    <line x1="0" y1="150" x2="300" y2="150" stroke="black"/>
+    <line x1="0" y1="225" x2="300" y2="225" stroke="black"/>
+    
+    <!-- 标注 -->
+    <text x="37.5" y="37.5" text-anchor="middle">P1</text>
+    <text x="112.5" y="37.5" text-anchor="middle">P2</text>
+    <text x="187.5" y="37.5" text-anchor="middle">P3</text>
+    <text x="262.5" y="37.5" text-anchor="middle">P4</text>
+    
+    <text x="37.5" y="112.5" text-anchor="middle">P5</text>
+    <text x="112.5" y="112.5" text-anchor="middle">P6</text>
+    <text x="187.5" y="112.5" text-anchor="middle">P7</text>
+    <text x="262.5" y="112.5" text-anchor="middle">P8</text>
+    
+    <text x="37.5" y="187.5" text-anchor="middle">P9</text>
+    <text x="112.5" y="187.5" text-anchor="middle">P10</text>
+    <text x="187.5" y="187.5" text-anchor="middle">P11</text>
+    <text x="262.5" y="187.5" text-anchor="middle">P12</text>
+    
+    <text x="37.5" y="262.5" text-anchor="middle">P13</text>
+    <text x="112.5" y="262.5" text-anchor="middle">P14</text>
+    <text x="187.5" y="262.5" text-anchor="middle">P15</text>
+    <text x="262.5" y="262.5" text-anchor="middle">P16</text>
+
+    <!-- 中心点高亮 -->
+    <circle cx="150" cy="150" r="5" fill="red"/>
+    <text x="165" y="150" font-size="12">待插值点</text>
+  </g>
+
+  <!-- 右侧说明文字 -->
+  <g transform="translate(500,150)">
+    <text x="0" y="0" font-size="12">双三次插值使用周围16个像素点</text>
+    <text x="0" y="20" font-size="12">的值计算新像素值</text>
+    <text x="0" y="50" font-size="12">通过三次多项式函数确定权重，</text>
+    <text x="0" y="70" font-size="12">能获得最平滑的效果</text>
+    <text x="0" y="100" font-size="12">虽然计算量较大，但图像质量最好</text>
+  </g>
+</svg>
