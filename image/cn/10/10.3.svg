@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <!-- 背景 -->
+  <rect width="900" height="500" fill="#f8f9fa" rx="10" ry="10"/>
+  <text x="450" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">视频流处理完整流程</text>
+
+  <!-- 流程图元素 -->
+  <!-- 第一阶段：视频采集 -->
+  <g>
+    <!-- 摄像头设备 -->
+    <rect x="50" y="100" width="120" height="100" rx="10" ry="10" fill="#e3f2fd" stroke="#2196f3" stroke-width="3"/>
+    <text x="110" y="140" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2196f3">视频采集</text>
+    <text x="110" y="165" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#555">摄像头获取</text>
+    <text x="110" y="185" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#555">帧率控制</text>
+    
+    <!-- 摄像头图标 -->
+    <circle cx="30" cy="150" r="15" fill="#bbdefb" stroke="#2196f3" stroke-width="2"/>
+    <rect x="20" y="145" width="20" height="10" fill="#1976d2" rx="1" ry="1"/>
+    <circle cx="30" cy="150" r="5" fill="#1976d2"/>
+    <circle cx="30" cy="150" r="2" fill="#bbdefb"/>
+    
+    <!-- 参数设置 -->
+    <rect x="50" y="220" width="120" height="60" rx="5" ry="5" fill="#e1f5fe" stroke="#03a9f4" stroke-width="1"/>
+    <text x="110" y="245" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0277bd">参数配置</text>
+    <text x="110" y="265" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">分辨率、帧率</text>
+  </g>
+
+  <!-- 第二阶段：颜色空间转换 -->
+  <g>
+    <rect x="230" y="100" width="120" height="100" rx="10" ry="10" fill="#e8f5e9" stroke="#4caf50" stroke-width="3"/>
+    <text x="290" y="140" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#4caf50">颜色转换</text>
+    <text x="290" y="165" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#555">RGB/灰度</text>
+    <text x="290" y="185" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#555">HSV转换</text>
+    
+    <!-- 小图标：色彩空间示意 -->
+    <rect x="255" y="210" width="15" height="15" fill="#f44336"/>
+    <rect x="275" y="210" width="15" height="15" fill="#2196f3"/>
+    <rect x="295" y="210" width="15" height="15" fill="#4caf50"/>
+    <rect x="315" y="210" width="15" height="15" fill="#9e9e9e"/>
+  </g>
+
+  <!-- 第三阶段：图像处理 -->
+  <g>
+    <rect x="410" y="100" width="120" height="100" rx="10" ry="10" fill="#fff3e0" stroke="#ff9800" stroke-width="3"/>
+    <text x="470" y="140" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ff9800">图像处理</text>
+    <text x="470" y="165" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#555">滤波/增强</text>
+    <text x="470" y="185" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#555">特效应用</text>
+    
+    <!-- 滤波器示意 -->
+    <rect x="420" y="210" width="100" height="20" rx="3" ry="3" fill="#ffe0b2" stroke="#ff9800" stroke-width="1"/>
+    <line x1="440" y1="210" x2="440" y2="230" stroke="#ff9800" stroke-width="1"/>
+    <line x1="460" y1="210" x2="460" y2="230" stroke="#ff9800" stroke-width="1"/>
+    <line x1="480" y1="210" x2="480" y2="230" stroke="#ff9800" stroke-width="1"/>
+    <line x1="500" y1="210" x2="500" y2="230" stroke="#ff9800" stroke-width="1"/>
+  </g>
+
+  <!-- 第四阶段：信息标注 -->
+  <g>
+    <rect x="590" y="100" width="120" height="100" rx="10" ry="10" fill="#e8eaf6" stroke="#3f51b5" stroke-width="3"/>
+    <text x="650" y="140" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">信息标注</text>
+    <text x="650" y="165" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#555">文本/图形</text>
+    <text x="650" y="185" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#555">状态显示</text>
+    
+    <!-- 文本标注示意 -->
+    <rect x="605" y="210" width="90" height="15" rx="2" ry="2" fill="#c5cae9" stroke="#3f51b5" stroke-width="1"/>
+    <line x1="615" y1="217" x2="685" y2="217" stroke="#3f51b5" stroke-width="2"/>
+  </g>
+
+  <!-- 第五阶段：分支 - 显示和保存 -->
+  <!-- 显示分支 -->
+  <g>
+    <rect x="770" y="80" width="120" height="70" rx="10" ry="10" fill="#f3e5f5" stroke="#9c27b0" stroke-width="3"/>
+    <text x="830" y="110" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#9c27b0">实时显示</text>
+    <text x="830" y="130" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#555">窗口呈现</text>
+    
+    <!-- 显示器图标 -->
+    <rect x="800" y="155" width="40" height="30" fill="#e1bee7" stroke="#9c27b0" stroke-width="1" rx="2" ry="2"/>
+    <rect x="810" y="185" width="20" height="5" fill="#9c27b0"/>
+  </g>
+  
+  <!-- 保存分支 -->
+  <g>
+    <rect x="770" y="200" width="120" height="70" rx="10" ry="10" fill="#ffebee" stroke="#f44336" stroke-width="3"/>
+    <text x="830" y="230" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#f44336">视频保存</text>
+    <text x="830" y="250" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#555">编码/存储</text>
+    
+    <!-- 存储图标 -->
+    <rect x="810" y="275" width="40" height="7" fill="#ffcdd2" stroke="#f44336" stroke-width="1" rx="1" ry="1"/>
+    <rect x="815" y="282" width="30" height="7" fill="#ffcdd2" stroke="#f44336" stroke-width="1" rx="1" ry="1"/>
+    <rect x="820" y="289" width="20" height="7" fill="#ffcdd2" stroke="#f44336" stroke-width="1" rx="1" ry="1"/>
+  </g>
+
+  <!-- 连接线 -->
+  <!-- 采集到颜色转换 -->
+  <line x1="170" y1="150" x2="230" y2="150" stroke="#2196f3" stroke-width="3"/>
+  <polygon points="220,145 230,150 220,155" fill="#2196f3"/>
+  
+  <!-- 颜色转换到图像处理 -->
+  <line x1="350" y1="150" x2="410" y2="150" stroke="#4caf50" stroke-width="3"/>
+  <polygon points="400,145 410,150 400,155" fill="#4caf50"/>
+  
+  <!-- 图像处理到信息标注 -->
+  <line x1="530" y1="150" x2="590" y2="150" stroke="#ff9800" stroke-width="3"/>
+  <polygon points="580,145 590,150 580,155" fill="#ff9800"/>
+  
+  <!-- 信息标注到分支点 -->
+  <line x1="710" y1="150" x2="740" y2="150" stroke="#3f51b5" stroke-width="3"/>
+  
+  <!-- 分支点 -->
+  <circle cx="740" cy="150" r="6" fill="#673ab7" stroke="#512da8" stroke-width="2"/>
+  
+  <!-- 分支到显示 -->
+  <line x1="740" y1="150" x2="770" y2="115" stroke="#9c27b0" stroke-width="3"/>
+  <polygon points="760,119 770,115 764,125" fill="#9c27b0"/>
+  
+  <!-- 分支到保存 -->
+  <line x1="740" y1="150" x2="770" y2="235" stroke="#f44336" stroke-width="3"/>
+  <polygon points="764,225 770,235 760,231" fill="#f44336"/>
+
+  <!-- 性能与资源平衡提示 -->
+  <rect x="250" y="320" width="400" height="90" rx="8" ry="8" fill="#eeeeee" stroke="#9e9e9e" stroke-width="2"/>
+  <text x="450" y="345" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#424242">性能与画质平衡</text>
+  <text x="450" y="370" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#616161">在边缘设备上，需要在处理质量和资源消耗</text>
+  <text x="450" y="390" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#616161">之间找到最佳平衡点</text>
+  
+  <!-- 边缘设备资源限制提示 -->
+  <rect x="50" y="320" width="180" height="140" rx="8" ry="8" fill="#fafafa" stroke="#bdbdbd" stroke-width="2"/>
+  <text x="140" y="340" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#424242">边缘设备资源</text>
+  <line x1="70" y1="350" x2="210" y2="350" stroke="#bdbdbd" stroke-width="1"/>
+  <text x="70" y="370" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#616161">• CPU: 有限处理能力</text>
+  <text x="70" y="395" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#616161">• 内存: 有限存储空间</text>
+  <text x="70" y="420" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#616161">• 电池: 电量限制</text>
+  <text x="70" y="445" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#616161">• 散热: 温度限制</text>
+  
+  <!-- 编码器选择提示 -->
+  <rect x="670" y="320" width="180" height="100" rx="8" ry="8" fill="#fafafa" stroke="#bdbdbd" stroke-width="2"/>
+  <text x="760" y="340" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#424242">编码器选择</text>
+  <line x1="690" y1="350" x2="830" y2="350" stroke="#bdbdbd" stroke-width="1"/>
+  <text x="690" y="370" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#616161">• H.264: 高压缩比</text>
+  <text x="690" y="390" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#616161">• MJPEG: 处理速度快</text>
+  <text x="690" y="410" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#616161">• 根据需求选择</text>
+</svg>

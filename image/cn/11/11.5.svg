@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420">
+  <!-- 背景网格 -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#eee" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="400" fill="url(#grid)" />
+  
+  <!-- 标题 -->
+  <text x="300" y="30" font-family="Arial, SimHei" font-size="18" text-anchor="middle" font-weight="bold">非极大值抑制示意图</text>
+  
+  <!-- 左侧：抑制前的粗边缘 -->
+  <g transform="translate(50, 50)">
+    <rect width="200" height="200" fill="#fff" stroke="#333" />
+    
+    <!-- 模拟图像内容 - 粗边缘 -->
+    <rect x="60" y="60" width="80" height="80" fill="#fff" stroke="#333" stroke-width="1" />
+    <rect x="55" y="55" width="90" height="90" fill="none" stroke="#999" stroke-width="10" />
+    
+    <!-- 梯度方向指示 -->
+    <line x1="30" y1="30" x2="60" y2="60" stroke="#F15A29" stroke-width="2" />
+    <polygon points="60,60 51,57 57,51" fill="#F15A29" />
+    
+    <line x1="170" y1="30" x2="140" y2="60" stroke="#F15A29" stroke-width="2" />
+    <polygon points="140,60 149,57 143,51" fill="#F15A29" />
+    
+    <line x1="30" y1="170" x2="60" y2="140" stroke="#F15A29" stroke-width="2" />
+    <polygon points="60,140 51,143 57,149" fill="#F15A29" />
+    
+    <line x1="170" y1="170" x2="140" y2="140" stroke="#F15A29" stroke-width="2" />
+    <polygon points="140,140 149,143 143,149" fill="#F15A29" />
+    
+    <text x="100" y="230" font-family="Arial, SimHei" font-size="16" text-anchor="middle">抑制前（粗边缘）</text>
+  </g>
+  
+  <!-- 右侧：抑制后的细边缘 -->
+  <g transform="translate(350, 50)">
+    <rect width="200" height="200" fill="#fff" stroke="#333" />
+    
+    <!-- 模拟图像内容 - 细边缘 -->
+    <rect x="60" y="60" width="80" height="80" fill="#fff" stroke="#333" stroke-width="1" />
+    <rect x="60" y="60" width="80" height="80" fill="none" stroke="#333" stroke-width="2" />
+    
+    <!-- 梯度方向指示（与左图相同） -->
+    <line x1="30" y1="30" x2="60" y2="60" stroke="#F15A29" stroke-width="2" />
+    <polygon points="60,60 51,57 57,51" fill="#F15A29" />
+    
+    <line x1="170" y1="30" x2="140" y2="60" stroke="#F15A29" stroke-width="2" />
+    <polygon points="140,60 149,57 143,51" fill="#F15A29" />
+    
+    <line x1="30" y1="170" x2="60" y2="140" stroke="#F15A29" stroke-width="2" />
+    <polygon points="60,140 51,143 57,149" fill="#F15A29" />
+    
+    <line x1="170" y1="170" x2="140" y2="140" stroke="#F15A29" stroke-width="2" />
+    <polygon points="140,140 149,143 143,149" fill="#F15A29" />
+    
+    <text x="100" y="230" font-family="Arial, SimHei" font-size="16" text-anchor="middle">抑制后（细边缘）</text>
+  </g>
+  
+  <!-- 中间的箭头 -->
+  <g transform="translate(260, 160)">
+    <line x1="0" y1="0" x2="80" y2="0" stroke="#333" stroke-width="2" />
+    <polygon points="80,0 70,-5 70,5" fill="#333" />
+    <text x="40" y="-10" font-family="Arial, SimHei" font-size="14" text-anchor="middle">非极大值抑制</text>
+  </g>
+  
+  <!-- 说明文字 -->
+  <g transform="translate(50, 320)">
+    <text font-family="Arial, SimHei" font-size="14">
+      <tspan x="0" y="0">非极大值抑制：</tspan>
+      <tspan x="0" y="25">• 沿着梯度方向检查每个像素点</tspan>
+      <tspan x="0" y="50">• 如果该点不是梯度方向上强度最大的点，则被抑制（设为零）</tspan>
+      <tspan x="0" y="75">• 将粗边缘线变为只有一个像素宽的细线，保留边缘位置精确度</tspan>
+    </text>
+  </g>
+</svg>

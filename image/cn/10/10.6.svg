@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#f9f9f9" rx="10" ry="10"/>
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">实时视频处理循环</text>
+
+  <!-- 循环流程图 -->
+  <!-- 中心圆形区域 - 循环指示 -->
+  <circle cx="400" cy="250" r="180" fill="#f5f5f5" stroke="#bdbdbd" stroke-width="2" stroke-dasharray="10"/>
+  
+  <!-- 帧获取模块 -->
+  <g>
+    <circle cx="400" cy="120" r="70" fill="#e3f2fd" stroke="#2196f3" stroke-width="3"/>
+    <text x="400" y="110" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1565c0">1. 帧获取</text>
+    <text x="400" y="135" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">从摄像头读取</text>
+    <text x="400" y="155" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">一帧视频画面</text>
+    
+    <!-- 摄像头图标 -->
+    <circle cx="400" cy="75" r="15" fill="#bbdefb" stroke="#2196f3" stroke-width="1.5"/>
+    <rect x="392" y="70" width="16" height="10" fill="#1976d2" rx="1" ry="1"/>
+    <circle cx="400" cy="75" r="5" fill="#1976d2"/>
+    <circle cx="400" cy="75" r="2" fill="#bbdefb"/>
+  </g>
+  
+  <!-- 帧处理模块 -->
+  <g>
+    <circle cx="570" cy="320" r="70" fill="#e8f5e9" stroke="#4caf50" stroke-width="3"/>
+    <text x="570" y="310" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2e7d32">2. 帧处理</text>
+    <text x="570" y="335" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">颜色转换</text>
+    <text x="570" y="355" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">滤波与标注</text>
+    
+    <!-- 处理图标 -->
+    <rect x="545" y="275" width="15" height="15" fill="#81c784" stroke="#4caf50" stroke-width="1"/>
+    <rect x="565" y="275" width="15" height="15" fill="#4caf50" stroke="#2e7d32" stroke-width="1"/>
+    <rect x="585" y="275" width="15" height="15" fill="#2e7d32" stroke="#1b5e20" stroke-width="1"/>
+  </g>
+  
+  <!-- 帧显示模块 -->
+  <g>
+    <circle cx="230" cy="320" r="70" fill="#fff3e0" stroke="#ff9800" stroke-width="3"/>
+    <text x="230" y="310" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#e65100">3. 帧显示</text>
+    <text x="230" y="335" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">实时窗口显示</text>
+    <text x="230" y="355" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">处理结果</text>
+    
+    <!-- 显示器图标 -->
+    <rect x="215" y="265" width="30" height="20" fill="#ffe0b2" stroke="#ff9800" stroke-width="1.5" rx="2" ry="2"/>
+    <rect x="220" y="285" width="20" height="3" fill="#ff9800"/>
+  </g>
+  
+  <!-- 连接箭头 - 形成循环 -->
+  <!-- 帧获取到帧处理 -->
+<path d="M455 170 Q 520 200 550 260" fill="none" stroke="#2196f3" stroke-width="3"/>
+<polygon points="553,252 556,266 540,261" fill="#2196f3"/>
+
+  
+  <!-- 帧处理到帧显示 -->
+  <path d="M500 320 L 300 320" fill="none" stroke="#4caf50" stroke-width="3"/>
+  <polygon points="310,314 300,320 310,326" fill="#4caf50"/>
+  
+  <!-- 帧显示回到帧获取 - 完成循环 -->
+  <path d="M200 260 Q 250 150 340 130" fill="none" stroke="#ff9800" stroke-width="3"/>
+  <polygon points="332,124 344,126 336,136" fill="#ff9800"/>
+  
+  <!-- 循环标记 -->
+  <text x="400" y="250" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#424242">循环处理</text>
+  
+  <!-- 时间控制说明 -->
+  <g>
+    <rect x="350" y="400" width="100" height="40" fill="#e0e0e0" stroke="#9e9e9e" stroke-width="1.5" rx="5" ry="5"/>
+    <text x="400" y="425" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#424242">时间控制</text>
+    
+    <!-- 指向箭头 -->
+    <line x1="400" y1="390" x2="400" y2="350" stroke="#9e9e9e" stroke-width="2" stroke-dasharray="5"/>
+    <polygon points="394,360 400,350 406,360" fill="#9e9e9e"/>
+  </g>
+  
+  <!-- 帧率说明 -->
+  <g>
+    <rect x="250" y="430" width="300" height="50" rx="5" ry="5" fill="#f5f5f5" stroke="#bdbdbd" stroke-width="1.5"/>
+    <text x="400" y="455" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#616161">waitKey(1) 控制循环时间间隔</text>
+    <text x="400" y="475" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#616161">调整可实现不同帧率的处理速度</text>
+  </g>
+  
+  <!-- 退出条件 -->
+  <g>
+    <rect x="580" y="430" width="170" height="50" rx="5" ry="5" fill="#ffebee" stroke="#ef5350" stroke-width="1.5"/>
+    <text x="665" y="455" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#c62828">循环退出条件</text>
+    <text x="665" y="475" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#616161">按键'q'或帧获取失败</text>
+    
+    <!-- 指向箭头 -->
+    <path d="M580 450 Q 500 450 467 350" fill="none" stroke="#ef5350" stroke-width="2" stroke-dasharray="5"/>
+    <polygon points="464,359 466,347 476,355" fill="#ef5350"/>
+  </g>
+  
+  <!-- 代码片段示意 -->
+  <g>
+    <rect x="50" y="430" width="180" height="50" rx="5" ry="5" fill="#e8eaf6" stroke="#3f51b5" stroke-width="1.5"/>
+    <text x="140" y="455" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#3f51b5">核心循环代码</text>
+    <text x="140" y="475" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#616161">while True: 循环结构</text>
+    
+    <!-- 指向箭头 -->
+    <path d="M100 430 Q 100 360 170 340" fill="none" stroke="#3f51b5" stroke-width="2" stroke-dasharray="5"/>
+    <polygon points="163,335 173,337 165,347" fill="#3f51b5"/>
+  </g>
+</svg>

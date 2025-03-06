@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420">
+  <!-- 背景网格 -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#eee" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="400" fill="url(#grid)" />
+  
+  <!-- 标题 -->
+  <text x="300" y="30" font-family="Arial, SimHei" font-size="18" text-anchor="middle" font-weight="bold">梯度计算示意图</text>
+  
+  <!-- 灰度图像表示 -->
+  <g transform="translate(50, 50)">
+    <rect width="200" height="200" fill="#fff" stroke="#333" />
+    
+    <!-- 模拟图像内容 - 不同灰度区域 -->
+    <rect x="50" y="50" width="100" height="100" fill="#666" />
+    <rect x="80" y="80" width="70" height="70" fill="#333" />
+    
+    <text x="100" y="230" font-family="Arial, SimHei" font-size="16" text-anchor="middle">灰度图像</text>
+  </g>
+  
+  <!-- 梯度计算结果 -->
+  <g transform="translate(350, 50)">
+    <rect width="200" height="200" fill="#fff" stroke="#333" />
+
+    <!-- 模拟图像内容 - 不同灰度区域 -->
+    <rect x="50" y="50" width="100" height="100" fill="#666" />
+    <rect x="80" y="80" width="70" height="70" fill="#333" />
+    
+    <!-- 梯度方向和强度箭头 -->
+    <g fill="none" stroke="#F15A29" stroke-width="2">
+      <!-- 轮廓边缘的梯度箭头 -->
+      <line x1="50" y1="80" x2="65" y2="80" />
+      <polygon points="65,80 60,77 60,83" fill="#F15A29" />
+      
+      <line x1="50" y1="90" x2="65" y2="90" />
+      <polygon points="65,90 60,87 60,93" fill="#F15A29" />
+      
+      <line x1="50" y1="100" x2="65" y2="100" />
+      <polygon points="65,100 60,97 60,103" fill="#F15A29" />
+      
+      <line x1="50" y1="110" x2="65" y2="110" />
+      <polygon points="65,110 60,107 60,113" fill="#F15A29" />
+      
+      <!-- 垂直边缘梯度 -->
+      <line x1="110" y1="50" x2="110" y2="65" />
+      <polygon points="110,65 107,60 113,60" fill="#F15A29" />
+      
+      <line x1="90" y1="50" x2="90" y2="65" />
+      <polygon points="90,65 87,60 93,60" fill="#F15A29" />
+      
+      <line x1="100" y1="50" x2="100" y2="65" />
+      <polygon points="100,65 97,60 103,60" fill="#F15A29" />
+      
+      <!-- 对角线方向梯度 -->
+      <line x1="70" y1="70" x2="95" y2="95" />
+      <polygon points="95,95 89,91 91,89" fill="#F15A29" />
+       
+      <line x1="150" y1="80" x2="135" y2="95" />
+      <polygon points="135,95 141,91 139,89" fill="#F15A29" />
+    </g>
+    
+    <text x="100" y="230" font-family="Arial, SimHei" font-size="16" text-anchor="middle">梯度图</text>
+  </g>
+  
+  <!-- 说明文字 -->
+  <g transform="translate(50, 320)">
+    <text font-family="Arial, SimHei" font-size="14">
+      <tspan x="0" y="0">梯度计算：</tspan>
+      <tspan x="0" y="25">• 计算图像中每个像素点在水平和垂直方向上的亮度变化</tspan>
+      <tspan x="0" y="50">• 箭头方向表示梯度方向（亮度变化最大的方向）</tspan>
+      <tspan x="0" y="75">• 箭头长度表示梯度强度（亮度变化的程度）</tspan>
+    </text>
+  </g>
+</svg>

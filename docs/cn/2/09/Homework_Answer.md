@@ -232,13 +232,6 @@ transformer.show_results()
 + 记录和比较处理结果
 + 撰写分析报告
 
-**提示：**
-
-+ 使用 OpenCV 的图像处理函数
-+ 通过 Matplotlib 实现交互式显示
-+ 注意处理参数范围和边界情况
-+ 保持原始图像以便比较
-
 <details>
 <summary>点击查看答案</summary>
 

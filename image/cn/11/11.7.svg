@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 440">
+  <!-- 背景网格 -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#eee" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="400" fill="url(#grid)" />
+  
+  <!-- 标题 -->
+  <text x="325" y="30" font-family="Arial, SimHei" font-size="18" text-anchor="middle" font-weight="bold">边缘追踪示意图</text>
+  
+  <!-- 左侧：双阈值后的边缘图 -->
+  <g transform="translate(75, 50)">
+    <rect width="200" height="200" fill="#fff" stroke="#333" />
+    
+    <!-- 图像内容 - 强边缘和弱边缘 -->
+    <!-- 强边缘 - 实线 -->
+    <line x1="50" y1="50" x2="90" y2="50" stroke="#000" stroke-width="2" />
+    <line x1="150" y1="50" x2="170" y2="50" stroke="#000" stroke-width="2" />
+    <line x1="50" y1="150" x2="70" y2="150" stroke="#000" stroke-width="2" />
+    <line x1="130" y1="150" x2="170" y2="150" stroke="#000" stroke-width="2" />
+    <line x1="50" y1="50" x2="50" y2="90" stroke="#000" stroke-width="2" />
+    <line x1="50" y1="130" x2="50" y2="150" stroke="#000" stroke-width="2" />
+    <line x1="170" y1="50" x2="170" y2="90" stroke="#000" stroke-width="2" />
+    <line x1="170" y1="130" x2="170" y2="150" stroke="#000" stroke-width="2" />
+    
+    <!-- 弱边缘 - 虚线 -->
+    <line x1="90" y1="50" x2="150" y2="50" stroke="#666" stroke-width="1.5" stroke-dasharray="5,3" />
+    <line x1="70" y1="150" x2="130" y2="150" stroke="#666" stroke-width="1.5" stroke-dasharray="5,3" />
+    <line x1="50" y1="90" x2="50" y2="130" stroke="#666" stroke-width="1.5" stroke-dasharray="5,3" />
+    <line x1="170" y1="90" x2="170" y2="130" stroke="#666" stroke-width="1.5" stroke-dasharray="5,3" />
+    
+    <!-- 孤立的弱边缘 - 会被丢弃 -->
+    <line x1="100" y1="100" x2="120" y2="100" stroke="#666" stroke-width="1.5" stroke-dasharray="5,3" />
+    <circle cx="100" cy="100" r="5" fill="#fff" stroke="#666" stroke-width="1" />
+    <circle cx="120" cy="100" r="5" fill="#fff" stroke="#666" stroke-width="1" />
+
+    <text x="100" y="230" font-family="Arial, SimHei" font-size="16" text-anchor="middle">双阈值分类后的边缘</text>
+  </g>
+  
+  <!-- 右侧：边缘追踪后的结果 -->
+  <g transform="translate(375, 50)">
+    <rect width="200" height="200" fill="#fff" stroke="#333" />
+    
+    <!-- 图像内容 - 连接后的边缘 -->
+    <!-- 保留的边缘 - 全部为实线 -->
+    <line x1="50" y1="50" x2="170" y2="50" stroke="#000" stroke-width="2" />
+    <line x1="50" y1="150" x2="170" y2="150" stroke="#000" stroke-width="2" />
+    <line x1="50" y1="50" x2="50" y2="150" stroke="#000" stroke-width="2" />
+    <line x1="170" y1="50" x2="170" y2="150" stroke="#000" stroke-width="2" />
+    
+    <!-- 丢弃的孤立弱边缘 - 显示为灰色并标记删除 -->
+    <line x1="100" y1="100" x2="120" y2="100" stroke="#ccc" stroke-width="1" stroke-dasharray="5,3" />
+    <circle cx="100" cy="100" r="5" fill="#fff" stroke="#ccc" stroke-width="1" />
+    <circle cx="120" cy="100" r="5" fill="#fff" stroke="#ccc" stroke-width="1" />
+    <line x1="95" y1="95" x2="125" y2="105" stroke="#f00" stroke-width="1" />
+    <line x1="95" y1="105" x2="125" y2="95" stroke="#f00" stroke-width="1" />
+    
+    <text x="100" y="230" font-family="Arial, SimHei" font-size="16" text-anchor="middle">边缘追踪后的结果</text>
+  </g>
+  
+  <!-- 中间的箭头 -->
+  <g transform="translate(285, 160)">
+    <line x1="0" y1="0" x2="80" y2="0" stroke="#333" stroke-width="2" />
+    <polygon points="80,0 70,-5 70,5" fill="#333" />
+    <text x="40" y="-10" font-family="Arial, SimHei" font-size="14" text-anchor="middle">边缘追踪</text>
+  </g>
+  
+  <!-- 图例 -->
+  <g transform="translate(100, 300)">
+    <line x1="0" y1="0" x2="30" y2="0" stroke="#000" stroke-width="2" />
+    <text x="40" y="5" font-family="Arial, SimHei" font-size="14">强边缘</text>
+    
+    <line x1="120" y1="0" x2="150" y2="0" stroke="#666" stroke-width="1.5" stroke-dasharray="5,3" />
+    <text x="160" y="5" font-family="Arial, SimHei" font-size="14">弱边缘</text>
+    
+    <line x1="240" y1="0" x2="270" y2="0" stroke="#000" stroke-width="2" />
+    <text x="280" y="5" font-family="Arial, SimHei" font-size="14">连接后的边缘</text>
+    
+    <line x1="400" y1="0" x2="430" y2="0" stroke="#ccc" stroke-width="1" stroke-dasharray="5,3" />
+    <line x1="410" y1="-5" x2="420" y2="5" stroke="#f00" stroke-width="1" />
+    <line x1="410" y1="5" x2="420" y2="-5" stroke="#f00" stroke-width="1" />
+    <text x="440" y="5" font-family="Arial, SimHei" font-size="14">丢弃的弱边缘</text>
+  </g>
+  
+  <!-- 说明文字 -->
+  <g transform="translate(50, 340)">
+    <text font-family="Arial, SimHei" font-size="14">
+      <tspan x="0" y="0">边缘追踪：</tspan>
+      <tspan x="0" y="25">• 检查每个"弱边缘"点，判断它是否与"强边缘"点相连</tspan>
+      <tspan x="0" y="50">• 如果弱边缘点与强边缘点相连（直接或通过其他弱边缘点），则保留</tspan>
+      <tspan x="0" y="75">• 如果弱边缘点是孤立的，则丢弃</tspan>
+    </text>
+  </g>
+</svg>

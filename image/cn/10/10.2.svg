@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- 背景和标题 -->
+  <rect width="800" height="500" fill="#f8f9fa" rx="10" ry="10"/>
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">基础视频处理系统</text>
+
+  <!-- 模块框和连接线 -->
+  <!-- 视频采集模块 -->
+  <rect x="100" y="120" width="140" height="100" rx="10" ry="10" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
+  <text x="170" y="150" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">视频采集模块</text>
+  <text x="170" y="175" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666">从摄像头获取</text>
+  <text x="170" y="195" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666">实时视频流</text>
+  
+  <!-- 视频处理模块 -->
+  <rect x="330" y="120" width="140" height="100" rx="10" ry="10" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
+  <text x="400" y="150" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">处理模块</text>
+  <text x="400" y="175" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666">灰度转换</text>
+  <text x="400" y="195" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666">信息标注</text>
+  
+  <!-- 视频显示模块 -->
+  <rect x="560" y="120" width="140" height="100" rx="10" ry="10" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+  <text x="630" y="150" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">显示模块</text>
+  <text x="630" y="175" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666">实时窗口显示</text>
+  <text x="630" y="195" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666">交互控制</text>
+  
+  <!-- 视频录制模块 -->
+  <rect x="330" y="300" width="140" height="100" rx="10" ry="10" fill="#ffebee" stroke="#f44336" stroke-width="2"/>
+  <text x="400" y="330" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">录制模块</text>
+  <text x="400" y="355" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666">视频保存</text>
+  <text x="400" y="375" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666">格式编码</text>
+  
+  <!-- 连接线 -->
+  <!-- 采集到处理 -->
+  <line x1="240" y1="170" x2="330" y2="170" stroke="#2196f3" stroke-width="2"/>
+  <polygon points="320,165 330,170 320,175" fill="#2196f3"/>
+  
+  <!-- 处理到显示 -->
+  <line x1="470" y1="170" x2="560" y2="170" stroke="#4caf50" stroke-width="2"/>
+  <polygon points="550,165 560,170 550,175" fill="#4caf50"/>
+  
+  <!-- 处理到录制 -->
+  <line x1="400" y1="220" x2="400" y2="300" stroke="#f44336" stroke-width="2"/>
+  <polygon points="395,290 400,300 405,290" fill="#f44336"/>
+  
+  <!-- 互动控制说明 -->
+  <rect x="140" y="420" width="520" height="40" rx="5" ry="5" fill="#e0e0e0" stroke="#9e9e9e" stroke-width="1"/>
+  <text x="400" y="445" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333">用户交互: 'r'键开始/停止录制 | 'g'键切换灰度 | 'q'键退出</text>
+  
+  <!-- 摄像头图标 -->
+  <circle cx="60" cy="170" r="20" fill="#bbdefb" stroke="#2196f3" stroke-width="2"/>
+  <rect x="45" y="160" width="30" height="20" fill="#1976d2" rx="5" ry="5"/>
+  <circle cx="60" cy="170" r="8" fill="#1976d2"/>
+  <circle cx="60" cy="170" r="4" fill="#bbdefb"/>
+  
+  <!-- 显示器图标 -->
+  <rect x="720" y="150" width="30" height="25" fill="#ffcc80" stroke="#ff9800" stroke-width="2" rx="2" ry="2"/>
+  <rect x="725" y="175" width="20" height="5" fill="#ff9800"/>
+  <rect x="732" y="180" width="6" height="5" fill="#ff9800"/>
+  
+  <!-- 存储图标 -->
+  <rect x="380" y="410" width="40" height="7" fill="#ffcdd2" stroke="#f44336" stroke-width="1" rx="1" ry="1"/>
+  <rect x="385" y="403" width="30" height="7" fill="#ffcdd2" stroke="#f44336" stroke-width="1" rx="1" ry="1"/>
+  <rect x="390" y="396" width="20" height="7" fill="#ffcdd2" stroke="#f44336" stroke-width="1" rx="1" ry="1"/>
+</svg>

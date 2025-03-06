@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900">
+  <!-- 背景 -->
+  <rect width="600" height="700" fill="#ffffff" />
+  
+  <!-- 开始节点 -->
+  <rect x="230" y="40" width="140" height="60" rx="20" ry="20" fill="#e6f7ff" stroke="#1890ff" stroke-width="2" />
+  <text x="300" y="75" font-family="Arial, SimHei" font-size="16" text-anchor="middle" font-weight="bold">开始</text>
+  
+  <!-- 流程线 1 -->
+  <line x1="300" y1="100" x2="300" y2="130" stroke="#1890ff" stroke-width="2" />
+  <polygon points="300,140 295,130 305,130" fill="#1890ff" />
+  
+  <!-- 步骤 1：读取图像 -->
+  <rect x="200" y="140" width="200" height="60" fill="#f6ffed" stroke="#52c41a" stroke-width="2" />
+  <text x="300" y="175" font-family="Arial, SimHei" font-size="16" text-anchor="middle">1. 读取图像文件</text>
+  
+  <!-- 流程线 2 -->
+  <line x1="300" y1="200" x2="300" y2="230" stroke="#1890ff" stroke-width="2" />
+  <polygon points="300,240 295,230 305,230" fill="#1890ff" />
+  
+  <!-- 判断节点：图像是否存在 -->
+  <polygon points="300,240 400,280 300,320 200,280" fill="#fff7e6" stroke="#fa8c16" stroke-width="2" />
+  <text x="300" y="285" font-family="Arial, SimHei" font-size="14" text-anchor="middle">图像文件是否存在？</text>
+  
+  <!-- 否分支 -->
+  <line x1="200" y1="280" x2="150" y2="280" stroke="#1890ff" stroke-width="2" />
+  <polygon points="140,280 150,275 150,285" fill="#1890ff" />
+  <text x="180" y="265" font-family="Arial, SimHei" font-size="14" text-anchor="middle" fill="red">否</text>
+  
+  <rect x="40" y="250" width="100" height="60" fill="#f6ffed" stroke="#52c41a" stroke-width="2" />
+  <text x="90" y="285" font-family="Arial, SimHei" font-size="14" text-anchor="middle">输出错误信息</text>
+  
+  <line x1="90" y1="310" x2="90" y2="740" stroke="#1890ff" stroke-width="2"  />
+  <line x1="90" y1="740" x2="300" y2="740" stroke="#1890ff" stroke-width="2"  />
+  
+  <!-- 是分支 -->
+  <line x1="300" y1="320" x2="300" y2="350" stroke="#1890ff" stroke-width="2" />
+  <polygon points="300,360 295,350 305,350" fill="#1890ff" />
+  <text x="315" y="340" font-family="Arial, SimHei" font-size="14" text-anchor="middle" fill="#52c41a">是</text>
+  
+  <!-- 步骤 2：转换为灰度图像并平滑 -->
+  <rect x="170" y="360" width="260" height="60" fill="#f6ffed" stroke="#52c41a" stroke-width="2" />
+  <text x="300" y="395" font-family="Arial, SimHei" font-size="16" text-anchor="middle">2. 转换为灰度图像并平滑处理</text>
+  
+  <!-- 流程线 3 -->
+  <line x1="300" y1="420" x2="300" y2="450" stroke="#1890ff" stroke-width="2" />
+  <polygon points="300,460 295,450 305,450" fill="#1890ff" />
+  
+  <!-- 步骤 3：Canny 边缘检测 -->
+  <rect x="170" y="460" width="260" height="60" fill="#f6ffed" stroke="#52c41a" stroke-width="2" />
+  <text x="300" y="495" font-family="Arial, SimHei" font-size="16" text-anchor="middle">3. 使用 Canny 算法找出边缘</text>
+  
+  <!-- 流程线 4 -->
+  <line x1="300" y1="520" x2="300" y2="550" stroke="#1890ff" stroke-width="2" />
+  <polygon points="300,560 295,550 305,550" fill="#1890ff" />
+  
+  <!-- 步骤 4：形态学处理 -->
+  <rect x="170" y="560" width="260" height="60" fill="#f6ffed" stroke="#52c41a" stroke-width="2" />
+  <text x="300" y="595" font-family="Arial, SimHei" font-size="16" text-anchor="middle">4. 通过形态学处理优化边缘</text>
+  
+  <!-- 流程线 5 -->
+  <line x1="300" y1="620" x2="300" y2="650" stroke="#1890ff" stroke-width="2" />
+  <polygon points="300,660 295,650 305,650" fill="#1890ff" />
+  
+  <!-- 步骤 5：显示结果 -->
+  <rect x="170" y="660" width="260" height="60" fill="#f6ffed" stroke="#52c41a" stroke-width="2" />
+  <text x="300" y="695" font-family="Arial, SimHei" font-size="16" text-anchor="middle">5. 显示原始图像和处理后的边缘图像</text>
+  
+  <!-- 流程线 6 -->
+  <line x1="300" y1="720" x2="300" y2="750" stroke="#1890ff" stroke-width="2" />
+  <polygon points="300,760 295,750 305,750" fill="#1890ff" />
+  
+  <!-- 结束节点 -->
+  <rect x="230" y="760" width="140" height="60" rx="20" ry="20" fill="#e6f7ff" stroke="#1890ff" stroke-width="2" />
+  <text x="300" y="795" font-family="Arial, SimHei" font-size="16" text-anchor="middle" font-weight="bold">结束</text>
+  
+  <!-- 形态学处理的详细步骤 (子流程标识) -->
+  <rect x="440" y="560" width="20" height="60" fill="#e6f7ff" stroke="#1890ff" stroke-width="2" />
+  <line x1="445" y1="570" x2="455" y2="570" stroke="#1890ff" stroke-width="2" />
+  <line x1="445" y1="580" x2="455" y2="580" stroke="#1890ff" stroke-width="2" />
+  <line x1="445" y1="590" x2="455" y2="590" stroke="#1890ff" stroke-width="2" />
+  <line x1="445" y1="600" x2="455" y2="600" stroke="#1890ff" stroke-width="2" />
+  <line x1="445" y1="610" x2="455" y2="610" stroke="#1890ff" stroke-width="2" />
+  
+  <!-- 形态学处理的详细步骤说明 -->
+  <rect x="470" y="520" width="120" height="130" fill="#fff" stroke="#d9d9d9" stroke-width="1" stroke-dasharray="3,3" rx="5" ry="5" />
+  <text x="530" y="540" font-family="Arial, SimHei" font-size="12" text-anchor="middle" font-weight="bold">形态学处理步骤:</text>
+  <text x="530" y="565" font-family="Arial, SimHei" font-size="11" text-anchor="middle">• 膨胀操作</text>
+  <text x="530" y="590" font-family="Arial, SimHei" font-size="11" text-anchor="middle">• 开运算去噪</text>
+  <text x="530" y="615" font-family="Arial, SimHei" font-size="11" text-anchor="middle">• 闭运算连接</text>
+  <text x="530" y="640" font-family="Arial, SimHei" font-size="11" text-anchor="middle">• 细化优化</text>
+  
+  <!-- 连接线 -->
+  <line x1="460" y1="590" x2="470" y2="590" stroke="#1890ff" stroke-width="1" stroke-dasharray="3,3" />
+</svg>
