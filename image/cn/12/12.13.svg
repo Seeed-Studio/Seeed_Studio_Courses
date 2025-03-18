@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 250">
+  <!-- 背景 -->
+  <rect width="950" height="250" fill="#ffffff"/>
+  
+  <!-- 标题 -->
+  <text x="450" y="35" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333333" font-weight="bold">简易对象识别系统架构</text>
+  
+  <!-- 主流程箭头 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666666"/>
+    </marker>
+  </defs>
+  
+  <!-- 流程框和连接 - 使用水平流程布局 -->
+  <!-- 1. 图像输入 -->
+  <rect x="50" y="80" width="110" height="80" rx="5" ry="5" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+  <text x="105" y="115" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333">图像输入</text>
+  <text x="105" y="140" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666666">参考图像和场景图像</text>
+  
+  <!-- 示例小图 -->
+  <rect x="60" y="170" width="90" height="40" rx="5" ry="5" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="70" y="175" width="30" height="20" fill="#e1f5fe" stroke="#03a9f4" stroke-width="1"/>
+  <rect x="110" y="175" width="30" height="20" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
+  <text x="85" y="205" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#333333">参考</text>
+  <text x="125" y="205" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#333333">场景</text>
+  
+  <!-- 2. 图像预处理 -->
+  <rect x="200" y="80" width="110" height="80" rx="5" ry="5" fill="#e8eaf6" stroke="#3f51b5" stroke-width="2"/>
+  <text x="255" y="115" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333">图像预处理</text>
+  <text x="255" y="140" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666666">灰度/高斯滤波/二值化</text>
+  
+  <!-- 示例小图 -->
+  <rect x="220" y="170" width="70" height="40" fill="#e8eaf6" stroke="#3f51b5" stroke-width="1"/>
+  <text x="255" y="195" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666666">灰度图像</text>
+  
+  <line x1="160" y1="120" x2="200" y2="120" stroke="#666666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 3. 特征提取 -->
+  <rect x="350" y="80" width="110" height="80" rx="5" ry="5" fill="#f9fbe7" stroke="#cddc39" stroke-width="2"/>
+  <text x="405" y="115" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333">特征提取</text>
+  <text x="405" y="140" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666666">轮廓检测与 ORB 特征</text>
+  
+  <!-- 示例小图 -->
+  <rect x="370" y="170" width="70" height="40" fill="#f0f4c3" stroke="#afb42b" stroke-width="1"/>
+  <circle cx="385" cy="190" r="3" fill="#f44336"/>
+  <circle cx="395" cy="180" r="3" fill="#f44336"/>
+  <circle cx="410" cy="195" r="3" fill="#f44336"/>
+  <circle cx="425" cy="185" r="3" fill="#f44336"/>
+  
+  <line x1="310" y1="120" x2="350" y2="120" stroke="#666666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 4. 特征匹配 -->
+  <rect x="500" y="80" width="110" height="80" rx="5" ry="5" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+  <text x="555" y="115" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333">特征匹配</text>
+  <text x="555" y="140" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666666">BFMatcher+RANSAC</text>
+  
+  <!-- 示例小图 -->
+  <rect x="520" y="170" width="70" height="40" fill="#ffe0b2" stroke="#f57c00" stroke-width="1"/>
+  <line x1="530" y1="180" x2="550" y2="190" stroke="#9c27b0" stroke-width="1" stroke-dasharray="2,1"/>
+  <line x1="540" y1="195" x2="565" y2="185" stroke="#9c27b0" stroke-width="1" stroke-dasharray="2,1"/>
+  <circle cx="530" cy="180" r="2" fill="#f44336"/>
+  <circle cx="540" cy="195" r="2" fill="#f44336"/>
+  <circle cx="550" cy="190" r="2" fill="#4caf50"/>
+  <circle cx="565" cy="185" r="2" fill="#4caf50"/>
+  
+  <line x1="460" y1="120" x2="500" y2="120" stroke="#666666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 5. 目标定位 -->
+  <rect x="650" y="80" width="110" height="80" rx="5" ry="5" fill="#e1f5fe" stroke="#03a9f4" stroke-width="2"/>
+  <text x="705" y="115" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333">目标定位</text>
+  <text x="705" y="140" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666666">单应性矩阵变换</text>
+  
+  <!-- 示例小图 -->
+  <rect x="670" y="170" width="70" height="40" fill="#b3e5fc" stroke="#0288d1" stroke-width="1"/>
+  <polygon points="680,185 690,175 715,190 705,200" fill="none" stroke="#4caf50" stroke-width="2"/>
+  
+  <line x1="610" y1="120" x2="650" y2="120" stroke="#666666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 6. 结果可视化 -->
+  <rect x="800" y="80" width="110" height="80" rx="5" ry="5" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2"/>
+  <text x="855" y="115" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333">结果可视化</text>
+  <text x="855" y="140" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666666">匹配结果展示</text>
+  
+  <!-- 示例小图 -->
+  <rect x="820" y="170" width="70" height="40" rx="5" ry="5" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1"/>
+  <rect x="825" y="175" width="25" height="15" fill="#e1f5fe" stroke="#03a9f4" stroke-width="0.5"/>
+  <rect x="860" y="175" width="25" height="15" fill="#e8f5e9" stroke="#4caf50" stroke-width="0.5"/>
+  <line x1="835" y1="183" x2="870" y2="183" stroke="#9c27b0" stroke-width="0.5" stroke-dasharray="2,1"/>
+  <polygon points="865,178 875,175 880,185 870,188" fill="none" stroke="#00c853" stroke-width="1"/>
+  <text x="855" y="200" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#333333">匹配与定位结果</text>
+  
+  <line x1="760" y1="120" x2="800" y2="120" stroke="#666666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 流程编号 -->
+  <circle cx="60" cy="90" r="15" fill="#1976d2" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="60" y="95" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#ffffff" font-weight="bold">1</text>
+  
+  <circle cx="210" cy="90" r="15" fill="#3f51b5" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="210" y="95" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#ffffff" font-weight="bold">2</text>
+  
+  <circle cx="360" cy="90" r="15" fill="#cddc39" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="360" y="95" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333333" font-weight="bold">3</text>
+  
+  <circle cx="510" cy="90" r="15" fill="#ff9800" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="510" y="95" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#ffffff" font-weight="bold">4</text>
+  
+  <circle cx="660" cy="90" r="15" fill="#03a9f4" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="660" y="95" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#ffffff" font-weight="bold">5</text>
+  
+  <circle cx="810" cy="90" r="15" fill="#9c27b0" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="810" y="95" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#ffffff" font-weight="bold">6</text>
+</svg>

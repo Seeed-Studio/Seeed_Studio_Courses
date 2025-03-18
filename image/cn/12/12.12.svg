@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#ffffff"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333333" font-weight="bold">RANSAC 算法工作流程</text>
+  
+  <!-- 第一步：随机选择点 -->
+  <rect x="50" y="70" width="330" height="180" rx="5" ry="5" fill="#f9f9f9" stroke="#dddddd" stroke-width="1"/>
+  <text x="215" y="95" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333" font-weight="bold">步骤 1：随机选择最小点集</text>
+  
+  <!-- 第一步图例 -->
+  <rect x="70" y="110" width="130" height="120" fill="#e1f5fe" stroke="#03a9f4" stroke-width="1" rx="3" ry="3"/>
+  <rect x="230" y="110" width="130" height="120" fill="#e8f5e9" stroke="#4caf50" stroke-width="1" rx="3" ry="3"/>
+  
+  <!-- 所有匹配点 -->
+  <circle cx="90" cy="130" r="3" fill="#333333"/>
+  <circle cx="110" cy="150" r="3" fill="#333333"/>
+  <circle cx="130" cy="120" r="3" fill="#333333"/>
+  <circle cx="150" cy="170" r="3" fill="#333333"/>
+  <circle cx="100" cy="200" r="3" fill="#333333"/>
+  <circle cx="170" cy="140" r="3" fill="#333333"/>
+  <circle cx="140" cy="190" r="3" fill="#333333"/>
+  
+  <circle cx="250" cy="130" r="3" fill="#333333"/>
+  <circle cx="270" cy="150" r="3" fill="#333333"/>
+  <circle cx="290" cy="120" r="3" fill="#333333"/>
+  <circle cx="310" cy="170" r="3" fill="#333333"/>
+  <circle cx="260" cy="200" r="3" fill="#333333"/>
+  <circle cx="330" cy="140" r="3" fill="#333333"/>
+  <circle cx="300" cy="190" r="3" fill="#333333"/>
+  
+  <!-- 随机选择的点 -->
+  <circle cx="90" cy="130" r="5" fill="#e91e63" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="170" cy="140" r="5" fill="#e91e63" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="140" cy="190" r="5" fill="#e91e63" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="130" cy="120" r="5" fill="#e91e63" stroke="#ffffff" stroke-width="1"/>
+  
+  <circle cx="250" cy="130" r="5" fill="#e91e63" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="330" cy="140" r="5" fill="#e91e63" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="300" cy="190" r="5" fill="#e91e63" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="290" cy="120" r="5" fill="#e91e63" stroke="#ffffff" stroke-width="1"/>
+  
+  <!-- 选择点之间的连线 -->
+  <line x1="90" y1="130" x2="250" y2="130" stroke="#e91e63" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="170" y1="140" x2="330" y2="140" stroke="#e91e63" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="140" y1="190" x2="300" y2="190" stroke="#e91e63" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="130" y1="120" x2="290" y2="120" stroke="#e91e63" stroke-width="1" stroke-dasharray="3,2"/>
+  
+  <text x="135" y="220" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333333">参考图像</text>
+  <text x="295" y="220" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333333">场景图像</text>
+  
+  
+  <!-- 第二步：计算模型 -->
+  <rect x="420" y="70" width="330" height="180" rx="5" ry="5" fill="#f9f9f9" stroke="#dddddd" stroke-width="1"/>
+  <text x="585" y="95" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333" font-weight="bold">步骤 2：计算临时模型</text>
+  
+  <!-- 第二步图例 -->
+  <rect x="510" y="110" width="150" height="110" rx="5" ry="5" fill="#e0f7fa" stroke="#00acc1" stroke-width="2"/>
+  <text x="585" y="145" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333333" font-weight="bold">H</text>
+  <text x="585" y="170" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333333">单应性矩阵</text>
+  <text x="585" y="190" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666666">基于随机选择的4对点计算</text>
+  
+  <!-- 连接线 -->
+  <path d="M380 160 L420 160" stroke="#666666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 第三步：评估一致性 -->
+  <rect x="50" y="270" width="330" height="200" rx="5" ry="5" fill="#f9f9f9" stroke="#dddddd" stroke-width="1"/>
+  <text x="215" y="295" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333" font-weight="bold">步骤 3：评估一致性</text>
+  
+  <!-- 第三步图例 -->
+  <rect x="70" y="310" width="290" height="140" fill="#fafafa" stroke="#bdbdbd" stroke-width="1" rx="3" ry="3"/>
+  
+  <!-- 所有匹配点 -->
+  <circle cx="90" cy="330" r="3" fill="#333333"/>
+  <circle cx="110" cy="350" r="3" fill="#333333"/>
+  <circle cx="130" cy="320" r="3" fill="#333333"/>
+  <circle cx="150" cy="370" r="3" fill="#333333"/>
+  <circle cx="100" cy="400" r="3" fill="#333333"/>
+  <circle cx="170" cy="340" r="3" fill="#333333"/>
+  <circle cx="140" cy="390" r="3" fill="#333333"/>
+  <circle cx="190" cy="330" r="3" fill="#333333"/>
+  <circle cx="210" cy="360" r="3" fill="#333333"/>
+  <circle cx="230" cy="410" r="3" fill="#333333"/>
+  <circle cx="250" cy="340" r="3" fill="#333333"/>
+  <circle cx="270" cy="380" r="3" fill="#333333"/>
+  <circle cx="290" cy="350" r="3" fill="#333333"/>
+  <circle cx="310" cy="330" r="3" fill="#333333"/>
+  <circle cx="200" cy="370" r="3" fill="#333333"/>
+  
+  <!-- 符合模型的内点 -->
+  <circle cx="90" cy="330" r="5" fill="#4caf50" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="130" cy="320" r="5" fill="#4caf50" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="170" cy="340" r="5" fill="#4caf50" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="140" cy="390" r="5" fill="#4caf50" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="190" cy="330" r="5" fill="#4caf50" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="230" cy="410" r="5" fill="#4caf50" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="250" cy="340" r="5" fill="#4caf50" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="310" cy="330" r="5" fill="#4caf50" stroke="#ffffff" stroke-width="1"/>
+  
+  <!-- 不符合模型的外点 -->
+  <circle cx="110" cy="350" r="5" fill="#f44336" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="150" cy="370" r="5" fill="#f44336" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="100" cy="400" r="5" fill="#f44336" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="210" cy="360" r="5" fill="#f44336" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="270" cy="380" r="5" fill="#f44336" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="290" cy="350" r="5" fill="#f44336" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="200" cy="370" r="5" fill="#f44336" stroke="#ffffff" stroke-width="1"/>
+  
+  <!-- 模型 -->
+  <path d="M70 380 Q130 320 200 350 Q260 370 330 330" stroke="#00acc1" stroke-width="2" fill="none"/>
+  
+  <text x="90" y="440" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#4caf50">• 内点：符合模型的点</text>
+  <text x="220" y="440" font-family="Arial, sans-serif" font-size="12" text-anchor="start" fill="#f44336">• 外点：不符合模型的点</text>
+  
+  <!-- 连接线 -->
+  <path d="M585 250 L215 270" stroke="#666666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 第四步：选择最佳模型 -->
+  <rect x="420" y="270" width="330" height="200" rx="5" ry="5" fill="#f9f9f9" stroke="#dddddd" stroke-width="1"/>
+  <text x="585" y="295" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333" font-weight="bold">步骤 4：选择最佳模型</text>
+  
+  <!-- 第四步图例 -->
+  <rect x="440" y="310" width="290" height="140" fill="#fafafa" stroke="#bdbdbd" stroke-width="1" rx="3" ry="3"/>
+  <text x="585" y="340" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333333">经过多次迭代后，选择具有</text>
+  <text x="585" y="360" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333333">最多内点的模型作为最终模型</text>
+  
+  <rect x="490" y="380" width="190" height="50" rx="5" ry="5" fill="#e0f7fa" stroke="#00acc1" stroke-width="2"/>
+  <text x="585" y="410" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333" font-weight="bold">最优单应性矩阵 H</text>
+  
+  <!-- 连接线 -->
+  <path d="M380 370 L420 370" stroke="#666666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666666"/>
+    </marker>
+  </defs>
+</svg>

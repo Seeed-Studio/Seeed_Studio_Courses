@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250">
+  <!-- 背景 -->
+  <rect width="900" height="300" fill="#ffffff"/>
+  
+  <!-- 标题 -->
+  <text x="450" y="30" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#333333" font-weight="bold">对象识别系统流程</text>
+  
+  <!-- 步骤框 -->
+  <!-- 步骤1: 特征提取 -->
+  <rect x="100" y="70" width="120" height="100" rx="10" ry="10" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+  <text x="160" y="100" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333" font-weight="bold">特征提取</text>
+  <text x="160" y="125" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333333">轮廓检测</text>
+  <text x="160" y="145" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333333">ORB特征点</text>
+  
+  <!-- 步骤2: 特征匹配 -->
+  <rect x="300" y="70" width="120" height="100" rx="10" ry="10" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
+  <text x="360" y="100" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333" font-weight="bold">特征匹配</text>
+  <text x="360" y="125" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333333">BFMatcher</text>
+  <text x="360" y="145" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333333">比值测试筛选</text>
+  
+  <!-- 步骤3: 变换计算 -->
+  <rect x="500" y="70" width="120" height="100" rx="10" ry="10" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+  <text x="560" y="100" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333" font-weight="bold">变换计算</text>
+  <text x="560" y="125" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333333">单应性矩阵</text>
+  <text x="560" y="145" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333333">RANSAC算法</text>
+  
+  <!-- 步骤4: 目标标记 -->
+  <rect x="700" y="70" width="120" height="100" rx="10" ry="10" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2"/>
+  <text x="760" y="100" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333333" font-weight="bold">目标标记</text>
+  <text x="760" y="125" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333333">绘制边界框</text>
+  
+  <!-- 连接箭头 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666666"/>
+    </marker>
+  </defs>
+  
+  <!-- 连接线 -->
+  <line x1="220" y1="120" x2="300" y2="120" stroke="#666666" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="420" y1="120" x2="500" y2="120" stroke="#666666" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="620" y1="120" x2="700" y2="120" stroke="#666666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 图像示例 -->
+  <rect x="130" y="180" width="60" height="40" fill="#e8eaf6" stroke="#3f51b5" stroke-width="1" rx="3" ry="3"/>
+  <circle cx="145" cy="195" r="3" fill="#f44336"/>
+  <circle cx="160" cy="190" r="3" fill="#f44336"/>
+  <circle cx="155" cy="205" r="3" fill="#f44336"/>
+  <circle cx="175" cy="200" r="3" fill="#f44336"/>
+  
+  <rect x="330" y="180" width="60" height="40" fill="#f5f5f5" stroke="#9e9e9e" stroke-width="1" rx="3" ry="3"/>
+  <line x1="145" y1="195" x2="340" y2="195" stroke="#9c27b0" stroke-width="1" stroke-dasharray="2,1"/>
+  <line x1="160" y1="190" x2="360" y2="190" stroke="#9c27b0" stroke-width="1" stroke-dasharray="2,1"/>
+  <circle cx="340" cy="195" r="3" fill="#4caf50"/>
+  <circle cx="360" cy="190" r="3" fill="#4caf50"/>
+  
+  <rect x="530" y="180" width="60" height="40" fill="#f5f5f5" stroke="#9e9e9e" stroke-width="1" rx="3" ry="3"/>
+  <polygon points="540,190 550,185 570,205 560,210" fill="none" stroke="#4caf50" stroke-width="1.5"/>
+</svg>

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440">
+  <!-- 背景 -->
+  <rect width="800" height="440" fill="#ffffff"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333333" font-weight="bold">单应性矩阵变换原理</text>
+  
+  <!-- 左侧：参考图像 -->
+  <rect x="80" y="90" width="200" height="200" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="5" ry="5"/>
+  <text x="180" y="75" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#333">参考图像</text>
+  
+  <!-- 参考图像中的矩形物体 -->
+  <rect x="120" y="130" width="120" height="120" fill="#bbdefb" stroke="#1976d2" stroke-width="2"/>
+  
+  <!-- 参考图像中的特征点 -->
+  <circle cx="120" cy="130" r="5" fill="#f44336"/>
+  <circle cx="240" cy="130" r="5" fill="#f44336"/>
+  <circle cx="240" cy="250" r="5" fill="#f44336"/>
+  <circle cx="120" cy="250" r="5" fill="#f44336"/>
+  
+  <!-- 标记特征点 -->
+  <text x="110" y="125" font-family="Arial, sans-serif" font-size="14" fill="#d32f2f">p₁</text>
+  <text x="250" y="125" font-family="Arial, sans-serif" font-size="14" fill="#d32f2f">p₂</text>
+  <text x="250" y="260" font-family="Arial, sans-serif" font-size="14" fill="#d32f2f">p₃</text>
+  <text x="110" y="260" font-family="Arial, sans-serif" font-size="14" fill="#d32f2f">p₄</text>
+  
+  <!-- 右侧：场景图像 -->
+  <rect x="520" y="90" width="200" height="200" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" rx="5" ry="5"/>
+  <text x="620" y="75" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#333">场景图像</text>
+  
+  <!-- 场景图像中的变换后物体 -->
+  <polygon points="530,170 600,130 680,180 610,240" fill="#c8e6c9" stroke="#388e3c" stroke-width="2"/>
+  
+  <!-- 场景图像中的对应特征点 -->
+  <circle cx="530" cy="170" r="5" fill="#4caf50"/>
+  <circle cx="600" cy="130" r="5" fill="#4caf50"/>
+  <circle cx="680" cy="180" r="5" fill="#4caf50"/>
+  <circle cx="610" cy="240" r="5" fill="#4caf50"/>
+  
+  <!-- 标记对应特征点 -->
+  <text x="520" y="165" font-family="Arial, sans-serif" font-size="14" fill="#2e7d32">p₁'</text>
+  <text x="610" y="125" font-family="Arial, sans-serif" font-size="14" fill="#2e7d32">p₂'</text>
+  <text x="690" y="180" font-family="Arial, sans-serif" font-size="14" fill="#2e7d32">p₃'</text>
+  <text x="610" y="255" font-family="Arial, sans-serif" font-size="14" fill="#2e7d32">p₄'</text>
+  
+  <!-- 中间：单应性矩阵 -->
+  <rect x="325" y="140" width="150" height="100" rx="10" ry="10" fill="#f5f5f5" stroke="#9e9e9e" stroke-width="2"/>
+  
+  <!-- 矩阵表示 -->
+  <text x="400" y="175" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#333" font-weight="bold">H</text>
+  <text x="400" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#555">(3×3 变换矩阵)</text>
+  
+  <!-- 连接线和箭头 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <!-- 特征点匹配线 -->
+  <line x1="120" y1="130" x2="530" y2="170" stroke="#9c27b0" stroke-width="1" stroke-dasharray="5,2"/>
+  <line x1="240" y1="130" x2="600" y2="130" stroke="#9c27b0" stroke-width="1" stroke-dasharray="5,2"/>
+  <line x1="240" y1="250" x2="680" y2="180" stroke="#9c27b0" stroke-width="1" stroke-dasharray="5,2"/>
+  <line x1="120" y1="250" x2="610" y2="240" stroke="#9c27b0" stroke-width="1" stroke-dasharray="5,2"/>
+  
+  <!-- 变换箭头 -->
+  <path d="M280 190 L325 190" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M475 190 L520 190" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 公式和说明 -->
+  <text x="400" y="300" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333" font-weight="bold">p' = H × p</text>
+  
+  <!-- 底部说明文字 -->
+  <rect x="65" y="330" width="670" height="90" rx="5" ry="5" fill="#f9f9f9" stroke="#ddd" stroke-width="1"/>
+  
+  <text x="85" y="355" font-family="Arial, sans-serif" font-size="14" fill="#333">• 单应性矩阵 H 描述了平面间的投影变换关系</text>
+  <text x="85" y="380" font-family="Arial, sans-serif" font-size="14" fill="#333">• 它可以处理平移、旋转、缩放和透视等变换</text>
+  <text x="85" y="405" font-family="Arial, sans-serif" font-size="14" fill="#333">• 只需至少 4 对匹配点即可计算出 H 矩阵</text>
+  
+  <text x="415" y="355" font-family="Arial, sans-serif" font-size="14" fill="#333">• 通过 RANSAC 算法可以排除错误匹配</text>
+  <text x="415" y="380" font-family="Arial, sans-serif" font-size="14" fill="#333">• 利用 H 矩阵可以将参考图像边界映射到场景图像</text>
+  <text x="415" y="405" font-family="Arial, sans-serif" font-size="14" fill="#333">• 从而精确定位目标物体的位置和姿态</text>
+</svg>

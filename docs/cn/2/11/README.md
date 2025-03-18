@@ -747,6 +747,6 @@ if __name__ == "__main__":
         + 对比 Sobel、Laplacian 和 Canny 算法的边缘检测效果
         + 通过实验找到每种图像类型的最佳处理参数组合
 
-        <br>
+        </br>
 
     参考答案：[11-边缘检测与形态学操作课后题参考答案](https://github.com/Seeed-Studio/Seeed_Studio_Courses/blob/Edge-AI-101-with-Nvidia-Jetson-Course/docs/cn/2/11/Homework_Answer.md)

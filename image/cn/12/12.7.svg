@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340">
+  <!-- 背景 -->
+  <rect width="800" height="340" fill="#ffffff"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333333" font-weight="bold">特征检测算法性能对比</text>
+  
+  <!-- 表格边框 -->
+  <rect x="100" y="70" width="600" height="240" fill="none" stroke="#333333" stroke-width="2"/>
+  
+  <!-- 表头 -->
+  <rect x="100" y="70" width="150" height="40" fill="#f2f2f2" stroke="#333333" stroke-width="1"/>
+  <rect x="250" y="70" width="150" height="40" fill="#f2f2f2" stroke="#333333" stroke-width="1"/>
+  <rect x="400" y="70" width="150" height="40" fill="#f2f2f2" stroke="#333333" stroke-width="1"/>
+  <rect x="550" y="70" width="150" height="40" fill="#f2f2f2" stroke="#333333" stroke-width="1"/>
+  
+  <text x="175" y="95" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold">性能指标</text>
+  <text x="325" y="95" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold">ORB</text>
+  <text x="475" y="95" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold">SIFT</text>
+  <text x="625" y="95" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold">SURF</text>
+  
+  <!-- 行1: 计算速度 -->
+  <rect x="100" y="110" width="150" height="40" fill="#ffffff" stroke="#333333" stroke-width="1"/>
+  <rect x="250" y="110" width="150" height="40" fill="#e6ffe6" stroke="#333333" stroke-width="1"/>
+  <rect x="400" y="110" width="150" height="40" fill="#ffe6e6" stroke="#333333" stroke-width="1"/>
+  <rect x="550" y="110" width="150" height="40" fill="#fff2e6" stroke="#333333" stroke-width="1"/>
+  
+  <text x="175" y="135" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">计算速度</text>
+  <text x="325" y="135" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#006600">非常快</text>
+  <text x="475" y="135" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#990000">慢</text>
+  <text x="625" y="135" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#cc6600">中等</text>
+  
+  <!-- 行2: 内存占用 -->
+  <rect x="100" y="150" width="150" height="40" fill="#ffffff" stroke="#333333" stroke-width="1"/>
+  <rect x="250" y="150" width="150" height="40" fill="#e6ffe6" stroke="#333333" stroke-width="1"/>
+  <rect x="400" y="150" width="150" height="40" fill="#ffe6e6" stroke="#333333" stroke-width="1"/>
+  <rect x="550" y="150" width="150" height="40" fill="#fff2e6" stroke="#333333" stroke-width="1"/>
+  
+  <text x="175" y="175" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">内存占用</text>
+  <text x="325" y="175" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#006600">低</text>
+  <text x="475" y="175" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#990000">高</text>
+  <text x="625" y="175" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#cc6600">中等</text>
+  
+  <!-- 行3: 旋转不变性 -->
+  <rect x="100" y="190" width="150" height="40" fill="#ffffff" stroke="#333333" stroke-width="1"/>
+  <rect x="250" y="190" width="150" height="40" fill="#e6ffe6" stroke="#333333" stroke-width="1"/>
+  <rect x="400" y="190" width="150" height="40" fill="#e6ffe6" stroke="#333333" stroke-width="1"/>
+  <rect x="550" y="190" width="150" height="40" fill="#e6ffe6" stroke="#333333" stroke-width="1"/>
+  
+  <text x="175" y="215" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">旋转不变性</text>
+  <text x="325" y="215" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#006600">支持</text>
+  <text x="475" y="215" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#006600">支持</text>
+  <text x="625" y="215" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#006600">支持</text>
+  
+  <!-- 行4: 尺度不变性 -->
+  <rect x="100" y="230" width="150" height="40" fill="#ffffff" stroke="#333333" stroke-width="1"/>
+  <rect x="250" y="230" width="150" height="40" fill="#fff2e6" stroke="#333333" stroke-width="1"/>
+  <rect x="400" y="230" width="150" height="40" fill="#e6ffe6" stroke="#333333" stroke-width="1"/>
+  <rect x="550" y="230" width="150" height="40" fill="#e6ffe6" stroke="#333333" stroke-width="1"/>
+  
+  <text x="175" y="255" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">尺度不变性</text>
+  <text x="325" y="255" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#cc6600">需金字塔支持</text>
+  <text x="475" y="255" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#006600">完全支持</text>
+  <text x="625" y="255" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#006600">完全支持</text>
+  
+  <!-- 行5: 稳定性 -->
+  <rect x="100" y="270" width="150" height="40" fill="#ffffff" stroke="#333333" stroke-width="1"/>
+  <rect x="250" y="270" width="150" height="40" fill="#fff2e6" stroke="#333333" stroke-width="1"/>
+  <rect x="400" y="270" width="150" height="40" fill="#e6ffe6" stroke="#333333" stroke-width="1"/>
+  <rect x="550" y="270" width="150" height="40" fill="#e6ffe6" stroke="#333333" stroke-width="1"/>
+  
+  <text x="175" y="295" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">特征稳定性</text>
+  <text x="325" y="295" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#cc6600">中等</text>
+  <text x="475" y="295" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#006600">高</text>
+  <text x="625" y="295" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#006600">高</text>
+
+</svg>

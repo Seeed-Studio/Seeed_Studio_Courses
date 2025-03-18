@@ -15,3 +15,4 @@
     * [09-OpenCV 基础操作](/docs/cn/2/09/README.md)
     * [10-OpenCV 视频流处理](/docs/cn/2/10/README.md)
     * [11-边缘检测与形态学操作](/docs/cn/2/11/README.md)
+    * [12-轮廓检测与特征提取](/docs/cn/2/12/README.md)
