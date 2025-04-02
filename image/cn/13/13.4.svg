@@ -1,0 +1,55 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 白色背景 -->
+  <rect x="0" y="0" width="800" height="400" fill="white" />
+  
+  <!-- 标题 -->
+  <text x="400" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">Haar特征的基本类型</text>
+  
+  <!-- 边缘特征 -->
+  <g transform="translate(100, 100)">
+    <rect x="0" y="0" width="150" height="150" fill="none" stroke="#333" stroke-width="2" />
+    
+    <!-- 边缘特征图形 -->
+    <rect x="25" y="25" width="50" height="100" fill="white" stroke="#333" />
+    <rect x="75" y="25" width="50" height="100" fill="black" stroke="#333" />
+    
+    <!-- 文字说明 -->
+    <text x="75" y="170" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">边缘特征</text>
+    <text x="75" y="190" font-family="Arial" font-size="14" text-anchor="middle">检测明暗边界</text>
+    <text x="75" y="210" font-family="Arial" font-size="14" text-anchor="middle">适合眼睛边缘、脸部轮廓</text>
+  </g>
+  
+  <!-- 线条特征 -->
+  <g transform="translate(325, 100)">
+    <rect x="0" y="0" width="150" height="150" fill="none" stroke="#333" stroke-width="2" />
+    
+    <!-- 线条特征图形 -->
+    <rect x="25" y="25" width="100" height="33" fill="white" stroke="#333" />
+    <rect x="25" y="58" width="100" height="34" fill="black" stroke="#333" />
+    <rect x="25" y="92" width="100" height="33" fill="white" stroke="#333" />
+    
+    <!-- 文字说明 -->
+    <text x="75" y="170" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">线条特征</text>
+    <text x="75" y="190" font-family="Arial" font-size="14" text-anchor="middle">检测中间与两侧差异</text>
+    <text x="75" y="210" font-family="Arial" font-size="14" text-anchor="middle">适合鼻梁等线性结构</text>
+  </g>
+  
+  <!-- 中心-周围特征 -->
+  <g transform="translate(550, 100)">
+    <rect x="0" y="0" width="150" height="150" fill="none" stroke="#333" stroke-width="2" />
+    
+    <!-- 中心-周围特征图形 -->
+    <rect x="25" y="25" width="100" height="100" fill="white" stroke="#333" />
+    <rect x="50" y="50" width="50" height="50" fill="black" stroke="#333" />
+    
+    <!-- 文字说明 -->
+    <text x="75" y="170" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">中心-周围特征</text>
+    <text x="75" y="190" font-family="Arial" font-size="14" text-anchor="middle">检测点状特征</text>
+    <text x="75" y="210" font-family="Arial" font-size="14" text-anchor="middle">适合瞳孔、鼻尖等</text>
+  </g>
+  
+  <!-- 底部说明 -->
+  <text x="400" y="370" font-family="Arial" font-size="16" text-anchor="middle">
+    白色区域减去黑色区域的像素和，用于计算图像特征
+  </text>
+</svg>

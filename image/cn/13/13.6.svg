@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="800" height="400" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" fill="#333" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold">AdaBoost特征选择过程</text>
+  
+  <!-- 特征池 -->
+  <g transform="translate(60, 100)">
+    <rect x="0" y="0" width="120" height="220" fill="#e0e0e0" stroke="#333" stroke-width="2" rx="10" ry="10"/>
+    
+    <!-- 多个Haar特征示例 -->
+    <g transform="translate(20, 20) scale(0.3)">
+      <rect x="0" y="0" width="60" height="60" fill="#fff" stroke="#333" stroke-width="2"/>
+      <rect x="0" y="0" width="30" height="60" fill="#000" fill-opacity="0.7"/>
+    </g>
+    
+    <g transform="translate(70, 20) scale(0.3)">
+      <rect x="0" y="0" width="90" height="60" fill="#fff" stroke="#333" stroke-width="2"/>
+      <rect x="0" y="0" width="30" height="60" fill="#000" fill-opacity="0.7"/>
+      <rect x="60" y="0" width="30" height="60" fill="#000" fill-opacity="0.7"/>
+    </g>
+    
+    <g transform="translate(20, 50) scale(0.3)">
+      <rect x="0" y="0" width="60" height="60" fill="#fff" stroke="#333" stroke-width="2"/>
+      <rect x="15" y="15" width="30" height="30" fill="#000" fill-opacity="0.7"/>
+    </g>
+    
+    <g transform="translate(70, 50) scale(0.3)">
+      <rect x="0" y="0" width="60" height="60" fill="#fff" stroke="#333" stroke-width="2"/>
+      <rect x="0" y="0" width="60" height="30" fill="#000" fill-opacity="0.7"/>
+    </g>
+    
+    <!-- 更多特征的示意 -->
+    <g transform="translate(20, 80) scale(0.25)">
+      <rect x="0" y="0" width="60" height="60" fill="#fff" stroke="#333" stroke-width="2"/>
+      <rect x="0" y="30" width="60" height="30" fill="#000" fill-opacity="0.7"/>
+    </g>
+    
+    <g transform="translate(70, 80) scale(0.25)">
+      <rect x="0" y="0" width="60" height="60" fill="#fff" stroke="#333" stroke-width="2"/>
+      <rect x="30" y="0" width="30" height="60" fill="#000" fill-opacity="0.7"/>
+    </g>
+    
+    <!-- 使用点表示大量特征 -->
+    <circle cx="30" cy="120" r="3" fill="#333"/>
+    <circle cx="40" cy="130" r="3" fill="#333"/>
+    <circle cx="50" cy="120" r="3" fill="#333"/>
+    <circle cx="60" cy="125" r="3" fill="#333"/>
+    <circle cx="70" cy="135" r="3" fill="#333"/>
+    <circle cx="80" cy="120" r="3" fill="#333"/>
+    <circle cx="90" cy="125" r="3" fill="#333"/>
+    
+    <circle cx="30" cy="145" r="3" fill="#333"/>
+    <circle cx="50" cy="145" r="3" fill="#333"/>
+    <circle cx="70" cy="145" r="3" fill="#333"/>
+    <circle cx="90" cy="145" r="3" fill="#333"/>
+    
+    <circle cx="40" cy="160" r="3" fill="#333"/>
+    <circle cx="60" cy="160" r="3" fill="#333"/>
+    <circle cx="80" cy="160" r="3" fill="#333"/>
+    
+    <circle cx="30" cy="175" r="3" fill="#333"/>
+    <circle cx="50" cy="175" r="3" fill="#333"/>
+    <circle cx="70" cy="175" r="3" fill="#333"/>
+    <circle cx="90" cy="175" r="3" fill="#333"/>
+    
+    <circle cx="40" cy="190" r="3" fill="#333"/>
+    <circle cx="60" cy="190" r="3" fill="#333"/>
+    <circle cx="80" cy="190" r="3" fill="#333"/>
+    
+    <text x="60" y="-10" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">特征池</text>
+    <text x="60" y="240" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">（160,000+特征）</text>
+  </g>
+  
+  <!-- 第一轮选择 -->
+  <g transform="translate(250, 100)">
+    <rect x="0" y="0" width="120" height="140" fill="#f0f0ff" stroke="#55f" stroke-width="2" rx="10" ry="10"/>
+    
+    <text x="60" y="-10" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">第一轮选择</text>
+    
+    <!-- 初始样本权重 -->
+    <text x="60" y="25" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">初始样本权重相同</text>
+    
+    <!-- 选中的第一个特征 -->
+    <g transform="translate(20, 50) scale(0.5)">
+      <rect x="0" y="0" width="60" height="60" fill="#fff" stroke="#55f" stroke-width="4"/>
+      <rect x="0" y="0" width="30" height="60" fill="#55f" fill-opacity="0.7"/>
+    </g>
+    
+    <text x="60" y="100" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">选择最佳特征</text>
+    <text x="60" y="120" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">错误率：25%</text>
+  </g>
+  
+  <!-- 第二轮选择 -->
+  <g transform="translate(400, 100)">
+    <rect x="0" y="0" width="120" height="140" fill="#fff0f0" stroke="#f55" stroke-width="2" rx="10" ry="10"/>
+    
+    <text x="60" y="-10" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">第二轮选择</text>
+    
+    <!-- 调整后的样本权重 -->
+    <text x="60" y="25" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">调整样本权重</text>
+    <text x="60" y="40" fill="#333" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">（增加错误样本权重）</text>
+    
+    <!-- 选中的第二个特征 -->
+    <g transform="translate(20, 50) scale(0.5)">
+      <rect x="0" y="0" width="90" height="60" fill="#fff" stroke="#f55" stroke-width="4"/>
+      <rect x="0" y="0" width="30" height="60" fill="#f55" fill-opacity="0.7"/>
+      <rect x="60" y="0" width="30" height="60" fill="#f55" fill-opacity="0.7"/>
+    </g>
+    
+    <text x="60" y="100" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">选择互补特征</text>
+    <text x="60" y="120" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">错误率：20%</text>
+  </g>
+  
+  <!-- 第三轮选择 -->
+  <g transform="translate(550, 100)">
+    <rect x="0" y="0" width="120" height="140" fill="#f0fff0" stroke="#5a5" stroke-width="2" rx="10" ry="10"/>
+    
+    <text x="60" y="-10" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">第三轮选择</text>
+    
+    <!-- 再次调整的样本权重 -->
+    <text x="60" y="25" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">再次调整权重</text>
+    <text x="60" y="40" fill="#333" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">（聚焦难分样本）</text>
+    
+    <!-- 选中的第三个特征 -->
+    <g transform="translate(35, 50) scale(0.5)">
+      <rect x="0" y="0" width="60" height="60" fill="#fff" stroke="#5a5" stroke-width="4"/>
+      <rect x="15" y="15" width="30" height="30" fill="#5a5" fill-opacity="0.7"/>
+    </g>
+    
+    <text x="60" y="100" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">选择互补特征</text>
+    <text x="60" y="120" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">错误率：15%</text>
+  </g>
+  
+  <!-- 最终组合的强分类器 -->
+  <g transform="translate(400, 280)">
+    <rect x="-200" y="0" width="400" height="80" fill="#ffffe0" stroke="#333" stroke-width="2" rx="10" ry="10"/>
+    
+    <!-- 第一个特征 -->
+    <g transform="translate(-160, 20) scale(0.4)">
+      <rect x="0" y="0" width="60" height="60" fill="#fff" stroke="#55f" stroke-width="3"/>
+      <rect x="0" y="0" width="30" height="60" fill="#55f" fill-opacity="0.5"/>
+    </g>
+    
+    <text x="-120" y="35" fill="#333" font-family="Arial, sans-serif" font-size="22" text-anchor="middle">+</text>
+    
+    <!-- 第二个特征 -->
+    <g transform="translate(-80, 20) scale(0.4)">
+      <rect x="0" y="0" width="90" height="60" fill="#fff" stroke="#f55" stroke-width="3"/>
+      <rect x="0" y="0" width="30" height="60" fill="#f55" fill-opacity="0.5"/>
+      <rect x="60" y="0" width="30" height="60" fill="#f55" fill-opacity="0.5"/>
+    </g>
+    
+    <text x="-20" y="35" fill="#333" font-family="Arial, sans-serif" font-size="22" text-anchor="middle">+</text>
+    
+    <!-- 第三个特征 -->
+    <g transform="translate(10, 20) scale(0.4)">
+      <rect x="0" y="0" width="60" height="60" fill="#fff" stroke="#5a5" stroke-width="3"/>
+      <rect x="15" y="15" width="30" height="30" fill="#5a5" fill-opacity="0.5"/>
+    </g>
+    
+    <text x="70" y="35" fill="#333" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">+ ...</text>
+    
+    <text x="150" y="35" fill="#333" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">= 强分类器</text>
+
+    <text x="-190" y="70" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="start">（脸部边缘）</text>
+    <text x="-90" y="70" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="start">（鼻梁）</text>
+    <text x="-5" y="70" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="start">（瞳孔）</text>
+    <text x="105" y="70" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="start">（可能是人脸）</text>
+    
+    <text x="0" y="-10" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">最终特征组合（加权）</text>
+  </g>
+  
+  <!-- 箭头指示迭代过程 -->
+  <path d="M180 220 L220 220" stroke="#333" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M370 220 L400 220" stroke="#333" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M520 220 L550 220" stroke="#333" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M670 220 L720 220" stroke="#333" stroke-width="1.5" fill="none" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+  
+  <text x="720" y="210" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="start">继续迭代...</text>
+  
+  <!-- 定义箭头标记 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

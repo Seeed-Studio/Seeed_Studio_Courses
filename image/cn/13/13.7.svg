@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="800" height="450" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" fill="#333" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold">级联分类器的工作原理</text>
+  
+  <!-- 输入图像 -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="120" height="120" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+    
+    <!-- 复杂场景（添加杂物和干扰） -->
+    <!-- 干扰物体1: 文本块 -->
+    <rect x="10" y="10" width="40" height="5" fill="#aaa"/>
+    <rect x="10" y="20" width="50" height="5" fill="#aaa"/>
+    <rect x="10" y="30" width="45" height="5" fill="#aaa"/>
+    
+    <!-- 干扰物体2: 一些形状 -->
+    <rect x="80" y="15" width="30" height="20" fill="#bbb" rx="2" ry="2"/>
+    <polygon points="70,95 90,105 65,110" fill="#999"/>
+    <rect x="15" y="95" width="25" height="15" fill="#aaa"/>
+    
+    <!-- 面部（圆形，与最终检测结果匹配） -->
+    <circle cx="60" cy="60" r="25" fill="#ccc" stroke="#bbb" stroke-width="1"/>
+    <circle cx="50" cy="55" r="5" fill="#999"/>
+    <circle cx="70" cy="55" r="5" fill="#999"/>
+    <path d="M50 70 Q60 80 70 70" fill="none" stroke="#999" stroke-width="1.5"/>
+    
+    <text x="60" y="150" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">输入图像</text>
+  </g>
+  
+  <!-- 级联分类器结构 -->
+  <!-- 第一阶段：少量特征，快速筛选 -->
+  <g transform="translate(230, 120)">
+    <rect x="0" y="-40" width="100" height="80" fill="#ff9999" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+    
+    <text x="50" y="-10" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">第一阶段</text>
+    <text x="50" y="10" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">2-3个特征</text>
+    <text x="50" y="30" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">快速筛选</text>
+    
+    <!-- 筛选统计 -->
+    <rect x="0" y="55" width="100" height="40" fill="#f0f0f0" stroke="#333" stroke-width="1" rx="5" ry="5"/>
+    <text x="50" y="75" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">排除80%区域</text>
+    <text x="50" y="90" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">非人脸</text>
+  </g>
+  
+  <!-- 显示箭头和筛选效果 -->
+  <path d="M170 160 L230 160" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- 从第一阶段排除的区域示意 -->
+  <g transform="translate(230, 220)">
+    <rect x="0" y="0" width="100" height="60" fill="#ffdddd" stroke="#f55" stroke-width="1" stroke-dasharray="5,3" rx="5" ry="5"/>
+    
+    <text x="50" y="35" fill="#f55" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">被第一阶段</text>
+    <text x="50" y="50" fill="#f55" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">排除的区域</text>
+  </g>
+  
+  <!-- 第二阶段：更多特征，更精细的筛选 -->
+  <g transform="translate(390, 120)">
+    <rect x="0" y="-40" width="100" height="80" fill="#ffcc99" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+    
+    <text x="50" y="-10" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">第二阶段</text>
+    <text x="50" y="10" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">10-20个特征</text>
+    <text x="50" y="30" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">精细筛选</text>
+    
+    <!-- 筛选统计 -->
+    <rect x="0" y="55" width="100" height="40" fill="#f0f0f0" stroke="#333" stroke-width="1" rx="5" ry="5"/>
+    <text x="50" y="75" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">排除10%区域</text>
+    <text x="50" y="90" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">非人脸</text>
+  </g>
+  
+  <!-- 显示箭头和筛选效果 -->
+  <path d="M330 160 L390 160" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- 从第二阶段排除的区域示意 -->
+  <g transform="translate(390, 220)">
+    <rect x="0" y="0" width="100" height="60" fill="#fff0dd" stroke="#f93" stroke-width="1" stroke-dasharray="5,3" rx="5" ry="5"/>
+    
+    <text x="50" y="35" fill="#f93" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">被第二阶段</text>
+    <text x="50" y="50" fill="#f93" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">排除的区域</text>
+  </g>
+  
+  <!-- 第三阶段：更多特征，更高精度 -->
+  <g transform="translate(550, 120)">
+    <rect x="0" y="-40" width="100" height="80" fill="#cceeff" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+    
+    <text x="50" y="-10" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">后续阶段</text>
+    <text x="50" y="10" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">50+个特征</text>
+    <text x="50" y="30" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">高精度筛选</text>
+    
+    <!-- 筛选统计 -->
+    <rect x="0" y="55" width="100" height="40" fill="#f0f0f0" stroke="#333" stroke-width="1" rx="5" ry="5"/>
+    <text x="50" y="75" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">排除9%区域</text>
+    <text x="50" y="90" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">非人脸</text>
+  </g>
+  
+  <!-- 显示箭头和筛选效果 -->
+  <path d="M490 160 L550 160" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- 从第三阶段排除的区域示意 -->
+  <g transform="translate(550, 220)">
+    <rect x="0" y="0" width="100" height="60" fill="#dcf0ff" stroke="#39f" stroke-width="1" stroke-dasharray="5,3" rx="5" ry="5"/>
+    
+    <text x="50" y="35" fill="#39f" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">被后续阶段</text>
+    <text x="50" y="50" fill="#39f" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">排除的区域</text>
+  </g>
+  
+  <!-- 最终结果 -->
+  <g transform="translate(700, 100)">
+    <rect x="0" y="0" width="80" height="120" fill="#e0ffe0" stroke="#333" stroke-width="2" rx="10" ry="10"/>
+    
+    <!-- 检测到的人脸 - 与输入图像匹配 -->
+    <circle cx="40" cy="60" r="25" fill="#a0d0a0" stroke="#333" stroke-width="1.5"/>
+    <circle cx="30" cy="55" r="5" fill="#333"/>
+    <circle cx="50" cy="55" r="5" fill="#333"/>
+    <path d="M30 70 Q40 80 50 70" fill="none" stroke="#333" stroke-width="1.5"/>
+    
+    <text x="40" y="15" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">检测到</text>
+    <text x="40" y="30" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">人脸</text>
+    <text x="40" y="110" fill="#333" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">(1%区域)</text>
+  </g>
+  
+  <path d="M650 160 L700 160" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- 滑动窗口示意 -->
+  <g transform="translate(400, 320)">
+    <rect x="-350" y="0" width="700" height="80" fill="#efefef" stroke="#333" stroke-width="2" rx="10" ry="10"/>
+    
+    <text x="0" y="20" fill="#333" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold">级联分类器的优势</text>
+    
+    <text x="-200" y="50" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">早期高效排除</text>
+    <text x="0" y="50" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">计算资源集中于可能区域</text>
+    <text x="200" y="50" fill="#333" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">兼顾速度和准确率</text>
+  </g>
+  
+  <!-- 定义箭头标记 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

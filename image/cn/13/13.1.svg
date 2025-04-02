@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="800" height="400" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" fill="#333" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold">人脸检测系统功能流程图</text>
+  
+  <!-- 输入部分 -->
+  <g transform="translate(80, 120)">
+    <!-- 静态图像输入 -->
+    <rect x="0" y="0" width="90" height="70" fill="#e1f5fe" stroke="#0288d1" stroke-width="2" rx="5" ry="5"/>
+    <rect x="10" y="10" width="70" height="50" fill="#81d4fa" stroke="#0288d1" stroke-width="1" rx="3" ry="3"/>
+    <text x="45" y="40" fill="#01579b" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">静态图像</text>
+    
+    <!-- 视频输入 -->
+    <rect x="0" y="100" width="90" height="70" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" rx="5" ry="5"/>
+    <rect x="10" y="110" width="25" height="20" fill="#a5d6a7" stroke="#388e3c" stroke-width="1" rx="2" ry="2"/>
+    <rect x="10" y="135" width="25" height="20" fill="#a5d6a7" stroke="#388e3c" stroke-width="1" rx="2" ry="2"/>
+    <rect x="40" y="110" width="40" height="45" fill="#a5d6a7" stroke="#388e3c" stroke-width="1" rx="2" ry="2"/>
+    <text x="45" y="140" fill="#1b5e20" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">视频流</text>
+    
+    <text x="45" y="-15" fill="#333" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">输入</text>
+  </g>
+  
+  <!-- 处理流程部分 -->
+  <g transform="translate(280, 120)">
+    <!-- 处理框架 -->
+    <rect x="0" y="0" width="240" height="170" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="5" ry="5"/>
+    
+    <!-- 灰度转换 -->
+    <rect x="20" y="30" width="200" height="30" fill="#e1bee7" stroke="#7b1fa2" stroke-width="1" rx="3" ry="3"/>
+    <text x="120" y="50" fill="#4a148c" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">灰度转换</text>
+    
+    <!-- 级联分类器 -->
+    <rect x="20" y="70" width="200" height="30" fill="#e1bee7" stroke="#7b1fa2" stroke-width="1" rx="3" ry="3"/>
+    <text x="120" y="90" fill="#4a148c" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Haar特征 + 级联分类器</text>
+    
+    <!-- 人脸标记 -->
+    <rect x="20" y="110" width="200" height="30" fill="#e1bee7" stroke="#7b1fa2" stroke-width="1" rx="3" ry="3"/>
+    <text x="120" y="130" fill="#4a148c" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">人脸位置标记</text>
+    
+    <text x="120" y="-15" fill="#333" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">处理流程</text>
+  </g>
+  
+  <!-- 改进的输出部分 -->
+  <g transform="translate(630, 110)">
+    <!-- 结果显示框架 -->
+    <rect x="0" y="0" width="120" height="190" fill="#fff3e0" stroke="#e65100" stroke-width="2" rx="5" ry="5"/>
+    
+    <!-- 检测结果图像 -->
+    <rect x="10" y="15" width="100" height="80" fill="#ffe0b2" stroke="#e65100" stroke-width="1" rx="3" ry="3"/>
+    
+    <!-- 人脸1 -->
+    <circle cx="40" cy="40" r="15" fill="#ffcc80" stroke="#e65100" stroke-width="1"/>
+    <circle cx="35" cy="35" r="2" fill="#333"/>
+    <circle cx="45" cy="35" r="2" fill="#333"/>
+    <path d="M35 45 Q40 48 45 45" fill="none" stroke="#333" stroke-width="1"/>
+    <rect x="25" y="25" width="30" height="30" fill="none" stroke="#f44336" stroke-width="1.5" rx="2" ry="2"/>
+    
+    <!-- 人脸2 -->
+    <circle cx="80" cy="55" r="12" fill="#ffcc80" stroke="#e65100" stroke-width="1"/>
+    <circle cx="76" cy="52" r="1.5" fill="#333"/>
+    <circle cx="84" cy="52" r="1.5" fill="#333"/>
+    <path d="M76 58 Q80 60 84 58" fill="none" stroke="#333" stroke-width="0.8"/>
+    <rect x="68" y="43" width="24" height="24" fill="none" stroke="#f44336" stroke-width="1.5" rx="2" ry="2"/>
+    
+    <!-- 检测信息区域 -->
+    <rect x="10" y="105" width="100" height="75" fill="#ffe0b2" stroke="#e65100" stroke-width="1" rx="3" ry="3"/>
+    
+    <!-- 检测参数显示 -->
+    <text x="60" y="125" fill="#333" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">检测到：2个人脸</text>
+    <text x="60" y="145" fill="#333" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">位置：(25,25) (68,43)</text>
+    <text x="60" y="165" fill="#333" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">尺寸：30×30 24×24</text>
+    
+    <text x="60" y="-15" fill="#333" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">输出</text>
+  </g>
+  
+  <!-- 参数控制部分 -->
+  <g transform="translate(280, 330)">
+    <rect x="0" y="0" width="240" height="40" fill="#e0f7fa" stroke="#00838f" stroke-width="2" rx="5" ry="5"/>
+    <text x="120" y="25" fill="#006064" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">检测参数调整（精度/速度平衡）</text>
+  </g>
+  
+  <!-- 连接线 -->
+  <!-- 输入到处理 -->
+  <path d="M170 135 L280 135" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M170 240 L280 240" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- 处理到输出 -->
+  <path d="M520 160 L630 160" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- 参数控制到处理 -->
+  <path d="M400 330 L400 290" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- 定义箭头标记 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

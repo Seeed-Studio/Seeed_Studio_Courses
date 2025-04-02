@@ -1,0 +1,89 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- 标题 -->
+  <text x="450" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">人脸检测 vs 人脸识别</text>
+
+  <!-- 左侧: 人脸检测 -->
+  <g>
+    <!-- 标题 -->
+    <text x="225" y="80" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold" fill="#2c5aa0">人脸检测</text>
+    <text x="225" y="110" font-family="Arial" font-size="16" text-anchor="middle" fill="#2c5aa0">回答"哪里有人脸"的问题</text>
+    
+    <!-- 图像框 -->
+    <rect x="75" y="130" width="300" height="200" fill="#f0f0f0" stroke="#2c5aa0" stroke-width="2" rx="5" />
+    
+    <!-- 人脸示意图 -->
+    <circle cx="175" cy="200" r="40" fill="#ffe0b2" stroke="#333" stroke-width="1" />
+    <ellipse cx="160" cy="190" rx="5" ry="5" fill="#333" />
+    <ellipse cx="190" cy="190" rx="5" ry="5" fill="#333" />
+    <path d="M165,210 Q175,220 185,210" fill="none" stroke="#333" stroke-width="1" />
+    
+    <circle cx="275" cy="230" r="30" fill="#ffe0b2" stroke="#333" stroke-width="1" />
+    <ellipse cx="265" cy="225" rx="4" ry="4" fill="#333" />
+    <ellipse cx="285" cy="225" rx="4" ry="4" fill="#333" />
+    <path d="M270,235 Q275,243 280,235" fill="none" stroke="#333" stroke-width="1" />
+    
+    <!-- 检测框 -->
+    <rect x="130" y="155" width="90" height="90" fill="none" stroke="#2c5aa0" stroke-width="3" rx="5" />
+    <rect x="240" y="195" width="70" height="70" fill="none" stroke="#2c5aa0" stroke-width="3" rx="5" />
+    
+    <!-- 下方描述 -->
+    <rect x="75" y="350" width="300" height="120" fill="#e6f0ff" stroke="#2c5aa0" stroke-width="2" rx="10" />
+    <text x="225" y="375" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">关键特点:</text>
+    
+    <circle cx="95" cy="400" r="5" fill="#2c5aa0" />
+    <text x="110" y="405" font-family="Arial" font-size="14" text-anchor="start">定位图像中的人脸位置</text>
+    
+    <circle cx="95" cy="425" r="5" fill="#2c5aa0" />
+    <text x="110" y="430" font-family="Arial" font-size="14" text-anchor="start">可检测多个人脸</text>
+    
+    <circle cx="95" cy="450" r="5" fill="#2c5aa0" />
+    <text x="110" y="455" font-family="Arial" font-size="14" text-anchor="start">输出人脸的坐标和大小</text>
+  </g>
+
+  <!-- 右侧: 人脸识别 -->
+  <g>
+    <!-- 标题 -->
+    <text x="675" y="80" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold" fill="#b33939">人脸识别</text>
+    <text x="675" y="110" font-family="Arial" font-size="16" text-anchor="middle" fill="#b33939">回答"这个人是谁"的问题</text>
+    
+    <!-- 图像框 -->
+    <rect x="525" y="130" width="300" height="200" fill="#f0f0f0" stroke="#b33939" stroke-width="2" rx="5" />
+    
+    <!-- 人脸示意图 -->
+    <circle cx="625" cy="200" r="40" fill="#ffe0b2" stroke="#333" stroke-width="1" />
+    <ellipse cx="610" cy="190" rx="5" ry="5" fill="#333" />
+    <ellipse cx="640" cy="190" rx="5" ry="5" fill="#333" />
+    <path d="M615,210 Q625,220 635,210" fill="none" stroke="#333" stroke-width="1" />
+    
+    <!-- 识别结果 -->
+    <rect x="680" y="155" width="130" height="90" fill="white" stroke="#b33939" stroke-width="2" rx="5" />
+    <line x1="680" y1="180" x2="810" y2="180" stroke="#b33939" stroke-width="1" />
+    <text x="745" y="173" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">识别结果</text>
+    <text x="745" y="200" font-family="Arial" font-size="14" text-anchor="middle">姓名: 张三</text>
+    <text x="745" y="225" font-family="Arial" font-size="14" text-anchor="middle">ID: 12345</text>
+    
+    <!-- 连接线 -->
+    <line x1="665" y1="200" x2="680" y2="200" stroke="#b33939" stroke-width="2" stroke-dasharray="5,3" />
+    
+    <!-- 下方描述 -->
+    <rect x="525" y="350" width="300" height="120" fill="#ffe6e6" stroke="#b33939" stroke-width="2" rx="10" />
+    <text x="675" y="375" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">关键特点:</text>
+    
+    <circle cx="545" cy="400" r="5" fill="#b33939" />
+    <text x="560" y="405" font-family="Arial" font-size="14" text-anchor="start">将人脸与数据库中的身份匹配</text>
+    
+    <circle cx="545" cy="425" r="5" fill="#b33939" />
+    <text x="560" y="430" font-family="Arial" font-size="14" text-anchor="start">需要先进行人脸检测</text>
+    
+    <circle cx="545" cy="450" r="5" fill="#b33939" />
+    <text x="560" y="455" font-family="Arial" font-size="14" text-anchor="start">输出人脸对应的身份信息</text>
+  </g>
+
+  <!-- 中央连接箭头 -->
+  <g>
+    <path d="M400,230 L500,230" stroke="#333" stroke-width="2" stroke-dasharray="6,3" />
+    <polygon points="490,225 500,230 490,235" fill="#333" />
+    <text x="450" y="220" font-family="Arial" font-size="14" text-anchor="middle">第一步</text>
+    <text x="450" y="250" font-family="Arial" font-size="14" text-anchor="middle">第二步</text>
+  </g>
+</svg>
