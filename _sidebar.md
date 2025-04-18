@@ -17,3 +17,4 @@
     * [11-边缘检测与形态学操作](/docs/cn/2/11/README.md)
     * [12-轮廓检测与特征提取](/docs/cn/2/12/README.md)
     * [13-人脸检测基础](/docs/cn/2/13/README.md)
+    * [14-计算机视觉实践项目](/docs/cn/2/14/README.md)

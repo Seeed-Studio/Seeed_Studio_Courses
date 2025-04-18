@@ -1,0 +1,66 @@
+<svg viewBox="0 0 900 550" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="900" height="550" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- VideoProcessor类 -->
+  <rect x="350" y="50" width="200" height="120" rx="10" ry="10" fill="#4287f5" stroke="#333" stroke-width="2"/>
+  <line x1="350" y1="80" x2="550" y2="80" stroke="#333" stroke-width="2"/>
+  <text x="450" y="70" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">VideoProcessor</text>
+  <text x="450" y="100" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 管理处理模式和参数</text>
+  <text x="450" y="120" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 协调系统组件</text>
+  <text x="450" y="140" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 处理用户输入</text>
+  <text x="450" y="160" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 保存处理结果</text>
+  
+  <!-- VideoReader类 -->
+  <rect x="100" y="250" width="180" height="120" rx="10" ry="10" fill="#28a745" stroke="#333" stroke-width="2"/>
+  <line x1="100" y1="280" x2="280" y2="280" stroke="#333" stroke-width="2"/>
+  <text x="190" y="270" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">VideoReader</text>
+  <text x="190" y="300" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 加载视频文件</text>
+  <text x="190" y="320" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 提取视频帧</text>
+  <text x="190" y="340" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 控制视频播放</text>
+  <text x="190" y="360" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 释放视频资源</text>
+  
+  <!-- ImageProcessor类 -->
+  <rect x="350" y="250" width="200" height="120" rx="10" ry="10" fill="#ffc107" stroke="#333" stroke-width="2"/>
+  <line x1="350" y1="280" x2="550" y2="280" stroke="#333" stroke-width="2"/>
+  <text x="450" y="270" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">ImageProcessor</text>
+  <text x="450" y="300" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 灰度转换</text>
+  <text x="450" y="320" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 高斯模糊</text>
+  <text x="450" y="340" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 边缘检测</text>
+  <text x="450" y="360" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 形态学操作</text>
+  
+  <!-- FeatureDetector类 -->
+  <rect x="620" y="250" width="180" height="100" rx="10" ry="10" fill="#dc3545" stroke="#333" stroke-width="2"/>
+  <line x1="620" y1="280" x2="800" y2="280" stroke="#333" stroke-width="2"/>
+  <text x="710" y="270" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">FeatureDetector</text>
+  <text x="710" y="300" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 轮廓检测</text>
+  <text x="710" y="320" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 人脸检测</text>
+  
+  <!-- UIHelper类 -->
+  <rect x="350" y="430" width="200" height="100" rx="10" ry="10" fill="#17a2b8" stroke="#333" stroke-width="2"/>
+  <line x1="350" y1="460" x2="550" y2="460" stroke="#333" stroke-width="2"/>
+  <text x="450" y="450" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">UIHelper</text>
+  <text x="450" y="480" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 显示处理信息</text>
+  <text x="450" y="500" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 绘制用户界面元素</text>
+  <text x="450" y="520" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">- 提供帮助信息</text>
+  
+  <!-- 连接线 - VideoProcessor到VideoReader -->
+  <line x1="390" y1="170" x2="220" y2="250" stroke="#333" stroke-width="2"/>
+  <text x="275" y="210" font-family="Arial, sans-serif" font-size="12" fill="#333">使用</text>
+  
+  <!-- 连接线 - VideoProcessor到ImageProcessor -->
+  <line x1="450" y1="170" x2="450" y2="250" stroke="#333" stroke-width="2"/>
+  <text x="460" y="210" font-family="Arial, sans-serif" font-size="12" fill="#333">使用</text>
+  
+  <!-- 连接线 - VideoProcessor到FeatureDetector -->
+  <line x1="510" y1="170" x2="680" y2="250" stroke="#333" stroke-width="2"/>
+  <text x="600" y="210" font-family="Arial, sans-serif" font-size="12" fill="#333">使用</text>
+  
+  <!-- 连接线 - VideoProcessor到UIHelper -->
+  <polyline points="450,170 580,170 580,430 450,430"
+            fill="none" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="460" y="390" font-family="Arial, sans-serif" font-size="12" fill="#333">使用</text>
+  
+  <!-- 标题 -->
+  <text x="450" y="30" font-family="Arial, sans-serif" font-size="24" fill="#333" text-anchor="middle" font-weight="bold">智能视频处理系统类设计图</text>
+</svg>
