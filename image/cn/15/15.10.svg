@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <!-- 标题 -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">边缘AI面临的资源挑战</text>
+
+  <!-- 左侧：云端服务器 -->
+  <rect x="100" y="90" width="250" height="270" rx="10" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+  <text x="225" y="120" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#1976d2">云端服务器</text>
+  
+  <!-- 云端服务器图标 -->
+  <rect x="175" y="140" width="100" height="60" rx="5" fill="#bbdefb" stroke="#1976d2" stroke-width="2"/>
+  <rect x="150" y="160" width="150" height="80" rx="5" fill="#bbdefb" stroke="#1976d2" stroke-width="2"/>
+  <rect x="125" y="200" width="200" height="30" rx="5" fill="#bbdefb" stroke="#1976d2" stroke-width="2"/>
+  
+  <!-- 云端资源规格 -->
+  <rect x="125" y="250" width="200" height="105" rx="5" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+  <text x="225" y="270" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">资源丰富</text>
+  
+  <text x="140" y="295" text-anchor="start" font-family="Arial" font-size="14">• 内存: 128-512 GB</text>
+  <text x="140" y="320" text-anchor="start" font-family="Arial" font-size="14">• 计算能力: 高性能GPU</text>
+  <text x="140" y="345" text-anchor="start" font-family="Arial" font-size="14">• 功耗: 300-500 瓦</text>
+
+  <!-- 右侧：边缘设备 -->
+  <rect x="450" y="90" width="250" height="270" rx="10" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+  <text x="575" y="120" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#f57c00">边缘设备</text>
+  
+  <!-- 边缘设备图标 (Jetson样式) -->
+  <rect x="525" y="140" width="100" height="20" rx="3" fill="#ffcc80" stroke="#f57c00" stroke-width="2"/>
+  <rect x="525" y="160" width="100" height="80" rx="3" fill="#ffcc80" stroke="#f57c00" stroke-width="2"/>
+  <circle cx="545" cy="180" r="5" fill="#f57c00"/>
+  <circle cx="545" cy="200" r="5" fill="#f57c00"/>
+  <circle cx="605" cy="180" r="5" fill="#f57c00"/>
+  <circle cx="605" cy="200" r="5" fill="#f57c00"/>
+  
+  <!-- 边缘设备资源规格 -->
+  <rect x="475" y="250" width="200" height="105" rx="5" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+  <text x="575" y="270" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">资源受限</text>
+  
+  <text x="490" y="295" text-anchor="start" font-family="Arial" font-size="14">• 内存: 4-16 GB</text>
+  <text x="490" y="320" text-anchor="start" font-family="Arial" font-size="14">• 计算能力: 嵌入式GPU</text>
+  <text x="490" y="345" text-anchor="start" font-family="Arial" font-size="14">• 功耗: 5-20 瓦</text>
+
+  <!-- 中间对比箭头 -->
+  <line x1="360" y1="200" x2="440" y2="200" stroke="#666" stroke-width="2"/>
+  <polygon points="440,200 430,195 430,205" fill="#666"/>
+  <polygon points="360,200 370,195 370,205" fill="#666"/>
+  
+  <!-- 挑战标签 -->
+  <rect x="355" y="150" width="90" height="30" rx="15" fill="#ffebee" stroke="#f44336" stroke-width="2"/>
+  <text x="400" y="170" text-anchor="middle" font-family="Arial" font-size="14" fill="#f44336">资源差距</text>
+  
+  <!-- 解决方案标签 -->
+  <rect x="355" y="230" width="90" height="30" rx="15" fill="#e8f5e9" stroke="#388e3c" stroke-width="2"/>
+  <text x="400" y="250" text-anchor="middle" font-family="Arial" font-size="14" fill="#388e3c">优化需求</text>
+</svg>

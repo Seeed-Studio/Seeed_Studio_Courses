@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <!-- 标题 -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">神经网络前向传播过程</text>
+  
+  <!-- 图像输入部分 -->
+  <rect x="30" y="100" width="120" height="120" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="5" />
+  <text x="90" y="90" text-anchor="middle" font-family="Arial" font-size="16" fill="#1976d2">原始图像</text>
+  
+  <!-- 简化的猫图像 -->
+  <ellipse cx="90" cy="150" rx="40" ry="30" fill="#f5f5f5" stroke="#666" stroke-width="1" />
+  <!-- 耳朵 -->
+  <polygon points="60,130 65,105 80,120" fill="#f5f5f5" stroke="#666" stroke-width="1" />
+  <polygon points="120,130 115,105 100,120" fill="#f5f5f5" stroke="#666" stroke-width="1" />
+  <!-- 眼睛 -->
+  <circle cx="80" cy="145" r="4" fill="#333" />
+  <circle cx="100" cy="145" r="4" fill="#333" />
+  <!-- 鼻子和嘴 -->
+  <circle cx="90" cy="155" r="3" fill="#ff9999" />
+  <path d="M90,155 L90,165 M85,165 L95,165" fill="none" stroke="#666" stroke-width="1" />
+  <!-- 胡须 -->
+  <path d="M75,155 L60,150 M75,158 L60,160 M105,155 L120,150 M105,158 L120,160" fill="none" stroke="#666" stroke-width="1" />
+  
+  <!-- 像素矩阵 -->
+  <rect x="200" y="100" width="140" height="120" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" rx="5" />
+  <text x="270" y="90" text-anchor="middle" font-family="Arial" font-size="16" fill="#388e3c">数字矩阵</text>
+  
+  <!-- 部分矩阵内容 -->
+  <text x="220" y="115" text-anchor="start" font-family="monospace" font-size="11">[[[128, 145, 89],</text>
+  <text x="220" y="130" text-anchor="start" font-family="monospace" font-size="11">  [135, 152, 92],</text>
+  <text x="220" y="145" text-anchor="start" font-family="monospace" font-size="11">  [142, 160, 95],</text>
+  <text x="220" y="180" text-anchor="start" font-family="monospace" font-size="11">  ...</text>
+  <text x="220" y="175" text-anchor="start" font-family="monospace" font-size="11">  [113, 120, 76]]</text>
+  <text x="220" y="190" text-anchor="start" font-family="monospace" font-size="11"> ...]</text>
+  <text x="270" y="210" text-anchor="middle" font-family="Arial" font-size="12" fill="#388e3c">224×224×3 的矩阵</text>
+  
+  <!-- 连接箭头 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555" />
+    </marker>
+  </defs>
+  
+  <line x1="150" y1="160" x2="180" y2="160" stroke="#555" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="170" y="150" text-anchor="middle" font-family="Arial" font-size="12">转换</text>
+  
+  <!-- 归一化部分 -->
+  <rect x="390" y="100" width="140" height="120" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="5" />
+  <text x="460" y="90" text-anchor="middle" font-family="Arial" font-size="16" fill="#f57c00">归一化</text>
+  
+  <!-- 部分归一化内容 -->
+  <text x="410" y="115" text-anchor="start" font-family="monospace" font-size="11">[[[0.50, 0.57, 0.35],</text>
+  <text x="410" y="130" text-anchor="start" font-family="monospace" font-size="11">  [0.53, 0.60, 0.36],</text>
+  <text x="410" y="145" text-anchor="start" font-family="monospace" font-size="11">  [0.56, 0.63, 0.37],</text>
+  <text x="410" y="160" text-anchor="start" font-family="monospace" font-size="11">  ...</text>
+  <text x="410" y="175" text-anchor="start" font-family="monospace" font-size="11">  [0.44, 0.47, 0.30]]</text>
+  <text x="410" y="190" text-anchor="start" font-family="monospace" font-size="11"> ...]</text>
+  <text x="460" y="210" text-anchor="middle" font-family="Arial" font-size="12" fill="#f57c00">像素值 0-255 → 0-1</text>
+  
+  <line x1="340" y1="160" x2="370" y2="160" stroke="#555" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="360" y="150" text-anchor="middle" font-family="Arial" font-size="12">标准化</text>
+  
+  <!-- 神经网络处理框 -->
+  <rect x="570" y="80" width="220" height="160" fill="#f5f5f5" stroke="#333" stroke-width="2" rx="10" />
+  <text x="670" y="70" text-anchor="middle" font-family="Arial" font-size="16" fill="#333">逐层计算处理</text>
+    <!-- 连接箭头 -->
+  <line x1="530" y1="160" x2="550" y2="160" stroke="#555" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- 输入层（右移） -->
+  <circle cx="600" cy="130" r="10" fill="#bbdefb" stroke="#1976d2" />
+  <circle cx="600" cy="160" r="10" fill="#bbdefb" stroke="#1976d2" />
+  <circle cx="600" cy="190" r="10" fill="#bbdefb" stroke="#1976d2" />
+  <text x="600" y="220" text-anchor="middle" font-family="Arial" font-size="14" fill="#1976d2">输入层</text>
+
+  <!-- 隐藏层（右移） -->
+  <circle cx="670" cy="110" r="10" fill="#c8e6c9" stroke="#388e3c" />
+  <circle cx="670" cy="140" r="10" fill="#c8e6c9" stroke="#388e3c" />
+  <circle cx="670" cy="170" r="10" fill="#c8e6c9" stroke="#388e3c" />
+  <circle cx="670" cy="200" r="10" fill="#c8e6c9" stroke="#388e3c" />
+  <text x="670" y="220" text-anchor="middle" font-family="Arial" font-size="14" fill="#388e3c">隐藏层</text>
+
+  <!-- 输出层 -->
+  <circle cx="760" cy="130" r="10" fill="#ffcc80" stroke="#f57c00" />
+  <circle cx="760" cy="160" r="10" fill="#ffcc80" stroke="#f57c00" />
+  <circle cx="760" cy="190" r="10" fill="#ffcc80" stroke="#f57c00" />
+  <text x="760" y="220" text-anchor="middle" font-family="Arial" font-size="14" fill="#f57c00">输出层</text>
+
+  <!-- 输入层 → 隐藏层 -->
+  <line x1="610" y1="130" x2="660" y2="110" stroke="#ccc" stroke-width="1" />
+  <line x1="610" y1="130" x2="660" y2="140" stroke="#ccc" stroke-width="1" />
+  <line x1="610" y1="160" x2="660" y2="170" stroke="#ccc" stroke-width="1" />
+  <line x1="610" y1="190" x2="660" y2="200" stroke="#ccc" stroke-width="1" />
+
+  <!-- 隐藏层 → 输出层 -->
+  <line x1="680" y1="110" x2="750" y2="130" stroke="#ccc" stroke-width="1" />
+  <line x1="680" y1="140" x2="750" y2="160" stroke="#ccc" stroke-width="1" />
+  <line x1="680" y1="170" x2="750" y2="190" stroke="#ccc" stroke-width="1" />
+  <line x1="680" y1="200" x2="750" y2="190" stroke="#ccc" stroke-width="1" />
+  
+  <!-- 结果输出 -->
+  <rect x="630" y="270" width="140" height="90" fill="#e1bee7" stroke="#8e24aa" stroke-width="2" rx="5" />
+  <text x="700" y="300" text-anchor="middle" font-family="Arial" font-size="16" fill="#8e24aa">预测结果</text>
+  <text x="700" y="330" text-anchor="middle" font-family="Arial" font-size="14">猫：0.75</text>
+  <text x="700" y="350" text-anchor="middle" font-family="Arial" font-size="14">狗：0.25</text>
+  
+  <!-- 连接箭头 -->
+  <line x1="700" y1="240" x2="700" y2="250" stroke="#555" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- 计算步骤标注 -->
+  <rect x="70" y="270" width="530" height="90" fill="#f9f9f9" stroke="#999" stroke-width="1" rx="5" />
+  <text x="90" y="300" text-anchor="start" font-family="Arial" font-size="16" font-weight="bold">计算步骤：</text>
+  <text x="90" y="330" text-anchor="start" font-family="Arial" font-size="14">1. 线性变换：输入 × 权重矩阵 + 偏置</text>
+  <text x="90" y="350" text-anchor="start" font-family="Arial" font-size="14">2. 非线性变换：通过激活函数处理结果</text>
+</svg>

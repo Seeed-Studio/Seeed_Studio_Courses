@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">人工神经元处理猫的特征示例</text>
+  
+  <!-- Cat Features Input -->
+  <rect x="40" y="80" width="180" height="240" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="10" />
+  <text x="130" y="110" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#1976d2">输入特征</text>
+  
+  <!-- Feature 1: Ears -->
+  <circle cx="90" cy="150" r="30" fill="#bbdefb" stroke="#1976d2" />
+  <path d="M75,150 L90,130 L105,150" fill="none" stroke="#1976d2" stroke-width="2" />
+  <text x="130" y="150" text-anchor="start" font-family="Arial" font-size="14" fill="#333">耳朵尖度</text>
+  <text x="130" y="170" text-anchor="start" font-family="Arial" font-size="14" fill="#1976d2">0.9</text>
+  
+  <!-- Feature 2: Whiskers -->
+  <circle cx="90" cy="220" r="30" fill="#bbdefb" stroke="#1976d2" />
+  <path d="M70,220 L110,220 M75,210 L105,210 M75,230 L105,230" fill="none" stroke="#1976d2" stroke-width="2" />
+  <text x="130" y="220" text-anchor="start" font-family="Arial" font-size="14" fill="#333">胡须长度</text>
+  <text x="130" y="240" text-anchor="start" font-family="Arial" font-size="14" fill="#1976d2">0.8</text>
+  
+  <!-- Feature 3: Tail -->
+  <circle cx="90" cy="290" r="30" fill="#bbdefb" stroke="#1976d2" />
+  <path d="M90,275 C100,285 100,295 90,305 C80,315 70,315 65,305" fill="none" stroke="#1976d2" stroke-width="2" />
+  <text x="130" y="290" text-anchor="start" font-family="Arial" font-size="14" fill="#333">尾巴长度</text>
+  <text x="130" y="310" text-anchor="start" font-family="Arial" font-size="14" fill="#1976d2">0.7</text>
+  
+  <!-- Weights -->
+  <rect x="260" y="80" width="180" height="240" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" rx="10" />
+  <text x="350" y="110" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#388e3c">权重</text>
+  
+  <text x="300" y="150" text-anchor="start" font-family="Arial" font-size="14" fill="#333">耳朵权重</text>
+  <text x="300" y="170" text-anchor="start" font-family="Arial" font-size="14" fill="#388e3c">0.6</text>
+  <text x="350" y="170" text-anchor="start" font-family="Arial" font-size="12" fill="#666">(重要特征)</text>
+  
+  <text x="300" y="220" text-anchor="start" font-family="Arial" font-size="14" fill="#333">胡须权重</text>
+  <text x="300" y="240" text-anchor="start" font-family="Arial" font-size="14" fill="#388e3c">0.3</text>
+  <text x="350" y="240" text-anchor="start" font-family="Arial" font-size="12" fill="#666">(次要特征)</text>
+  
+  <text x="300" y="290" text-anchor="start" font-family="Arial" font-size="14" fill="#333">尾巴权重</text>
+  <text x="300" y="310" text-anchor="start" font-family="Arial" font-size="14" fill="#388e3c">0.1</text>
+  <text x="350" y="310" text-anchor="start" font-family="Arial" font-size="12" fill="#666">(辅助特征)</text>
+  
+  <!-- Calculation -->
+  <rect x="480" y="80" width="290" height="215" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="10" />
+  <text x="625" y="110" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#f57c00">计算过程</text>
+  
+  <text x="500" y="140" text-anchor="start" font-family="Arial" font-size="14" fill="#333">耳朵：0.6 × 0.9 = 0.54</text>
+  <text x="500" y="165" text-anchor="start" font-family="Arial" font-size="14" fill="#333">胡须：0.3 × 0.8 = 0.24</text>
+  <text x="500" y="190" text-anchor="start" font-family="Arial" font-size="14" fill="#333">尾巴：0.1 × 0.7 = 0.07</text>
+  
+  <!-- Bias and Sum -->
+  <line x1="500" y1="200" x2="720" y2="200" stroke="#f57c00" stroke-width="1" />
+  <text x="500" y="225" text-anchor="start" font-family="Arial" font-size="14" fill="#333">加权和：0.54 + 0.24 + 0.07 = 0.85</text>
+  <text x="500" y="250" text-anchor="start" font-family="Arial" font-size="14" fill="#333">偏置值：-0.5</text>
+  <line x1="500" y1="260" x2="720" y2="260" stroke="#f57c00" stroke-width="1" />
+  <text x="500" y="285" text-anchor="start" font-family="Arial" font-size="16" font-weight="bold" fill="#f57c00">最终计算值：0.85 + (-0.5) = 0.35</text>
+  
+  <!-- Activation & Output -->
+  <rect x="480" y="300" width="290" height="80" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="10" />
+  <text x="625" y="330" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#7b1fa2">激活与输出</text>
+  
+  <text x="500" y="360" text-anchor="start" font-family="Arial" font-size="14" fill="#333">Sigmoid(0.35) = 0.59</text>
+  <text x="650" y="360" text-anchor="start" font-family="Arial" font-size="16" font-weight="bold" fill="#7b1fa2">猫的概率：59%</text>
+  
+  <!-- Connecting Arrows -->
+  <line x1="220" y1="200" x2="260" y2="200" stroke="#555" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="440" y1="200" x2="480" y2="200" stroke="#555" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Arrow Marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555" />
+    </marker>
+  </defs>
+</svg>

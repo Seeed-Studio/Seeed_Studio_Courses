@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 400" width="800" height="400">
+  <!-- 标题 -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">TensorRT优化流程</text>
+
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- 步骤1: 原始模型 -->
+  <rect x="100" y="100" width="120" height="80" rx="10" fill="#e8f5e9" stroke="#388e3c" stroke-width="2"/>
+  <text x="160" y="130" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">原始模型</text>
+  <text x="160" y="150" text-anchor="middle" font-family="Arial" font-size="12">PyTorch/TensorFlow</text>
+  <text x="160" y="170" text-anchor="middle" font-family="Arial" font-size="12">大尺寸、通用格式</text>
+
+  <!-- 步骤2: 模型解析 -->
+  <rect x="280" y="100" width="120" height="80" rx="10" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+  <text x="340" y="130" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">模型解析</text>
+  <text x="340" y="150" text-anchor="middle" font-family="Arial" font-size="12">分析网络结构</text>
+  <text x="340" y="170" text-anchor="middle" font-family="Arial" font-size="12">构建计算图</text>
+
+  <!-- 步骤3: 层融合优化 -->
+  <rect x="460" y="100" width="120" height="80" rx="10" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+  <text x="520" y="130" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">层融合优化</text>
+  <text x="520" y="150" text-anchor="middle" font-family="Arial" font-size="12">合并相邻操作</text>
+  <text x="520" y="170" text-anchor="middle" font-family="Arial" font-size="12">减少内存访问</text>
+
+  <!-- 步骤4: 精度校准 -->
+  <rect x="640" y="100" width="120" height="80" rx="10" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2"/>
+  <text x="700" y="130" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">精度校准</text>
+  <text x="700" y="150" text-anchor="middle" font-family="Arial" font-size="12">FP32/FP16/INT8</text>
+  <text x="700" y="170" text-anchor="middle" font-family="Arial" font-size="12">平衡精度与速度</text>
+
+  <!-- 箭头1 -->
+  <line x1="220" y1="140" x2="260" y2="140" stroke="#555" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- 箭头2 -->
+  <line x1="400" y1="140" x2="440" y2="140" stroke="#555" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- 箭头3 -->
+  <line x1="580" y1="140" x2="620" y2="140" stroke="#555" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- 性能结果区域 -->
+  <rect x="100" y="220" width="660" height="150" rx="10" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+  
+  <!-- 性能图表 -->
+  <text x="400" y="240" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">性能提升</text>
+  
+  <!-- 横轴 -->
+  <line x1="150" y1="330" x2="710" y2="330" stroke="#333" stroke-width="2"/>
+  <text x="430" y="350" text-anchor="middle" font-family="Arial" font-size="14">优化阶段</text>
+  
+  <!-- 纵轴 -->
+  <line x1="150" y1="330" x2="150" y2="260" stroke="#333" stroke-width="2"/>
+  <text x="130" y="290" text-anchor="middle" font-family="Arial" font-size="14" transform="rotate(-90, 130, 290)">性能</text>
+  
+  <!-- 性能柱状图 -->
+  <rect x="200" y="320" width="60" height="10" fill="#e8f5e9" stroke="#388e3c" stroke-width="1"/>
+  <text x="230" y="315" text-anchor="middle" font-family="Arial" font-size="12">原始模型</text>
+  <text x="230" y="300" text-anchor="middle" font-family="Arial" font-size="12">1×</text>
+  
+  <rect x="300" y="300" width="60" height="30" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <text x="330" y="295" text-anchor="middle" font-family="Arial" font-size="12">解析后</text>
+  <text x="330" y="280" text-anchor="middle" font-family="Arial" font-size="12">1.5×</text>
+  
+  <rect x="400" y="280" width="60" height="50" fill="#fff3e0" stroke="#f57c00" stroke-width="1"/>
+  <text x="430" y="275" text-anchor="middle" font-family="Arial" font-size="12">层融合</text>
+  <text x="430" y="260" text-anchor="middle" font-family="Arial" font-size="12">2.5×</text>
+  
+  <rect x="500" y="270" width="60" height="60" fill="#e0f7fa" stroke="#00acc1" stroke-width="1"/>
+  <text x="530" y="265" text-anchor="middle" font-family="Arial" font-size="12">FP16</text>
+  <text x="530" y="250" text-anchor="middle" font-family="Arial" font-size="12">3×</text>
+  
+  <rect x="600" y="260" width="60" height="70" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1"/>
+  <text x="630" y="255" text-anchor="middle" font-family="Arial" font-size="12">INT8</text>
+  <text x="630" y="240" text-anchor="middle" font-family="Arial" font-size="12">3.5×</text>
+</svg>

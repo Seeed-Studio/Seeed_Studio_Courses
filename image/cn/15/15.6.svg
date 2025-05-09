@@ -1,0 +1,126 @@
+<svg viewBox="0 0 800 570" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="800" height="570" fill="white" />
+
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="22" text-anchor="middle" font-weight="bold">基本的神经网络结构</text>
+
+  <!-- Layer Labels -->
+  <text x="150" y="90" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold" fill="#333">输入层</text>
+  <text x="400" y="90" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold" fill="#333">隐藏层</text>
+  <text x="650" y="90" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold" fill="#333">输出层</text>
+
+  <!-- Input Layer -->
+  <g transform="translate(150, 250)">
+    <!-- Neurons -->
+    <circle cx="0" cy="-100" r="20" fill="#e6f7ff" stroke="#0099cc" stroke-width="2"/>
+    <circle cx="0" cy="-30" r="20" fill="#e6f7ff" stroke="#0099cc" stroke-width="2"/>
+    <circle cx="0" cy="40" r="20" fill="#e6f7ff" stroke="#0099cc" stroke-width="2"/>
+    <circle cx="0" cy="110" r="20" fill="#e6f7ff" stroke="#0099cc" stroke-width="2"/>
+
+    <!-- Feature Labels (moved left) -->
+    <text x="-100" y="-100" font-family="Arial" font-size="12" text-anchor="start" font-weight="bold">耳朵形状</text>
+    <text x="-100" y="-30" font-family="Arial" font-size="12" text-anchor="start" font-weight="bold">胡须长度</text>
+    <text x="-100" y="40" font-family="Arial" font-size="12" text-anchor="start" font-weight="bold">尾巴长度</text>
+    <text x="-100" y="110" font-family="Arial" font-size="12" text-anchor="start" font-weight="bold">毛发纹理</text>
+  </g>
+
+  <!-- First Hidden Layer -->
+  <g transform="translate(400, 250)">
+    <!-- Neurons -->
+    <circle cx="0" cy="-120" r="20" fill="#ccf2ff" stroke="#0066cc" stroke-width="2"/>
+    <circle cx="0" cy="-60" r="20" fill="#ccf2ff" stroke="#0066cc" stroke-width="2"/>
+    <circle cx="0" cy="0" r="20" fill="#ccf2ff" stroke="#0066cc" stroke-width="2"/>
+    <circle cx="0" cy="60" r="20" fill="#ccf2ff" stroke="#0066cc" stroke-width="2"/>
+    <circle cx="0" cy="120" r="20" fill="#ccf2ff" stroke="#0066cc" stroke-width="2"/>
+    <circle cx="0" cy="180" r="20" fill="#ccf2ff" stroke="#0066cc" stroke-width="2"/>
+
+    <!-- Feature Learning Labels (moved right) -->
+    <text x="30" y="-120" font-family="Arial" font-size="10" text-anchor="start">尖耳朵特征</text>
+    <text x="30" y="-60" font-family="Arial" font-size="10" text-anchor="start">圆耳朵特征</text>
+    <text x="30" y="0" font-family="Arial" font-size="10" text-anchor="start">长胡须特征</text>
+    <text x="30" y="60" font-family="Arial" font-size="10" text-anchor="start">短胡须特征</text>
+    <text x="30" y="120" font-family="Arial" font-size="10" text-anchor="start">细长尾巴特征</text>
+    <text x="30" y="180" font-family="Arial" font-size="10" text-anchor="start">短粗尾巴特征</text>
+  </g>
+
+  <!-- Output Layer -->
+  <g transform="translate(650, 250)">
+    <!-- Neurons -->
+    <circle cx="0" cy="-30" r="20" fill="#99e6ff" stroke="#003399" stroke-width="2"/>
+    <circle cx="0" cy="30" r="20" fill="#99e6ff" stroke="#003399" stroke-width="2"/>
+
+    <!-- Class Labels (moved right) -->
+    <text x="30" y="-30" font-family="Arial" font-size="14" text-anchor="start" font-weight="bold">猫</text>
+    <text x="30" y="30" font-family="Arial" font-size="14" text-anchor="start" font-weight="bold">狗</text>
+  </g>
+
+  <!-- Connections from Input to Hidden Layer -->
+  <g stroke="#ccc" stroke-width="1">
+    <!-- From input neuron 1 -->
+    <line x1="170" y1="150" x2="380" y2="130"/>
+    <line x1="170" y1="150" x2="380" y2="190"/>
+    <line x1="170" y1="150" x2="380" y2="250"/>
+    <line x1="170" y1="150" x2="380" y2="310"/>
+    <line x1="170" y1="150" x2="380" y2="370"/>
+    <line x1="170" y1="150" x2="380" y2="430"/>
+
+    <!-- From input neuron 2 -->
+    <line x1="170" y1="220" x2="380" y2="130"/>
+    <line x1="170" y1="220" x2="380" y2="190"/>
+    <line x1="170" y1="220" x2="380" y2="250"/>
+    <line x1="170" y1="220" x2="380" y2="310"/>
+    <line x1="170" y1="220" x2="380" y2="370"/>
+    <line x1="170" y1="220" x2="380" y2="430"/>
+
+    <!-- From input neuron 3 -->
+    <line x1="170" y1="290" x2="380" y2="130"/>
+    <line x1="170" y1="290" x2="380" y2="190"/>
+    <line x1="170" y1="290" x2="380" y2="250"/>
+    <line x1="170" y1="290" x2="380" y2="310"/>
+    <line x1="170" y1="290" x2="380" y2="370"/>
+    <line x1="170" y1="290" x2="380" y2="430"/>
+
+    <!-- From input neuron 4 -->
+    <line x1="170" y1="360" x2="380" y2="130"/>
+    <line x1="170" y1="360" x2="380" y2="190"/>
+    <line x1="170" y1="360" x2="380" y2="250"/>
+    <line x1="170" y1="360" x2="380" y2="310"/>
+    <line x1="170" y1="360" x2="380" y2="370"/>
+    <line x1="170" y1="360" x2="380" y2="430"/>
+  </g>
+
+  <!-- Connections from Hidden to Output Layer -->
+  <g stroke="#ccc" stroke-width="1">
+    <!-- To output neuron 1 (cat) -->
+    <line x1="420" y1="130" x2="630" y2="220"/>
+    <line x1="420" y1="190" x2="630" y2="220"/>
+    <line x1="420" y1="250" x2="630" y2="220"/>
+    <line x1="420" y1="310" x2="630" y2="220"/>
+    <line x1="420" y1="370" x2="630" y2="220"/>
+    <line x1="420" y1="430" x2="630" y2="220"/>
+
+    <!-- To output neuron 2 (dog) -->
+    <line x1="420" y1="130" x2="630" y2="280"/>
+    <line x1="420" y1="190" x2="630" y2="280"/>
+    <line x1="420" y1="250" x2="630" y2="280"/>
+    <line x1="420" y1="310" x2="630" y2="280"/>
+    <line x1="420" y1="370" x2="630" y2="280"/>
+    <line x1="420" y1="430" x2="630" y2="280"/>
+  </g>
+
+  <!-- Layer Descriptions -->
+  <g transform="translate(0, 490)">
+    <rect x="50" y="0" width="200" height="60" rx="5" fill="#f0f0f0" stroke="#ccc" stroke-width="1"/>
+    <text x="150" y="20" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">输入层</text>
+    <text x="150" y="40" font-family="Arial" font-size="12" text-anchor="middle">接收原始特征数据</text>
+
+    <rect x="300" y="0" width="200" height="60" rx="5" fill="#f0f0f0" stroke="#ccc" stroke-width="1"/>
+    <text x="400" y="20" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">隐藏层</text>
+    <text x="400" y="40" font-family="Arial" font-size="12" text-anchor="middle">从输入中提取和学习特征</text>
+
+    <rect x="550" y="0" width="200" height="60" rx="5" fill="#f0f0f0" stroke="#ccc" stroke-width="1"/>
+    <text x="650" y="20" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">输出层</text>
+    <text x="650" y="40" font-family="Arial" font-size="12" text-anchor="middle">产生最终的分类结果</text>
+  </g>
+</svg>

@@ -1,0 +1,92 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="22" text-anchor="middle" font-weight="bold">深度学习模型的训练过程</text>
+  
+  <!-- Step 1: Training Data -->
+  <g transform="translate(400, 100)">
+    <rect x="-80" y="-30" width="160" height="60" rx="10" fill="#e6f7ff" stroke="#0099cc" stroke-width="2"/>
+    <text x="0" y="0" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">训练数据</text>
+    <text x="0" y="20" font-family="Arial" font-size="12" text-anchor="middle">输入图像和标签</text>
+  </g>
+  
+  <!-- Step 2: Forward Propagation -->
+  <g transform="translate(620, 150)">
+    <rect x="-80" y="-30" width="160" height="60" rx="10" fill="#ccf2ff" stroke="#0066cc" stroke-width="2"/>
+    <text x="0" y="0" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">前向传播</text>
+    <text x="0" y="20" font-family="Arial" font-size="12" text-anchor="middle">计算预测结果</text>
+  </g>
+  
+  <!-- Step 3: Loss Calculation -->
+  <g transform="translate(620, 290)">
+    <rect x="-80" y="-30" width="160" height="60" rx="10" fill="#99e6ff" stroke="#003399" stroke-width="2"/>
+    <text x="0" y="0" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">损失计算</text>
+    <text x="0" y="20" font-family="Arial" font-size="12" text-anchor="middle">预测值与真实值的差异</text>
+  </g>
+  
+  <!-- Step 4: Backward Propagation -->
+  <g transform="translate(400, 380)">
+    <rect x="-80" y="-30" width="160" height="60" rx="10" fill="#ffe6cc" stroke="#ff9933" stroke-width="2"/>
+    <text x="0" y="0" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">反向传播</text>
+    <text x="0" y="20" font-family="Arial" font-size="12" text-anchor="middle">计算参数梯度</text>
+  </g>
+  
+  <!-- Step 5: Parameter Update -->
+  <g transform="translate(180, 290)">
+    <rect x="-80" y="-30" width="160" height="60" rx="10" fill="#e6ccff" stroke="#9933ff" stroke-width="2"/>
+    <text x="0" y="0" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">参数更新</text>
+    <text x="0" y="20" font-family="Arial" font-size="12" text-anchor="middle">调整网络权重和偏置</text>
+  </g>
+  
+  <!-- Step 6: Model Evaluation -->
+  <g transform="translate(180, 150)">
+    <rect x="-80" y="-30" width="160" height="60" rx="10" fill="#ccffe6" stroke="#33cc99" stroke-width="2"/>
+    <text x="0" y="0" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">模型评估</text>
+    <text x="0" y="20" font-family="Arial" font-size="12" text-anchor="middle">检查准确率和性能</text>
+  </g>
+  
+  <!-- Center Element -->
+  <g transform="translate(400, 220)">
+    <circle cx="0" cy="0" r="50" fill="#f9f9f9" stroke="#666" stroke-width="2"/>
+    <text x="0" y="-5" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">训练循环</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" text-anchor="middle">多次迭代</text>
+  </g>
+  
+  <!-- Arrows Connecting Steps -->
+  <g fill="none" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)">
+    <!-- From Training Data to Forward Propagation -->
+    <path d="M470,70 Q550,80 600,120"/>
+    
+    <!-- From Forward Propagation to Loss Calculation -->
+    <path d="M620,190 L620,250"/>
+    
+    <!-- From Loss Calculation to Backward Propagation -->
+    <path d="M580,320 Q500,350 450,350"/>
+    
+    <!-- From Backward Propagation to Parameter Update -->
+    <path d="M350,350 Q250,350 220,320"/>
+    
+    <!-- From Parameter Update to Model Evaluation -->
+    <path d="M180,250 L180,190"/>
+    
+    <!-- From Model Evaluation to Training Data -->
+    <path d="M210,120 Q250,80 330,70"/>
+  </g>
+  
+  <!-- Arrow Marker Definition -->
+  <defs>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <!-- Annotations (moved to avoid overlap) -->
+  <g font-family="Arial" font-size="11" fill="#666">
+    <text x="550" y="85">1. 输入批次数据</text>
+    <text x="670" y="220">2. 模型预测</text>
+    <text x="530" y="370">3. 计算梯度</text>
+    <text x="230" y="370">4. 更新参数</text>
+    <text x="120" y="220">5. 评估性能</text>
+    <text x="190" y="85">6. 重复多次</text>
+  </g>
+</svg>

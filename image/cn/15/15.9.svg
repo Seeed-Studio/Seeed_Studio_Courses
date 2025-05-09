@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300">
+  <!-- 标题 -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold">边缘AI的三大优势</text>
+  
+  <!-- 实时处理优势 -->
+  <rect x="50" y="70" width="200" height="180" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="10" />
+  <text x="150" y="100" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">实时处理</text>
+  
+  <circle cx="85" cy="130" r="15" fill="#1976d2" />
+  <text x="85" y="135" text-anchor="middle" font-family="Arial" font-size="14" fill="white">1</text>
+  <text x="120" y="135" text-anchor="start" font-family="Arial" font-size="14">低延迟 (10-50ms)</text>
+  
+  <circle cx="85" cy="170" r="15" fill="#1976d2" />
+  <text x="85" y="175" text-anchor="middle" font-family="Arial" font-size="14" fill="white">2</text>
+  <text x="120" y="175" text-anchor="start" font-family="Arial" font-size="14">立即响应本地事件</text>
+  
+  <circle cx="85" cy="210" r="15" fill="#1976d2" />
+  <text x="85" y="215" text-anchor="middle" font-family="Arial" font-size="14" fill="white">3</text>
+  <text x="120" y="215" text-anchor="start" font-family="Arial" font-size="14">适合时间敏感场景</text>
+  
+  <!-- 隐私保护优势 -->
+  <rect x="300" y="70" width="200" height="180" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" rx="10" />
+  <text x="400" y="100" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">隐私保护</text>
+  
+  <circle cx="335" cy="130" r="15" fill="#388e3c" />
+  <text x="335" y="135" text-anchor="middle" font-family="Arial" font-size="14" fill="white">1</text>
+  <text x="370" y="135" text-anchor="start" font-family="Arial" font-size="14">数据本地处理</text>
+  
+  <circle cx="335" cy="170" r="15" fill="#388e3c" />
+  <text x="335" y="175" text-anchor="middle" font-family="Arial" font-size="14" fill="white">2</text>
+  <text x="370" y="175" text-anchor="start" font-family="Arial" font-size="14">降低数据泄露风险</text>
+  
+  <circle cx="335" cy="210" r="15" fill="#388e3c" />
+  <text x="335" y="215" text-anchor="middle" font-family="Arial" font-size="14" fill="white">3</text>
+  <text x="370" y="215" text-anchor="start" font-family="Arial" font-size="14">符合数据保护法规</text>
+  
+  <!-- 离线工作优势 -->
+  <rect x="550" y="70" width="200" height="180" fill="#fff8e1" stroke="#ffa000" stroke-width="2" rx="10" />
+  <text x="650" y="100" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">离线工作</text>
+  
+  <circle cx="585" cy="130" r="15" fill="#ffa000" />
+  <text x="585" y="135" text-anchor="middle" font-family="Arial" font-size="14" fill="white">1</text>
+  <text x="620" y="135" text-anchor="start" font-family="Arial" font-size="14">不依赖网络连接</text>
+  
+  <circle cx="585" cy="170" r="15" fill="#ffa000" />
+  <text x="585" y="175" text-anchor="middle" font-family="Arial" font-size="14" fill="white">2</text>
+  <text x="620" y="175" text-anchor="start" font-family="Arial" font-size="14">适合偏远地区使用</text>
+  
+  <circle cx="585" cy="210" r="15" fill="#ffa000" />
+  <text x="585" y="215" text-anchor="middle" font-family="Arial" font-size="14" fill="white">3</text>
+  <text x="620" y="215" text-anchor="start" font-family="Arial" font-size="14">提高系统可靠性</text>
+</svg>

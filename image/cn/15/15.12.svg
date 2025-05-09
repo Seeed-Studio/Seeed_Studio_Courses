@@ -1,0 +1,108 @@
+<svg viewBox="0 0 840 450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="22" text-anchor="middle" font-weight="bold">数据量对学习效果的影响</text>
+  
+  <!-- Axes -->
+  <g transform="translate(100, 400)">
+    <!-- X-axis -->
+    <line x1="0" y1="0" x2="600" y2="0" stroke="#333" stroke-width="2"/>
+    <!-- Y-axis -->
+    <line x1="0" y1="0" x2="0" y2="-350" stroke="#333" stroke-width="2"/>
+    
+    <!-- X-axis label -->
+    <text x="300" y="40" font-family="Arial" font-size="16" text-anchor="middle">训练数据量</text>
+    
+    <!-- Y-axis label -->
+    <text x="-40" y="-175" font-family="Arial" font-size="16" text-anchor="middle" transform="rotate(-90 -40,-175)">模型性能</text>
+    
+    <!-- X-axis ticks -->
+    <g text-anchor="middle" font-family="Arial" font-size="12">
+      <line x1="0" y1="0" x2="0" y2="5" stroke="#333" stroke-width="2"/>
+      <text x="0" y="20">0</text>
+      
+      <line x1="150" y1="0" x2="150" y2="5" stroke="#333" stroke-width="2"/>
+      <text x="150" y="20">小</text>
+      
+      <line x1="300" y1="0" x2="300" y2="5" stroke="#333" stroke-width="2"/>
+      <text x="300" y="20">中</text>
+      
+      <line x1="450" y1="0" x2="450" y2="5" stroke="#333" stroke-width="2"/>
+      <text x="450" y="20">大</text>
+      
+      <line x1="600" y1="0" x2="600" y2="5" stroke="#333" stroke-width="2"/>
+      <text x="600" y="20">极大</text>
+    </g>
+    
+    <!-- Y-axis ticks -->
+    <g text-anchor="end" font-family="Arial" font-size="12">
+      <line x1="0" y1="0" x2="-5" y2="0" stroke="#333" stroke-width="2"/>
+      <text x="-10" y="5">低</text>
+      
+      <line x1="0" y1="-100" x2="-5" y2="-100" stroke="#333" stroke-width="2"/>
+      <text x="-10" y="-95">中</text>
+      
+      <line x1="0" y1="-200" x2="-5" y2="-200" stroke="#333" stroke-width="2"/>
+      <text x="-10" y="-195">高</text>
+      
+      <line x1="0" y1="-300" x2="-5" y2="-300" stroke="#333" stroke-width="2"/>
+      <text x="-10" y="-295">极高</text>
+    </g>
+  </g>
+  
+  <!-- Main curves -->
+  <g transform="translate(100, 400)" fill="none" stroke-width="3">
+    <!-- Training accuracy curve -->
+    <path d="M0,-10 C50,-90 120,-160 150,-180 C200,-210 300,-250 450,-280 C550,-300 600,-305 600,-305" 
+          stroke="#0066cc" stroke-linejoin="round"/>
+    <text x="620" y="-310" font-family="Arial" font-size="14" fill="#0066cc">训练集准确率</text>
+    
+    <!-- Validation accuracy curve -->
+    <path d="M0,-5 C30,-25 100,-55 150,-80 C200,-100 250,-125 300,-160 C350,-190 400,-210 450,-225 C500,-235 550,-240 600,-242" 
+          stroke="#cc3300" stroke-linejoin="round"/>
+    <text x="620" y="-242" font-family="Arial" font-size="14" fill="#cc3300">验证集准确率</text>
+  </g>
+  
+  <!-- Region markers -->
+  <g transform="translate(100, 400)">
+    <!-- Underfitting region -->
+    <rect x="0" y="-350" width="150" height="350" fill="#ffcccc" fill-opacity="0.3"/>
+    <text x="75" y="-330" font-family="Arial" font-size="16" text-anchor="middle">欠拟合区域</text>
+    <text x="75" y="-310" font-family="Arial" font-size="12" text-anchor="middle">数据不足</text>
+    
+    <!-- Optimal region -->
+    <rect x="150" y="-350" width="300" height="350" fill="#ccffcc" fill-opacity="0.3"/>
+    <text x="300" y="-330" font-family="Arial" font-size="16" text-anchor="middle">最佳区域</text>
+    <text x="300" y="-310" font-family="Arial" font-size="12" text-anchor="middle">良好的泛化能力</text>
+    
+    <!-- Diminishing returns region -->
+    <rect x="450" y="-350" width="150" height="350" fill="#e6e6ff" fill-opacity="0.3"/>
+    <text x="525" y="-330" font-family="Arial" font-size="16" text-anchor="middle">收益递减区域</text>
+    <text x="525" y="-310" font-family="Arial" font-size="12" text-anchor="middle">成本效益降低</text>
+  </g>
+  
+  <!-- Annotations -->
+  <g transform="translate(100, 400)" font-family="Arial" font-size="12">
+    <!-- Gap annotation -->
+    <path d="M300,-250 L300,-160 M295,-250 L305,-250 M295,-160 L305,-160" 
+          stroke="#666" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="310" y="-200" fill="#666">过拟合差距</text>
+    
+    <!-- Low data annotation -->
+    <path d="M75,-90 L75,-55" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+    <text x="75" y="-100" text-anchor="middle" fill="#666">训练集和验证集</text>
+    <text x="75" y="-115" text-anchor="middle" fill="#666">性能均较低</text>
+    
+    <!-- High data annotation -->
+    <path d="M525,-242 L525,-210" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+    <text x="525" y="-260" text-anchor="middle" fill="#666">增加数据后</text>
+    <text x="525" y="-275" text-anchor="middle" fill="#666">性能提升减缓</text>
+  </g>
+  
+  <!-- Arrow Marker Definition -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#666"/>
+    </marker>
+  </defs>
+</svg>

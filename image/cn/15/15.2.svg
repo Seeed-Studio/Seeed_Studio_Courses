@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">生物神经元与人工神经元对比</text>
+  
+  <!-- Biological Neuron -->
+  <rect x="50" y="70" width="300" height="280" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="10" />
+  <text x="200" y="100" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#1976d2">生物神经元</text>
+  
+  <!-- Biological Neuron Illustration -->
+  <path d="M120,200 C140,150 160,130 200,170 L200,230 C160,270 140,250 120,200 Z" fill="#bbdefb" stroke="#1976d2" stroke-width="2" />
+  <text x="160" y="200" text-anchor="middle" font-family="Arial" font-size="12">细胞体</text>
+  
+  <!-- Dendrites -->
+  <path d="M120,200 C110,180 100,190 90,180 M120,200 C100,210 90,200 80,210 M120,200 C110,220 100,230 90,240" fill="none" stroke="#1976d2" stroke-width="2" />
+  <text x="90" y="170" text-anchor="middle" font-family="Arial" font-size="12">树突</text>
+  
+  <!-- Axon -->
+  <path d="M200,200 C240,200 260,200 300,200 M280,200 C285,190 290,180 295,170 M280,200 C285,210 290,220 295,230" fill="none" stroke="#1976d2" stroke-width="2" />
+  <text x="270" y="180" text-anchor="middle" font-family="Arial" font-size="12">轴突</text>
+  
+  <!-- Function Descriptions -->
+  <text x="90" y="280" text-anchor="middle" font-family="Arial" font-size="14">接收信号</text>
+  <text x="160" y="300" text-anchor="middle" font-family="Arial" font-size="14">处理信息</text>
+  <text x="270" y="280" text-anchor="middle" font-family="Arial" font-size="14">传递信号</text>
+  
+  <!-- Artificial Neuron -->
+  <rect x="450" y="70" width="300" height="280" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" rx="10" />
+  <text x="600" y="100" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#388e3c">人工神经元</text>
+  
+  <!-- Inputs -->
+  <circle cx="480" cy="170" r="15" fill="#c8e6c9" stroke="#388e3c" />
+  <text x="480" y="175" text-anchor="middle" font-family="Arial" font-size="14">x₁</text>
+  
+  <circle cx="480" cy="210" r="15" fill="#c8e6c9" stroke="#388e3c" />
+  <text x="480" y="215" text-anchor="middle" font-family="Arial" font-size="14">x₂</text>
+  
+  <circle cx="480" cy="250" r="15" fill="#c8e6c9" stroke="#388e3c" />
+  <text x="480" y="255" text-anchor="middle" font-family="Arial" font-size="14">x₃</text>
+  
+  <text x="480" y="285" text-anchor="middle" font-family="Arial" font-size="14">输入</text>
+  
+  <!-- Weights -->
+  <line x1="495" y1="170" x2="565" y2="200" stroke="#388e3c" stroke-width="2" />
+  <text x="520" y="175" text-anchor="middle" font-family="Arial" font-size="12">w₁</text>
+  
+  <line x1="495" y1="210" x2="565" y2="210" stroke="#388e3c" stroke-width="2" />
+  <text x="530" y="205" text-anchor="middle" font-family="Arial" font-size="12">w₂</text>
+  
+  <line x1="495" y1="250" x2="565" y2="220" stroke="#388e3c" stroke-width="2" />
+  <text x="520" y="245" text-anchor="middle" font-family="Arial" font-size="12">w₃</text>
+  
+  <text x="520" y="285" text-anchor="middle" font-family="Arial" font-size="14">权重</text>
+  
+  <!-- Summation & Activation -->
+  <circle cx="580" cy="210" r="25" fill="#c8e6c9" stroke="#388e3c" stroke-width="2" />
+  <text x="580" y="215" text-anchor="middle" font-family="Arial" font-size="14">Σ</text>
+  
+  <text x="575" y="285" text-anchor="middle" font-family="Arial" font-size="14">加权求和</text>
+  <text x="575" y="305" text-anchor="middle" font-family="Arial" font-size="14">+ 偏置</text>
+  
+  <!-- Output -->
+  <path d="M605,210 C620,210 630,210 665,210" stroke="#388e3c" stroke-width="2" />
+  <text x="635" y="200" text-anchor="middle" font-family="Arial" font-size="12">f()</text>
+  
+  <rect x="665" y="195" width="70" height="30" fill="#c8e6c9" stroke="#388e3c" rx="5" />
+  <text x="700" y="215" text-anchor="middle" font-family="Arial" font-size="14">输出</text>
+  
+  <text x="635" y="285" text-anchor="middle" font-family="Arial" font-size="14">激活</text>
+  <text x="635" y="305" text-anchor="middle" font-family="Arial" font-size="14">函数</text>
+  <text x="700" y="285" text-anchor="middle" font-family="Arial" font-size="14">处理</text>
+  <text x="700" y="305" text-anchor="middle" font-family="Arial" font-size="14">结果</text>
+</svg>
