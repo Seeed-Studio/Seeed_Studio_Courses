@@ -1,0 +1,74 @@
+<svg width="800" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="200" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">MNIST数据集示例</text>
+  
+  <!-- 数字示例 -->
+  <g transform="translate(50, 60)">
+    <!-- 0 -->
+    <rect width="60" height="60" fill="#eeeeee" stroke="#333333"/>
+    <circle cx="30" cy="30" r="20" stroke="black" stroke-width="6" fill="none"/>
+    <text x="30" y="100" font-family="Arial" font-size="14" text-anchor="middle">数字 0</text>
+  </g>
+  
+  <g transform="translate(130, 60)">
+    <!-- 1 -->
+    <rect width="60" height="60" fill="#eeeeee" stroke="#333333"/>
+    <line x1="30" y1="10" x2="30" y2="50" stroke="black" stroke-width="6"/>
+    <text x="30" y="100" font-family="Arial" font-size="14" text-anchor="middle">数字 1</text>
+  </g>
+  
+  <g transform="translate(210, 60)">
+    <!-- 2 -->
+    <rect width="60" height="60" fill="#eeeeee" stroke="#333333"/>
+    <path d="M15,20 Q30,0 45,20 L15,50 L45,50" stroke="black" stroke-width="4" fill="none"/>
+    <text x="30" y="100" font-family="Arial" font-size="14" text-anchor="middle">数字 2</text>
+  </g>
+  
+  <g transform="translate(290, 60)">
+    <!-- 3 -->
+    <rect width="60" height="60" fill="#eeeeee" stroke="#333333"/>
+    <path d="M15,15 L40,15 M40,15 Q40,30 25,30 M25,30 Q40,30 40,45 L15,45" stroke="black" stroke-width="4" fill="none"/>
+    <text x="30" y="100" font-family="Arial" font-size="14" text-anchor="middle">数字 3</text>
+  </g>
+  
+  <g transform="translate(370, 60)">
+    <!-- 4 -->
+    <rect width="60" height="60" fill="#eeeeee" stroke="#333333"/>
+    <path d="M40,10 L40,50 M40,35 L15,35 M15,10 L15,35" stroke="black" stroke-width="4" fill="none"/>
+    <text x="30" y="100" font-family="Arial" font-size="14" text-anchor="middle">数字 4</text>
+  </g>
+  
+  <g transform="translate(450, 60)">
+    <!-- 5 -->
+    <rect width="60" height="60" fill="#eeeeee" stroke="#333333"/>
+    <path d="M40,10 L15,10 L15,30 L40,30 Q40,50 15,50" stroke="black" stroke-width="4" fill="none"/>
+    <text x="30" y="100" font-family="Arial" font-size="14" text-anchor="middle">数字 5</text>
+  </g>
+  
+  <g transform="translate(530, 60)">
+    <!-- 6 -->
+    <rect width="60" height="60" fill="#eeeeee" stroke="#333333"/>
+    <path d="M40,10 L15,30 Q15,50 30,50 Q45,50 45,35 Q45,20 30,20 Q15,20 15,30" stroke="black" stroke-width="4" fill="none"/>
+    <text x="30" y="100" font-family="Arial" font-size="14" text-anchor="middle">数字 6</text>
+  </g>
+  
+  <g transform="translate(610, 60)">
+    <!-- 7 -->
+    <rect width="60" height="60" fill="#eeeeee" stroke="#333333"/>
+    <path d="M15,10 L45,10 L30,50" stroke="black" stroke-width="4" fill="none"/>
+    <text x="30" y="100" font-family="Arial" font-size="14" text-anchor="middle">数字 7</text>
+  </g>
+  
+  <g transform="translate(690, 60)">
+    <!-- 8 -->
+    <rect width="60" height="60" fill="#eeeeee" stroke="#333333"/>
+    <path d="M30,15 Q15,15 15,25 Q15,35 30,35 Q45,35 45,25 Q45,15 30,15 M30,35 Q15,35 15,45 Q15,55 30,55 Q45,55 45,45 Q45,35 30,35" stroke="black" stroke-width="4" fill="none"/>
+    <text x="30" y="100" font-family="Arial" font-size="14" text-anchor="middle">数字 8</text>
+  </g>
+  
+  <!-- 注释 -->
+  <text x="400" y="180" font-family="Arial" font-size="14" text-anchor="middle" font-style="italic">每个图像为28×28像素的灰度图，总共60,000张训练图像和10,000张测试图像</text>
+</svg>

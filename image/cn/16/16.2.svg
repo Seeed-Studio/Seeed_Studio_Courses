@@ -1,0 +1,45 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="40" font-family="Arial" font-size="22" text-anchor="middle" font-weight="bold">PyTorch架构概览</text>
+  
+  <!-- PyTorch 主体框架 -->
+  <rect x="100" y="80" width="600" height="350" rx="10" ry="10" fill="#EED8AE" stroke="#8B7355" stroke-width="2"/>
+  <text x="400" y="110" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold" fill="#8B4513">PyTorch</text>
+  
+  <!-- 三大核心特性区块 -->
+  <!-- 动态计算图 -->
+  <rect x="130" y="130" width="250" height="130" rx="10" ry="10" fill="#F5DEB3" stroke="#8B7355" stroke-width="2"/>
+  <text x="255" y="155" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">动态计算图</text>
+  <text x="255" y="180" font-family="Arial" font-size="12" text-anchor="middle">Define-by-Run模式</text>
+  <text x="255" y="200" font-family="Arial" font-size="12" text-anchor="middle">运行时构建计算图</text>
+  <text x="255" y="220" font-family="Arial" font-size="12" text-anchor="middle">灵活的调试与修改</text>
+  <text x="255" y="240" font-family="Arial" font-size="12" text-anchor="middle">支持条件和循环结构</text>
+  
+  <!-- Python原生集成 -->
+  <rect x="420" y="130" width="250" height="130" rx="10" ry="10" fill="#F5DEB3" stroke="#8B7355" stroke-width="2"/>
+  <text x="545" y="155" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">Python原生集成</text>
+  <text x="545" y="180" font-family="Arial" font-size="12" text-anchor="middle">Python风格API</text>
+  <text x="545" y="200" font-family="Arial" font-size="12" text-anchor="middle">无缝对接NumPy/SciPy</text>
+  <text x="545" y="220" font-family="Arial" font-size="12" text-anchor="middle">标准Python调试工具支持</text>
+  <text x="545" y="240" font-family="Arial" font-size="12" text-anchor="middle">丰富的生态系统兼容</text>
+  
+  <!-- GPU加速支持 -->
+  <rect x="130" y="280" width="540" height="120" rx="10" ry="10" fill="#F5DEB3" stroke="#8B7355" stroke-width="2"/>
+  <text x="400" y="305" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">强大的CUDA支持</text>
+  <text x="400" y="330" font-family="Arial" font-size="12" text-anchor="middle">无缝CPU/GPU切换</text>
+  <text x="400" y="350" font-family="Arial" font-size="12" text-anchor="middle">自动内存管理与数据传输</text>
+  <text x="400" y="370" font-family="Arial" font-size="12" text-anchor="middle">高度优化的GPU算子库</text>
+  
+  <!-- 底部 - 关键组件 -->
+  <rect x="130" y="420" width="160" height="40" rx="5" ry="5" fill="#FFF8DC" stroke="#8B7355" stroke-width="2"/>
+  <text x="210" y="445" font-family="Arial" font-size="14" text-anchor="middle">Tensor (张量)</text>
+  
+  <rect x="320" y="420" width="160" height="40" rx="5" ry="5" fill="#FFF8DC" stroke="#8B7355" stroke-width="2"/>
+  <text x="400" y="445" font-family="Arial" font-size="14" text-anchor="middle">Autograd (自动求导)</text>
+  
+  <rect x="510" y="420" width="160" height="40" rx="5" ry="5" fill="#FFF8DC" stroke="#8B7355" stroke-width="2"/>
+  <text x="590" y="445" font-family="Arial" font-size="14" text-anchor="middle">nn.Module (神经网络)</text>
+</svg>

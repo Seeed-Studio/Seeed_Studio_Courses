@@ -1,0 +1,128 @@
+<svg width="800" height="520" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="520" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="40" font-family="Arial" font-size="22" text-anchor="middle" font-weight="bold">CPU 与 GPU 架构对比及其在深度学习中的应用</text>
+  
+  <!-- CPU架构 -->
+  <rect x="100" y="80" width="250" height="200" rx="10" ry="10" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="225" y="110" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">CPU 架构</text>
+  
+  <!-- CPU内部结构 -->
+  <rect x="120" y="130" width="50" height="50" rx="5" ry="5" fill="#90CAF9" stroke="#1565C0" stroke-width="1"/>
+  <text x="145" y="155" font-family="Arial" font-size="12" text-anchor="middle">核心1</text>
+  
+  <rect x="180" y="130" width="50" height="50" rx="5" ry="5" fill="#90CAF9" stroke="#1565C0" stroke-width="1"/>
+  <text x="205" y="155" font-family="Arial" font-size="12" text-anchor="middle">核心2</text>
+  
+  <rect x="240" y="130" width="50" height="50" rx="5" ry="5" fill="#90CAF9" stroke="#1565C0" stroke-width="1"/>
+  <text x="265" y="155" font-family="Arial" font-size="12" text-anchor="middle">核心3</text>
+  
+  <rect x="150" y="190" width="50" height="50" rx="5" ry="5" fill="#90CAF9" stroke="#1565C0" stroke-width="1"/>
+  <text x="175" y="215" font-family="Arial" font-size="12" text-anchor="middle">核心4</text>
+  
+  <rect x="210" y="190" width="50" height="50" rx="5" ry="5" fill="#90CAF9" stroke="#1565C0" stroke-width="1"/>
+  <text x="235" y="215" font-family="Arial" font-size="12" text-anchor="middle">核心5</text>
+  
+  <rect x="110" y="250" width="230" height="20" rx="0" ry="0" fill="#BBDEFB" stroke="#1565C0" stroke-width="1"/>
+  <text x="225" y="265" font-family="Arial" font-size="12" text-anchor="middle">大容量缓存</text>
+  
+  <!-- CPU特点 -->
+  <g transform="translate(100, 280)">
+    <text x="0" y="20" font-family="Arial" font-size="14" font-weight="bold">特点:</text>
+    <text x="10" y="40" font-family="Arial" font-size="12">• 少量复杂核心 (4-64)</text>
+    <text x="10" y="60" font-family="Arial" font-size="12">• 面向通用计算</text>
+    <text x="10" y="80" font-family="Arial" font-size="12">• 复杂控制逻辑和大缓存</text>
+    <text x="10" y="100" font-family="Arial" font-size="12">• 优化串行任务处理</text>
+  </g>
+  
+  <!-- GPU架构 -->
+  <rect x="450" y="80" width="250" height="200" rx="10" ry="10" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="2"/>
+  <text x="575" y="110" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">GPU 架构</text>
+  
+  <!-- GPU内部结构 - 上排 -->
+  <g transform="translate(460, 130)">
+    <rect width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="25" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="50" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="75" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="100" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="125" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="150" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="175" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="200" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+  </g>
+  
+  <!-- GPU内部结构 - 第二排 -->
+  <g transform="translate(460, 155)">
+    <rect width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="25" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="50" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="75" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="100" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="125" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="150" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="175" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="200" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+  </g>
+  
+  <!-- GPU内部结构 - 第三排 -->
+  <g transform="translate(460, 180)">
+    <rect width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="25" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="50" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="75" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="100" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="125" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="150" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="175" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="200" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+  </g>
+  
+  <!-- GPU内部结构 - 第四排 -->
+  <g transform="translate(460, 205)">
+    <rect width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="25" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="50" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="75" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="100" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="125" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="150" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="175" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+    <rect x="200" width="20" height="20" rx="0" ry="0" fill="#CE93D8" stroke="#6A1B9A" stroke-width="1"/>
+  </g>
+  
+  <rect x="460" y="250" width="230" height="20" rx="0" ry="0" fill="#E1BEE7" stroke="#6A1B9A" stroke-width="1"/>
+  <text x="575" y="265" font-family="Arial" font-size="12" text-anchor="middle">小型共享内存</text>
+  
+  <!-- GPU特点 -->
+  <g transform="translate(450, 280)">
+    <text x="10" y="20" font-family="Arial" font-size="14" font-weight="bold">特点:</text>
+    <text x="10" y="40" font-family="Arial" font-size="12">• 大量简单核心 (数千个)</text>
+    <text x="10" y="60" font-family="Arial" font-size="12">• 面向并行计算</text>
+    <text x="10" y="80" font-family="Arial" font-size="12">• 高吞吐量的数据处理</text>
+    <text x="10" y="100" font-family="Arial" font-size="12">• 优化SIMD操作</text>
+  </g>
+  
+  <!-- 深度学习应用部分 -->
+  <rect x="100" y="390" width="600" height="120" rx="10" ry="10" fill="#FFF8E1" stroke="#FFA000" stroke-width="2"/>
+  <text x="400" y="420" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">在深度学习中的应用</text>
+  
+  <!-- 深度学习应用对比 -->
+  <line x1="400" y1="430" x2="400" y2="490" stroke="#666666" stroke-width="1"/>
+  
+  <g transform="translate(70, 440)">
+    <text x="80" y="0" font-family="Arial" font-size="14" font-weight="bold">CPU适用场景:</text>
+    <text x="80" y="20" font-family="Arial" font-size="12">• 小批量/单样本推理</text>
+    <text x="80" y="40" font-family="Arial" font-size="12">• 复杂的预处理逻辑</text>
+    <text x="80" y="60" font-family="Arial" font-size="12">• 开发和调试阶段</text>
+  </g>
+  
+  <g transform="translate(420, 440)">
+    <text x="80" y="0" font-family="Arial" font-size="14" font-weight="bold">GPU优势场景:</text>
+    <text x="80" y="20" font-family="Arial" font-size="12">• 大批量训练(10-100x加速)</text>
+    <text x="80" y="40" font-family="Arial" font-size="12">• 矩阵乘法密集操作</text>
+    <text x="80" y="60" font-family="Arial" font-size="12">• 并行数据处理流水线</text>
+  </g>
+</svg>

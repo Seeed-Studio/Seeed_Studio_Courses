@@ -1,0 +1,109 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">不同维度Tensor的直观理解和实际应用</text>
+  
+  <!-- 0维 Tensor - 标量 -->
+  <g transform="translate(60, 80)">
+    <rect width="140" height="150" rx="10" ry="10" fill="#E6F3FF" stroke="#4682B4" stroke-width="2"/>
+    <text x="70" y="30" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">0维 Tensor</text>
+    <text x="70" y="50" font-family="Arial" font-size="14" text-anchor="middle">（标量）</text>
+    
+    <rect x="40" y="70" width="60" height="30" rx="5" ry="5" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+    <text x="70" y="90" font-family="Arial" font-size="14" text-anchor="middle">25.6</text>
+    
+    <text x="70" y="130" font-family="Arial" font-size="12" text-anchor="middle" font-style="italic">例: 温度值, 损失值</text>
+  </g>
+  
+  <!-- 1维 Tensor - 向量 -->
+  <g transform="translate(220, 80)">
+    <rect width="140" height="150" rx="10" ry="10" fill="#E6F3FF" stroke="#4682B4" stroke-width="2"/>
+    <text x="70" y="30" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">1维 Tensor</text>
+    <text x="70" y="50" font-family="Arial" font-size="14" text-anchor="middle">（向量）</text>
+    
+    <rect x="15" y="70" width="30" height="30" rx="5" ry="5" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+    <text x="30" y="90" font-family="Arial" font-size="12" text-anchor="middle">20.1</text>
+    
+    <rect x="50" y="70" width="30" height="30" rx="5" ry="5" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+    <text x="65" y="90" font-family="Arial" font-size="12" text-anchor="middle">21.5</text>
+    
+    <rect x="85" y="70" width="30" height="30" rx="5" ry="5" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+    <text x="100" y="90" font-family="Arial" font-size="12" text-anchor="middle">23.2</text>
+    
+    <text x="70" y="130" font-family="Arial" font-size="12" text-anchor="middle" font-style="italic">例: 特征向量, 时间序列</text>
+  </g>
+  
+  <!-- 2维 Tensor - 矩阵 -->
+  <g transform="translate(380, 80)">
+    <rect width="140" height="150" rx="10" ry="10" fill="#E6F3FF" stroke="#4682B4" stroke-width="2"/>
+    <text x="70" y="30" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">2维 Tensor</text>
+    <text x="70" y="50" font-family="Arial" font-size="14" text-anchor="middle">（矩阵）</text>
+    
+    <rect x="25" y="65" width="30" height="30" rx="0" ry="0" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+    <rect x="55" y="65" width="30" height="30" rx="0" ry="0" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+    <rect x="85" y="65" width="30" height="30" rx="0" ry="0" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+    
+    <rect x="25" y="95" width="30" height="30" rx="0" ry="0" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+    <rect x="55" y="95" width="30" height="30" rx="0" ry="0" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+    <rect x="85" y="95" width="30" height="30" rx="0" ry="0" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+    
+    <text x="70" y="140" font-family="Arial" font-size="12" text-anchor="middle" font-style="italic">例: 图像, 权重矩阵</text>
+  </g>
+  
+  <!-- 3维 Tensor -->
+  <g transform="translate(540, 80)">
+    <rect width="200" height="150" rx="10" ry="10" fill="#E6F3FF" stroke="#4682B4" stroke-width="2"/>
+    <text x="100" y="30" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">3维 Tensor</text>
+    
+    <!-- 立方体可视化 -->
+    <path d="M90,35 L140,50 L140,100 L90,85 Z" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+    <path d="M90,35 L50,65 L50,115 L90,85 Z" fill="#9BC1D9" stroke="#4682B4" stroke-width="1"/>
+    <path d="M90,85 L140,100 L100,130 L50,115 Z" fill="#87CEFA" stroke="#4682B4" stroke-width="1"/>
+    
+    <text x="100" y="145" font-family="Arial" font-size="12" text-anchor="middle" font-style="italic">例: 彩色图像 (高×宽×通道)</text>
+  </g>
+  
+  <!-- 4维 Tensor -->
+  <g transform="translate(100, 280)">
+    <rect width="600" height="180" rx="10" ry="10" fill="#E6F3FF" stroke="#4682B4" stroke-width="2"/>
+    <text x="300" y="30" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">4维 Tensor</text>
+    <text x="300" y="50" font-family="Arial" font-size="14" text-anchor="middle">批量图像数据</text>
+    
+    <!-- 批量的立方体可视化 -->
+    <g transform="translate(50, 60)">
+      <path d="M45,15 L75,25 L75,55 L45,45 Z" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+      <path d="M45,15 L20,30 L20,60 L45,45 Z" fill="#9BC1D9" stroke="#4682B4" stroke-width="1"/>
+      <path d="M45,45 L75,55 L50,70 L20,60 Z" fill="#87CEFA" stroke="#4682B4" stroke-width="1"/>
+      <text x="45" y="90" font-family="Arial" font-size="12" text-anchor="middle">图像 1</text>
+    </g>
+    
+    <g transform="translate(150, 60)">
+      <path d="M45,15 L75,25 L75,55 L45,45 Z" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+      <path d="M45,15 L20,30 L20,60 L45,45 Z" fill="#9BC1D9" stroke="#4682B4" stroke-width="1"/>
+      <path d="M45,45 L75,55 L50,70 L20,60 Z" fill="#87CEFA" stroke="#4682B4" stroke-width="1"/>
+      <text x="45" y="90" font-family="Arial" font-size="12" text-anchor="middle">图像 2</text>
+    </g>
+    
+    <g transform="translate(250, 60)">
+      <path d="M45,15 L75,25 L75,55 L45,45 Z" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+      <path d="M45,15 L20,30 L20,60 L45,45 Z" fill="#9BC1D9" stroke="#4682B4" stroke-width="1"/>
+      <path d="M45,45 L75,55 L50,70 L20,60 Z" fill="#87CEFA" stroke="#4682B4" stroke-width="1"/>
+      <text x="45" y="90" font-family="Arial" font-size="12" text-anchor="middle">图像 3</text>
+    </g>
+    
+    <g transform="translate(350, 60)">
+      <text x="45" y="35" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">...</text>
+    </g>
+    
+    <g transform="translate(450, 60)">
+      <path d="M45,15 L75,25 L75,55 L45,45 Z" fill="#B0E0E6" stroke="#4682B4" stroke-width="1"/>
+      <path d="M45,15 L20,30 L20,60 L45,45 Z" fill="#9BC1D9" stroke="#4682B4" stroke-width="1"/>
+      <path d="M45,45 L75,55 L50,70 L20,60 Z" fill="#87CEFA" stroke="#4682B4" stroke-width="1"/>
+      <text x="45" y="90" font-family="Arial" font-size="12" text-anchor="middle">图像 N</text>
+    </g>
+    
+    <text x="300" y="170" font-family="Arial" font-size="12" text-anchor="middle" font-style="italic">形状: [批次大小, 通道数, 高度, 宽度]</text>
+  </g>
+</svg>

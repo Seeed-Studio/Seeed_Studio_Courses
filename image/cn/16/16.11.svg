@@ -1,0 +1,114 @@
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1000" height="600" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="500" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">MNIST 手写数字识别系统</text>
+  
+  <!-- MNIST 数据集示例 -->
+  <g>
+    <text x="200" y="90" text-anchor="middle" font-size="18" font-weight="bold" fill="#3498db">MNIST 数据集示例</text>
+    
+    <!-- 手写数字示例 -->
+    <g id="digit-examples">
+      <!-- 数字 0 -->
+      <rect x="50" y="110" width="60" height="60" fill="white" stroke="#bdc3c7" stroke-width="1"/>
+      <path d="M70 130 Q90 120 90 150 Q90 170 70 170 Q50 170 50 150 Q50 120 70 130 Z" fill="#2c3e50"/>
+      <text x="80" y="190" text-anchor="middle" font-size="12" fill="#2c3e50">0</text>
+      
+      <!-- 数字 1 -->
+      <rect x="130" y="110" width="60" height="60" fill="white" stroke="#bdc3c7" stroke-width="1"/>
+      <path d="M150 130 L150 165 M145 135 L150 130" stroke="#2c3e50" stroke-width="3" fill="none"/>
+      <text x="160" y="190" text-anchor="middle" font-size="12" fill="#2c3e50">1</text>
+      
+      <!-- 数字 2 -->
+      <rect x="210" y="110" width="60" height="60" fill="white" stroke="#bdc3c7" stroke-width="1"/>
+      <path d="M220 135 Q240 125 250 135 Q250 145 230 155 L220 165 L250 165" stroke="#2c3e50" stroke-width="3" fill="none"/>
+      <text x="240" y="190" text-anchor="middle" font-size="12" fill="#2c3e50">2</text>
+      
+      <!-- 数字 3 -->
+      <rect x="290" y="110" width="60" height="60" fill="white" stroke="#bdc3c7" stroke-width="1"/>
+      <path d="M300 130 Q320 125 330 135 Q330 145 315 147 Q330 150 330 160 Q320 170 300 165" stroke="#2c3e50" stroke-width="3" fill="none"/>
+      <text x="320" y="190" text-anchor="middle" font-size="12" fill="#2c3e50">3</text>
+      
+      <!-- 数字 4 -->
+      <rect x="50" y="220" width="60" height="60" fill="white" stroke="#bdc3c7" stroke-width="1"/>
+      <path d="M60 240 L60 255 L85 255 M85 235 L85 270" stroke="#2c3e50" stroke-width="3" fill="none"/>
+      <text x="80" y="300" text-anchor="middle" font-size="12" fill="#2c3e50">4</text>
+      
+      <!-- 数字 5 -->
+      <rect x="130" y="220" width="60" height="60" fill="white" stroke="#bdc3c7" stroke-width="1"/>
+      <path d="M140 235 L175 235 L140 235 L140 250 Q160 245 175 255 Q175 270 155 275 L140 270" stroke="#2c3e50" stroke-width="3" fill="none"/>
+      <text x="160" y="300" text-anchor="middle" font-size="12" fill="#2c3e50">5</text>
+      
+      <!-- 更多数字... -->
+      <text x="200" y="330" text-anchor="middle" font-size="14" fill="#7f8c8d">28×28 像素灰度图像</text>
+    </g>
+  </g>
+  
+  <!-- 箭头 -->
+  <path d="M400 200 L480 200" stroke="#e74c3c" stroke-width="4" marker-end="url(#arrowhead)"/>
+  <text x="440" y="180" text-anchor="middle" font-size="14" fill="#e74c3c" font-weight="bold">神经网络识别</text>
+  
+  <!-- 识别结果 -->
+  <g>
+    <text x="700" y="90" text-anchor="middle" font-size="18" font-weight="bold" fill="#27ae60">识别结果</text>
+    
+    <!-- 预测概率条形图 -->
+    <g id="prediction-bars">
+      <text x="520" y="130" font-size="12" fill="#2c3e50">数字 0:</text>
+      <rect x="570" y="120" width="80" height="15" fill="#ecf0f1" stroke="#bdc3c7"/>
+      <rect x="570" y="120" width="8" height="15" fill="#3498db"/>
+      <text x="660" y="132" font-size="10" fill="#2c3e50">0.1%</text>
+      
+      <text x="520" y="150" font-size="12" fill="#2c3e50">数字 1:</text>
+      <rect x="570" y="140" width="80" height="15" fill="#ecf0f1" stroke="#bdc3c7"/>
+      <rect x="570" y="140" width="72" height="15" fill="#27ae60"/>
+      <text x="660" y="152" font-size="10" fill="#2c3e50">90.2%</text>
+      
+      <text x="520" y="170" font-size="12" fill="#2c3e50">数字 2:</text>
+      <rect x="570" y="160" width="80" height="15" fill="#ecf0f1" stroke="#bdc3c7"/>
+      <rect x="570" y="160" width="6" height="15" fill="#3498db"/>
+      <text x="660" y="172" font-size="10" fill="#2c3e50">0.8%</text>
+      
+      <text x="520" y="190" font-size="12" fill="#2c3e50">数字 3:</text>
+      <rect x="570" y="180" width="80" height="15" fill="#ecf0f1" stroke="#bdc3c7"/>
+      <rect x="570" y="180" width="12" height="15" fill="#3498db"/>
+      <text x="660" y="192" font-size="10" fill="#2c3e50">1.5%</text>
+      
+      <text x="520" y="210" font-size="12" fill="#2c3e50">...</text>
+    </g>
+    
+    <!-- 最终预测结果 -->
+    <rect x="750" y="120" width="120" height="80" fill="#e8f5e8" stroke="#27ae60" stroke-width="2" rx="10"/>
+    <text x="810" y="140" text-anchor="middle" font-size="16" font-weight="bold" fill="#27ae60">预测结果</text>
+    <text x="810" y="170" text-anchor="middle" font-size="36" font-weight="bold" fill="#27ae60">1</text>
+    <text x="810" y="190" text-anchor="middle" font-size="12" fill="#27ae60">置信度: 90.2%</text>
+  </g>
+  
+  <!-- 数据集统计信息 -->
+  <g>
+    <rect x="100" y="400" width="800" height="150" fill="white" stroke="#bdc3c7" stroke-width="1" rx="10"/>
+    <text x="500" y="430" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">MNIST 数据集统计</text>
+    
+    <text x="200" y="460" font-size="14" fill="#2c3e50" font-weight="bold">训练集:</text>
+    <text x="200" y="480" font-size="12" fill="#2c3e50">• 60,000 张图像</text>
+    <text x="200" y="500" font-size="12" fill="#2c3e50">• 用于模型训练</text>
+    
+    <text x="400" y="460" font-size="14" fill="#2c3e50" font-weight="bold">测试集:</text>
+    <text x="400" y="480" font-size="12" fill="#2c3e50">• 10,000 张图像</text>
+    <text x="400" y="500" font-size="12" fill="#2c3e50">• 用于性能评估</text>
+    
+    <text x="600" y="460" font-size="14" fill="#2c3e50" font-weight="bold">图像规格:</text>
+    <text x="600" y="480" font-size="12" fill="#2c3e50">• 28×28 像素</text>
+    <text x="600" y="500" font-size="12" fill="#2c3e50">• 灰度图像</text>
+    <text x="600" y="520" font-size="12" fill="#2c3e50">• 数字 0-9</text>
+  </g>
+  
+  <!-- 箭头标记 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"/>
+    </marker>
+  </defs>
+</svg>

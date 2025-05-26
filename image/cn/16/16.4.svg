@@ -1,0 +1,66 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="40" font-family="Arial" font-size="22" text-anchor="middle" font-weight="bold">自动求导与手动求导的对比</text>
+  
+  <!-- 左侧 - 手动求导 -->
+  <rect x="42" y="80" width="316" height="300" rx="10" ry="10" fill="#FFE4E1" stroke="#CD5C5C" stroke-width="2"/>
+  <text x="200" y="110" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">手动求导</text>
+  
+  <!-- 手动求导过程 -->
+  <g transform="translate(58, 130)">
+    <text x="0" y="0" font-family="Consolas, monospace" font-size="12">1. 推导函数表达式:</text>
+    <text x="20" y="20" font-family="Consolas, monospace" font-size="12" font-style="italic">f(x, y) = x² * sin(y) + cos(y)</text>
+    
+    <text x="0" y="50" font-family="Consolas, monospace" font-size="12">2. 计算偏导数:</text>
+    <text x="20" y="70" font-family="Consolas, monospace" font-size="12" font-style="italic">∂f/∂x = 2x * sin(y)</text>
+    <text x="20" y="90" font-family="Consolas, monospace" font-size="12" font-style="italic">∂f/∂y = x² * cos(y) - sin(y)</text>
+    
+    <text x="0" y="120" font-family="Consolas, monospace" font-size="12">3. 实现导数计算:</text>
+    <text x="20" y="140" font-family="Consolas, monospace" font-size="12" font-style="italic">def df_dx(x, y):</text>
+    <text x="40" y="160" font-family="Consolas, monospace" font-size="12" font-style="italic">return 2 * x * math.sin(y)</text>
+    
+    <text x="20" y="190" font-family="Consolas, monospace" font-size="12" font-style="italic">def df_dy(x, y):</text>
+    <text x="40" y="210" font-family="Consolas, monospace" font-size="12" font-style="italic">return x**2 * math.cos(y) - math.sin(y)</text>
+  </g>
+  
+  <!-- 右侧 - 自动求导 -->
+  <rect x="442" y="80" width="316" height="300" rx="10" ry="10" fill="#E0FFFF" stroke="#4682B4" stroke-width="2"/>
+  <text x="600" y="110" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">自动求导 (PyTorch)</text>
+  
+  <!-- 自动求导过程 -->
+  <g transform="translate(458, 130)">
+    <text x="0" y="0" font-family="Consolas, monospace" font-size="12">1. 创建可求导的变量:</text>
+    <text x="20" y="20" font-family="Consolas, monospace" font-size="12" font-style="italic">x = torch.tensor(2.0, requires_grad=True)</text>
+    <text x="20" y="40" font-family="Consolas, monospace" font-size="12" font-style="italic">y = torch.tensor(3.0, requires_grad=True)</text>
+    
+    <text x="0" y="70" font-family="Consolas, monospace" font-size="12">2. 定义计算过程:</text>
+    <text x="20" y="90" font-family="Consolas, monospace" font-size="12" font-style="italic">f = x**2 * torch.sin(y) + torch.cos(y)</text>
+    
+    <text x="0" y="120" font-family="Consolas, monospace" font-size="12">3. 反向传播自动计算梯度:</text>
+    <text x="20" y="140" font-family="Consolas, monospace" font-size="12" font-style="italic">f.backward()</text>
+    
+    <text x="0" y="170" font-family="Consolas, monospace" font-size="12">4. 获取导数值:</text>
+    <text x="20" y="190" font-family="Consolas, monospace" font-size="12" font-style="italic">df_dx = x.grad  # 获取∂f/∂x</text>
+    <text x="20" y="210" font-family="Consolas, monospace" font-size="12" font-style="italic">df_dy = y.grad  # 获取∂f/∂y</text>
+  </g>
+  
+  <!-- 对比箭头 -->
+  <g transform="translate(400, 260)">
+    <polygon points="-20,0 -10,-10 -10,10" fill="#555555"/>
+    <polygon points="20,0 10,-10 10,10" fill="#555555"/>
+  </g>
+  
+  <!-- 底部比较 -->
+  <g transform="translate(50, 400)">
+    <rect width="300" height="30" rx="5" ry="5" fill="#FFCCCC" stroke="#CD5C5C" stroke-width="1"/>
+    <text x="150" y="20" font-family="Arial" font-size="14" text-anchor="middle">复杂、易错、难以扩展</text>
+  </g>
+  
+  <g transform="translate(450, 400)">
+    <rect width="300" height="30" rx="5" ry="5" fill="#CCFFFF" stroke="#4682B4" stroke-width="1"/>
+    <text x="150" y="20" font-family="Arial" font-size="14" text-anchor="middle">简单、精确、自动扩展到任何函数</text>
+  </g>
+</svg>

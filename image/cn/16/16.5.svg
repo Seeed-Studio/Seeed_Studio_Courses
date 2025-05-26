@@ -1,0 +1,158 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1200" height="600" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="600" y="30" text-anchor="middle" font-size="22" font-weight="bold" fill="#2c3e50">计算图：w = (x² + 2y²)² 的前向传播与反向传播</text>
+  
+  <!-- 前向传播标题 -->
+  <text x="600" y="70" text-anchor="middle" font-size="16" font-weight="bold" fill="#27ae60">前向传播 →</text>
+  
+  <!-- 第一层：输入变量 -->
+  <g>
+    <text x="100" y="120" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">输入变量</text>
+    
+    <!-- x节点 -->
+    <circle cx="100" cy="160" r="30" fill="#3498db" stroke="#2980b9" stroke-width="3"/>
+    <text x="100" y="165" text-anchor="middle" font-size="16" font-weight="bold" fill="white">x</text>
+    <text x="100" y="200" text-anchor="middle" font-size="12" fill="#2c3e50">值: 2.0</text>
+    
+    <!-- y节点 -->
+    <circle cx="100" cy="280" r="30" fill="#3498db" stroke="#2980b9" stroke-width="3"/>
+    <text x="100" y="285" text-anchor="middle" font-size="16" font-weight="bold" fill="white">y</text>
+    <text x="100" y="320" text-anchor="middle" font-size="12" fill="#2c3e50">值: 3.0</text>
+  </g>
+  
+  <!-- 第二层：平方运算 -->
+  <g>
+    <text x="300" y="120" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">平方运算</text>
+    
+    <!-- x²节点 -->
+    <rect x="270" y="140" width="60" height="40" rx="8" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+    <text x="300" y="165" text-anchor="middle" font-size="14" font-weight="bold" fill="white">x²</text>
+    <text x="300" y="200" text-anchor="middle" font-size="12" fill="#2c3e50">值: 4.0</text>
+    
+    <!-- 2y²节点 -->
+    <rect x="270" y="240" width="60" height="40" rx="8" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+    <text x="300" y="265" text-anchor="middle" font-size="14" font-weight="bold" fill="white">2y²</text>
+    <text x="300" y="300" text-anchor="middle" font-size="12" fill="#2c3e50">值: 18.0</text>
+  </g>
+  
+  <!-- 第三层：加法运算 -->
+  <g>
+    <text x="500" y="120" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">加法运算</text>
+    
+    <!-- z节点 -->
+    <circle cx="500" cy="220" r="35" fill="#f39c12" stroke="#e67e22" stroke-width="3"/>
+    <text x="500" y="220" text-anchor="middle" font-size="14" font-weight="bold" fill="white">z</text>
+    <text x="500" y="235" text-anchor="middle" font-size="12" fill="white">x²+2y²</text>
+    <text x="500" y="270" text-anchor="middle" font-size="12" fill="#2c3e50">值: 22.0</text>
+  </g>
+  
+  <!-- 第四层：最终平方 -->
+  <g>
+    <text x="700" y="120" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">平方运算</text>
+    
+    <!-- w节点 -->
+    <circle cx="700" cy="220" r="35" fill="#9b59b6" stroke="#8e44ad" stroke-width="3"/>
+    <text x="700" y="220" text-anchor="middle" font-size="14" font-weight="bold" fill="white">w</text>
+    <text x="700" y="235" text-anchor="middle" font-size="12" fill="white">z²</text>
+    <text x="700" y="270" text-anchor="middle" font-size="12" fill="#2c3e50">值: 484.0</text>
+  </g>
+  
+  <!-- 前向传播箭头 -->
+  <g stroke="#27ae60" stroke-width="3" fill="#27ae60">
+    <!-- x到x² -->
+    <path d="M130 160 L270 160" marker-end="url(#arrowgreen)"/>
+    <!-- y到2y² -->
+    <path d="M130 280 L270 260" marker-end="url(#arrowgreen)"/>
+    <!-- x²到z -->
+    <path d="M330 160 L465 200" marker-end="url(#arrowgreen)"/>
+    <!-- 2y²到z -->
+    <path d="M330 260 L465 240" marker-end="url(#arrowgreen)"/>
+    <!-- z到w -->
+    <path d="M535 220 L665 220" marker-end="url(#arrowgreen)"/>
+  </g>
+  
+  <!-- 反向传播标题 -->
+  <text x="600" y="350" text-anchor="middle" font-size="16" font-weight="bold" fill="#e74c3c">← 反向传播（梯度计算）</text>
+  
+  <!-- 梯度值显示 -->
+  <g>
+    <!-- w梯度 -->
+    <rect x="670" y="380" width="60" height="30" rx="5" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+    <text x="700" y="400" text-anchor="middle" font-size="12" font-weight="bold" fill="white">grad: 1</text>
+    
+    <!-- z梯度 -->
+    <rect x="470" y="380" width="60" height="30" rx="5" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+    <text x="500" y="400" text-anchor="middle" font-size="12" font-weight="bold" fill="white">grad: 44</text>
+    
+    <!-- x²梯度 -->
+    <rect x="270" y="360" width="60" height="30" rx="5" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+    <text x="300" y="380" text-anchor="middle" font-size="12" font-weight="bold" fill="white">grad: 44</text>
+    
+    <!-- 2y²梯度 -->
+    <rect x="270" y="420" width="60" height="30" rx="5" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+    <text x="300" y="440" text-anchor="middle" font-size="12" font-weight="bold" fill="white">grad: 44</text>
+    
+    <!-- x最终梯度 -->
+    <rect x="70" y="360" width="60" height="30" rx="5" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+    <text x="100" y="380" text-anchor="middle" font-size="12" font-weight="bold" fill="white">grad: 176</text>
+    
+    <!-- y最终梯度 -->
+    <rect x="70" y="420" width="60" height="30" rx="5" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+    <text x="100" y="440" text-anchor="middle" font-size="12" font-weight="bold" fill="white">grad: 528</text>
+  </g>
+  
+  <!-- 反向传播箭头和计算说明 -->
+  <g stroke="#e74c3c" stroke-width="1" fill="#e74c3c">
+    <!-- w到z -->
+    <path d="M670 395 L530 395" marker-end="url(#arrowred)"/>
+    <text x="600" y="390" text-anchor="middle" font-size="11" fill="#e74c3c">∂w/∂z = 2z = 44</text>
+    
+    <!-- z到中间层 -->
+    <path d="M470 395 L330 375" marker-end="url(#arrowred)"/>
+    <path d="M470 405 L330 435" marker-end="url(#arrowred)"/>
+    <text x="400" y="375" text-anchor="middle" font-size="11" fill="#e74c3c">∂z/∂(x²) = 1</text>
+    <text x="400" y="440" text-anchor="middle" font-size="11" fill="#e74c3c">∂z/∂(2y²) = 1</text>
+    
+    <!-- 中间层到输入 -->
+    <path d="M270 375 L130 375" marker-end="url(#arrowred)"/>
+    <path d="M270 435 L130 435" marker-end="url(#arrowred)"/>
+    <text x="200" y="370" text-anchor="middle" font-size="11" fill="#e74c3c">∂(x²)/∂x = 2x = 4</text>
+    <text x="200" y="450" text-anchor="middle" font-size="11" fill="#e74c3c">∂(2y²)/∂y = 4y = 12</text>
+  </g>
+  
+  <!-- 最终结果说明 -->
+  <g>
+    <rect x="850" y="180" width="300" height="150" fill="white" stroke="#34495e" stroke-width="2" rx="10"/>
+    <text x="1000" y="205" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">梯度计算结果</text>
+    
+    <text x="870" y="230" font-size="13" fill="#2c3e50">链式法则：</text>
+    <text x="870" y="250" font-size="12" fill="#2c3e50">∂w/∂x = ∂w/∂z × ∂z/∂(x²) × ∂(x²)/∂x</text>
+    <text x="870" y="270" font-size="12" fill="#2c3e50">      = 44 × 1 × 4 = 176</text>
+    
+    <text x="870" y="295" font-size="12" fill="#2c3e50">∂w/∂y = ∂w/∂z × ∂z/∂(2y²) × ∂(2y²)/∂y</text>
+    <text x="870" y="315" font-size="12" fill="#2c3e50">      = 44 × 1 × 12 = 528</text>
+  </g>
+  
+  <!-- 关键概念说明 -->
+  <g>
+    <rect x="150" y="480" width="900" height="100" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1" rx="8"/>
+    <text x="600" y="505" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">关键概念</text>
+    <text x="200" y="525" font-size="12" fill="#2c3e50">• 前向传播：数据从左到右流动，计算最终输出</text>
+    <text x="200" y="545" font-size="12" fill="#2c3e50">• 反向传播：梯度从右到左传播，使用链式法则计算每个变量的梯度</text>
+    <text x="700" y="525" font-size="12" fill="#2c3e50">• 计算图：记录所有计算步骤，自动进行梯度计算</text>
+    <text x="700" y="545" font-size="12" fill="#2c3e50">• 梯度：告诉我们每个输入变量如何影响最终输出</text>
+  </g>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrowgreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60"/>
+    </marker>
+    <marker id="arrowred" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"/>
+    </marker>
+  </defs>
+</svg>

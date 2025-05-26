@@ -1,0 +1,67 @@
+<svg width="800" height="580" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="580" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="40" font-family="Arial" font-size="22" text-anchor="middle" font-weight="bold">深度学习训练流程详细示意图</text>
+  
+  <!-- 流程图主体 -->
+  <!-- 1. 数据加载与预处理 -->
+  <rect x="50" y="80" width="700" height="80" rx="10" ry="10" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="400" y="110" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">1. 数据加载与预处理</text>
+  <text x="400" y="140" font-family="Arial" font-size="14" text-anchor="middle">转换为Tensor、标准化、数据增强、批处理</text>
+  
+  <!-- 箭头 -->
+  <polygon points="395,160 405,160 400,180" fill="#555555"/>
+  
+  <!-- 2. 训练循环开始 - 外层循环框 -->
+  <rect x="80" y="180" width="640" height="310" rx="10" ry="10" fill="#FFF8E1" stroke="#FFB300" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="160" y="205" font-family="Arial" font-size="16" text-anchor="left" font-weight="bold">2. 训练循环 (多个Epoch)</text>
+  
+  <!-- 3. 前向传播 -->
+  <rect x="100" y="220" width="600" height="70" rx="10" ry="10" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="400" y="250" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">3. 前向传播</text>
+  <text x="400" y="275" font-family="Arial" font-size="14" text-anchor="middle">输入数据通过模型各层，生成预测结果</text>
+  
+  <!-- 箭头 -->
+  <polygon points="395,290 405,290 400,310" fill="#555555"/>
+  
+  <!-- 4. 损失计算 -->
+  <rect x="100" y="310" width="600" height="70" rx="10" ry="10" fill="#FBE9E7" stroke="#D84315" stroke-width="2"/>
+  <text x="400" y="340" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">4. 损失计算</text>
+  <text x="400" y="365" font-family="Arial" font-size="14" text-anchor="middle">使用损失函数比较预测结果与真实标签</text>
+  
+  <!-- 箭头 -->
+  <polygon points="395,380 405,380 400,400" fill="#555555"/>
+  
+  <!-- 5. 反向传播 -->
+  <rect x="100" y="400" width="290" height="70" rx="10" ry="10" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="2"/>
+  <text x="245" y="430" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">5. 反向传播</text>
+  <text x="245" y="455" font-family="Arial" font-size="14" text-anchor="middle">计算参数梯度</text>
+  
+  <!-- 6. 参数更新 -->
+  <rect x="410" y="400" width="290" height="70" rx="10" ry="10" fill="#E1F5FE" stroke="#0288D1" stroke-width="2"/>
+  <text x="555" y="430" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">6. 参数更新</text>
+  <text x="555" y="455" font-family="Arial" font-size="14" text-anchor="middle">使用优化器更新模型参数</text>
+  
+  <!-- 箭头 - 循环回到前向传播 -->
+  <path d="M720,330 Q750,330 750,250 Q750,170 720,170" fill="none" stroke="#555555" stroke-width="2"/>
+  <polygon points="710,170 720,165 720,175" fill="#555555"/>
+  <text x="760" y="250" font-family="Arial" font-size="14" text-anchor="middle" font-style="italic">下一批数据</text>
+  
+  <!-- 箭头 -->
+  <polygon points="395,490 405,490 400,510" fill="#555555"/>
+  
+  <!-- 7. 模型评估与保存 -->
+  <rect x="50" y="510" width="700" height="60" rx="10" ry="10" fill="#EFEBE9" stroke="#795548" stroke-width="2"/>
+  <text x="400" y="545" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">7. 模型评估与保存</text>
+  
+  <!-- 辅助信息标注 -->
+  <!-- 损失与梯度 -->
+  <path d="M700,345 L730,345 L730,435 L700,435" fill="none" stroke="#FF5722" stroke-width="2" stroke-dasharray="3,2"/>
+  <text x="740" y="390" font-family="Arial" font-size="14" text-anchor="left" fill="#FF5722" transform="rotate(90, 740, 390)">自动求导</text>
+  
+  <!-- 训练批次 -->
+  <path d="M80,310 L40,310 L40,400 L80,400" fill="none" stroke="#009688" stroke-width="2" stroke-dasharray="3,2"/>
+  <text x="30" y="355" font-family="Arial" font-size="14" text-anchor="middle" fill="#009688" transform="rotate(270, 30, 355)">多个批次</text>
+</svg>
