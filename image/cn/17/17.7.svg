@@ -1,0 +1,85 @@
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="900" height="300" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">迁移学习工作流程</text>
+  
+  <!-- 流程步骤 -->
+  
+  <!-- 步骤1 -->
+  <g transform="translate(50, 80)">
+    <rect x="0" y="0" width="150" height="70" fill="#e8f4fd" stroke="#3498db" stroke-width="2" rx="5"/>
+    <text x="75" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#3498db">步骤1</text>
+    <text x="75" y="35" text-anchor="middle" font-size="14" fill="#2c3e50">加载预训练模型</text>
+    <text x="75" y="50" text-anchor="middle" font-size="10" fill="#7f8c8d">下载权重，加载架构</text>
+  </g>
+  
+  <!-- 箭头1 -->
+  <path d="M 200 115 L 240 115" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- 步骤2 -->
+  <g transform="translate(250, 80)">
+    <rect x="0" y="0" width="150" height="70" fill="#fff3cd" stroke="#ffc107" stroke-width="2" rx="5"/>
+    <text x="75" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#f39c12">步骤2</text>
+    <text x="75" y="35" text-anchor="middle" font-size="14" fill="#2c3e50">模型适配</text>
+    <text x="75" y="50" text-anchor="middle" font-size="10" fill="#7f8c8d">替换分类器，设置冻结</text>
+  </g>
+  
+  <!-- 箭头2 -->
+  <path d="M 400 115 L 440 115" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- 步骤3 -->
+  <g transform="translate(450, 80)">
+    <rect x="0" y="0" width="150" height="70" fill="#d4edda" stroke="#28a745" stroke-width="2" rx="5"/>
+    <text x="75" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#27ae60">步骤3</text>
+    <text x="75" y="35" text-anchor="middle" font-size="14" fill="#2c3e50">快速训练</text>
+    <text x="75" y="50" text-anchor="middle" font-size="10" fill="#7f8c8d">小学习率，监控性能</text>
+  </g>
+  
+  <!-- 箭头3 -->
+  <path d="M 600 115 L 640 115" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- 步骤4 -->
+  <g transform="translate(650, 80)">
+    <rect x="0" y="0" width="150" height="70" fill="#f8d7da" stroke="#dc3545" stroke-width="2" rx="5"/>
+    <text x="75" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#e74c3c">步骤4</text>
+    <text x="75" y="35" text-anchor="middle" font-size="14" fill="#2c3e50">部署应用</text>
+    <text x="75" y="50" text-anchor="middle" font-size="10" fill="#7f8c8d">测试，优化，部署</text>
+  </g>
+  
+  <!-- 关键要点 -->
+  <g transform="translate(100, 200)">
+    <rect x="0" y="0" width="700" height="80" fill="#f8f9fa" stroke="#2c3e50" stroke-width="2" rx="5"/>
+    <text x="350" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">实施要点</text>
+    
+    <g transform="translate(0, 45)">
+      <g transform="translate(50, 0)">
+        <circle cx="8" cy="8" r="4" fill="#3498db"/>
+        <text x="20" y="12" font-size="12" fill="#2c3e50">选择合适的预训练模型</text>
+      </g>
+      
+      <g transform="translate(200, 0)">
+        <circle cx="8" cy="8" r="4" fill="#f39c12"/>
+        <text x="20" y="12" font-size="12" fill="#2c3e50">替换输出层匹配类别数</text>
+      </g>
+      
+      <g transform="translate(350, 0)">
+        <circle cx="8" cy="8" r="4" fill="#27ae60"/>
+        <text x="20" y="12" font-size="12" fill="#2c3e50">使用较小的学习率训练</text>
+      </g>
+      
+      <g transform="translate(500, 0)">
+        <circle cx="8" cy="8" r="4" fill="#e74c3c"/>
+        <text x="20" y="12" font-size="12" fill="#2c3e50">监控验证性能防止过拟合</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="6" refX="5" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2c3e50"/>
+    </marker>
+  </defs>
+</svg>

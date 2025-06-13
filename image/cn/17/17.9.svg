@@ -1,0 +1,71 @@
+<svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="260" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">猫狗分类器开发流程</text>
+  
+  <!-- 步骤1 -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="120" height="60" fill="#e8f4fd" stroke="#3498db" stroke-width="2" rx="5"/>
+    <text x="60" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#3498db">数据预处理</text>
+    <text x="60" y="40" text-anchor="middle" font-size="10" fill="#2c3e50">图像增强</text>
+    <text x="60" y="52" text-anchor="middle" font-size="10" fill="#2c3e50">标准化</text>
+  </g>
+  
+  <!-- 箭头1 -->
+  <path d="M 180 90 L 210 90" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 步骤2 -->
+  <g transform="translate(220, 60)">
+    <rect x="0" y="0" width="120" height="60" fill="#fff3cd" stroke="#ffc107" stroke-width="2" rx="5"/>
+    <text x="60" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#f39c12">模型构建</text>
+    <text x="60" y="40" text-anchor="middle" font-size="10" fill="#2c3e50">迁移学习</text>
+    <text x="60" y="52" text-anchor="middle" font-size="10" fill="#2c3e50">ResNet</text>
+  </g>
+  
+  <!-- 箭头2 -->
+  <path d="M 350 90 L 380 90" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 步骤3 -->
+  <g transform="translate(390, 60)">
+    <rect x="0" y="0" width="120" height="60" fill="#d4edda" stroke="#28a745" stroke-width="2" rx="5"/>
+    <text x="60" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#27ae60">模型训练</text>
+    <text x="60" y="40" text-anchor="middle" font-size="10" fill="#2c3e50">少量数据</text>
+    <text x="60" y="52" text-anchor="middle" font-size="10" fill="#2c3e50">快速收敛</text>
+  </g>
+  
+  <!-- 箭头3 -->
+  <path d="M 520 90 L 550 90" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 步骤4 -->
+  <g transform="translate(560, 60)">
+    <rect x="0" y="0" width="120" height="60" fill="#f8d7da" stroke="#dc3545" stroke-width="2" rx="5"/>
+    <text x="60" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#e74c3c">评估部署</text>
+    <text x="60" y="40" text-anchor="middle" font-size="10" fill="#2c3e50">性能测试</text>
+    <text x="60" y="52" text-anchor="middle" font-size="10" fill="#2c3e50">Jetson部署</text>
+  </g>
+  
+  <!-- 技术特点 -->
+  <g transform="translate(150, 160)">
+    <rect x="0" y="0" width="500" height="80" fill="#ffffff" stroke="#2c3e50" stroke-width="2" rx="5"/>
+    <text x="250" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">项目特点</text>
+    
+    <g transform="translate(0, 35)">
+      <text x="100" y="15" text-anchor="middle" font-size="12" fill="#3498db">使用迁移学习</text>
+      <text x="250" y="15" text-anchor="middle" font-size="12" fill="#27ae60">数据需求少</text>
+      <text x="400" y="15" text-anchor="middle" font-size="12" fill="#e74c3c">适合边缘部署</text>
+      
+      <text x="100" y="35" text-anchor="middle" font-size="12" fill="#f39c12">完整开发流程</text>
+      <text x="250" y="35" text-anchor="middle" font-size="12" fill="#8e44ad">实用性强</text>
+      <text x="400" y="35" text-anchor="middle" font-size="12" fill="#17a2b8">易于扩展</text>
+    </g>
+  </g>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2c3e50"/>
+    </marker>
+  </defs>
+</svg>

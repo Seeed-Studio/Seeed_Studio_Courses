@@ -1,0 +1,169 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="900" height="500" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">迁移学习策略选择对比</text>
+  
+  <!-- 策略1：特征提取 -->
+  <g transform="translate(80, 80)">
+    <rect x="0" y="0" width="220" height="200" fill="#f0f8ff" stroke="#3498db" stroke-width="2" rx="8"/>
+    
+    <!-- 标题 -->
+    <text x="110" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#3498db">策略1：特征提取</text>
+    
+    <!-- 网络示意图 -->
+    <g transform="translate(30, 50)">
+      <!-- 特征提取层（冻结） -->
+      <rect x="0" y="20" width="80" height="30" fill="#d1ecf1" stroke="#3498db" stroke-width="2"/>
+      <text x="40" y="40" text-anchor="middle" font-size="10" fill="#2c3e50">特征提取层</text>
+      
+      <!-- 冻结标识 -->
+      <g transform="translate(40, 40)">
+        <circle cx="0" cy="-45" r="8" fill="none" stroke="#e74c3c" stroke-width="2"/>
+        <line x1="-5" y1="-50" x2="5" y2="-40" stroke="#e74c3c" stroke-width="2"/>
+        <line x1="5" y1="-50" x2="-5" y2="-40" stroke="#e74c3c" stroke-width="2"/>
+        <text x="0" y="-25" text-anchor="middle" font-size="9" fill="#e74c3c">冻结权重</text>
+      </g>
+      
+      <!-- 箭头 -->
+      <path d="M 85 35 L 105 35" stroke="#3498db" stroke-width="2" marker-end="url(#blueArrow)"/>
+      
+      <!-- 新分类器 -->
+      <rect x="110" y="25" width="50" height="20" fill="#bee5eb" stroke="#3498db" stroke-width="2"/>
+      <text x="135" y="38" text-anchor="middle" font-size="10" fill="#2c3e50">新分类器</text>
+    </g>
+    
+    <!-- 特点描述 -->
+    <text x="110" y="120" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="bold">适用：数据量很少</text>
+    <text x="110" y="140" text-anchor="middle" font-size="11" fill="#7f8c8d">优点：训练快，风险低</text>
+    <text x="110" y="155" text-anchor="middle" font-size="11" fill="#3498db">推荐：&lt; 1000样本</text>
+    <text x="110" y="170" text-anchor="middle" font-size="11" fill="#7f8c8d">只训练分类器参数</text>
+  </g>
+  
+  <!-- 策略2：全模型微调 -->
+  <g transform="translate(340, 80)">
+    <rect x="0" y="0" width="220" height="200" fill="#fff8f0" stroke="#f39c12" stroke-width="2" rx="8"/>
+    
+    <!-- 标题 -->
+    <text x="110" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#f39c12">策略2：全模型微调</text>
+    
+    <!-- 网络示意图 -->
+    <g transform="translate(30, 70)">
+      <!-- 特征提取层（微调） -->
+      <rect x="0" y="0" width="80" height="30" fill="#ffe4b5" stroke="#f39c12" stroke-width="2"/>
+      <text x="40" y="20" text-anchor="middle" font-size="10" fill="#2c3e50">特征提取层</text>
+      
+      <!-- 微调标识 -->
+      <text x="40" y="-5" text-anchor="middle" font-size="9" fill="#f39c12" font-weight="bold">小学习率</text>
+      
+      <!-- 箭头 -->
+      <path d="M 85 15 L 105 15" stroke="#f39c12" stroke-width="2" marker-end="url(#orangeArrow)"/>
+      
+      <!-- 新分类器 -->
+      <rect x="110" y="5" width="50" height="20" fill="#ffd700" stroke="#f39c12" stroke-width="2"/>
+      <text x="135" y="18" text-anchor="middle" font-size="10" fill="#2c3e50">新分类器</text>
+    </g>
+    
+    <!-- 特点描述 -->
+    <text x="110" y="120" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="bold">适用：中等数据量</text>
+    <text x="110" y="140" text-anchor="middle" font-size="11" fill="#7f8c8d">优点：性能好，平衡风险</text>
+    <text x="110" y="155" text-anchor="middle" font-size="11" fill="#f39c12">推荐：1K-10K样本</text>
+    <text x="110" y="170" text-anchor="middle" font-size="11" fill="#7f8c8d">训练所有参数</text>
+  </g>
+  
+  <!-- 策略3：渐进式解冻 -->
+  <g transform="translate(600, 80)">
+    <rect x="0" y="0" width="220" height="200" fill="#f0fff4" stroke="#27ae60" stroke-width="2" rx="8"/>
+    
+    <!-- 标题 -->
+    <text x="110" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#27ae60">策略3：渐进解冻</text>
+    
+    <!-- 网络示意图 -->
+    <g transform="translate(40, 65)">
+      <!-- 分层显示 -->
+      <rect x="0" y="0" width="15" height="25" fill="#c8e6c9" stroke="#27ae60" stroke-width="1"/>
+      <text x="7" y="18" text-anchor="middle" font-size="8" fill="#2c3e50">L1</text>
+      <text x="7" y="35" text-anchor="middle" font-size="7" fill="#e74c3c">冻结</text>
+      
+      <rect x="20" y="0" width="15" height="25" fill="#a5d6a7" stroke="#27ae60" stroke-width="1"/>
+      <text x="27" y="18" text-anchor="middle" font-size="8" fill="#2c3e50">L2</text>
+      <text x="27" y="35" text-anchor="middle" font-size="7" fill="#f39c12">解冻</text>
+      
+      <rect x="40" y="0" width="15" height="25" fill="#81c784" stroke="#27ae60" stroke-width="1"/>
+      <text x="47" y="18" text-anchor="middle" font-size="8" fill="#2c3e50">L3</text>
+      <text x="47" y="35" text-anchor="middle" font-size="7" fill="#f39c12">解冻</text>
+      
+      <rect x="60" y="0" width="15" height="25" fill="#66bb6a" stroke="#27ae60" stroke-width="1"/>
+      <text x="67" y="18" text-anchor="middle" font-size="8" fill="#2c3e50">L4</text>
+      <text x="67" y="35" text-anchor="middle" font-size="7" fill="#f39c12">解冻</text>
+      
+      <!-- 箭头 -->
+      <path d="M 80 12 L 95 12" stroke="#27ae60" stroke-width="2" marker-end="url(#greenArrow)"/>
+      
+      <!-- 分类器 -->
+      <rect x="100" y="5" width="40" height="15" fill="#4caf50" stroke="#27ae60" stroke-width="2"/>
+      <text x="120" y="15" text-anchor="middle" font-size="9" fill="#fff">分类器</text>
+    </g>
+    
+    <!-- 特点描述 -->
+    <text x="110" y="120" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="bold">适用：数据量充足</text>
+    <text x="110" y="140" text-anchor="middle" font-size="11" fill="#7f8c8d">优点：性能最佳</text>
+    <text x="110" y="155" text-anchor="middle" font-size="11" fill="#27ae60">推荐：&gt; 10K样本</text>
+    <text x="110" y="170" text-anchor="middle" font-size="11" fill="#7f8c8d">分阶段逐步训练</text>
+  </g>
+  
+  <!-- 选择指南 -->
+  <g transform="translate(100, 320)">
+    <rect x="0" y="0" width="700" height="160" fill="#ffffff" stroke="#2c3e50" stroke-width="2" rx="8"/>
+    
+    <!-- 标题 -->
+    <text x="350" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">策略选择指南</text>
+    
+    <!-- 数据量指导 -->
+    <g transform="translate(50, 50)">
+      <text x="0" y="0" font-size="14" font-weight="bold" fill="#2c3e50">根据数据量选择策略：</text>
+      
+      <!-- 策略选择表格 -->
+      <g transform="translate(0, 25)">
+        <!-- 策略1 -->
+        <rect x="0" y="0" width="180" height="30" fill="#e8f4fd" stroke="#3498db" stroke-width="1" rx="3"/>
+        <text x="90" y="20" text-anchor="middle" font-size="12" fill="#3498db" font-weight="bold">特征提取：&lt; 1000样本</text>
+        
+        <!-- 策略2 -->
+        <rect x="200" y="0" width="180" height="30" fill="#fff8f0" stroke="#f39c12" stroke-width="1" rx="3"/>
+        <text x="290" y="20" text-anchor="middle" font-size="12" fill="#f39c12" font-weight="bold">全模型微调：1K-10K样本</text>
+        
+        <!-- 策略3 -->
+        <rect x="400" y="0" width="180" height="30" fill="#f0fff4" stroke="#27ae60" stroke-width="1" rx="3"/>
+        <text x="490" y="20" text-anchor="middle" font-size="12" fill="#27ae60" font-weight="bold">渐进解冻：&gt; 10K样本</text>
+      </g>
+    </g>
+    
+    <!-- 关键提示 -->
+    <g transform="translate(50, 120)">
+      <text x="0" y="0" font-size="14" font-weight="bold" fill="#2c3e50">关键提示：</text>
+      
+      <g transform="translate(0, 25)">
+        <circle cx="10" cy="0" r="4" fill="#e74c3c"/>
+        <text x="25" y="5" font-size="12" fill="#2c3e50">始终使用较小的学习率（如0.0001）</text>
+        
+        <circle cx="350" cy="0" r="4" fill="#27ae60"/>
+        <text x="365" y="5" font-size="12" fill="#2c3e50">密切监控验证集性能防止过拟合</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="blueArrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3498db"/>
+    </marker>
+    <marker id="orangeArrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f39c12"/>
+    </marker>
+    <marker id="greenArrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#27ae60"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,140 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- 标题 -->
+  <text x="450" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#2c3e50">迁移学习：复用已有知识</text>
+  
+  <!-- 左侧：预训练模型 -->
+  <g transform="translate(50, 80)">
+    <rect x="0" y="0" width="220" height="280" fill="#e8f5e8" stroke="#4caf50" stroke-width="2" rx="10"/>
+    <text x="110" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2e7d32">预训练模型</text>
+    <text x="110" y="45" text-anchor="middle" font-size="12" fill="#4caf50">ResNet-18</text>
+    
+    <!-- 训练数据 -->
+    <g transform="translate(20, 65)">
+      <rect width="180" height="30" fill="#fff3e0" stroke="#ff9800" stroke-width="1" rx="5"/>
+      <text x="90" y="20" text-anchor="middle" font-size="11" fill="#e65100">训练数据：1000万张图片</text>
+    </g>
+    
+    <!-- 学会的特征层次 -->
+    <g transform="translate(20, 110)">
+      <text x="90" y="15" text-anchor="middle" font-size="12" font-weight="bold" fill="#2e7d32">已学会的特征</text>
+      
+      <!-- 低层特征 -->
+      <g transform="translate(0, 25)">
+        <rect width="180" height="25" fill="#e3f2fd" stroke="#1976d2" stroke-width="1" rx="3"/>
+        <text x="90" y="17" text-anchor="middle" font-size="10" fill="#0d47a1">底层：边缘、纹理</text>
+      </g>
+      
+      <!-- 中层特征 -->
+      <g transform="translate(0, 55)">
+        <rect width="180" height="25" fill="#fff3e0" stroke="#ff9800" stroke-width="1" rx="3"/>
+        <text x="90" y="17" text-anchor="middle" font-size="10" fill="#e65100">中层：形状、模式</text>
+      </g>
+      
+      <!-- 高层特征 -->
+      <g transform="translate(0, 85)">
+        <rect width="180" height="25" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1" rx="3"/>
+        <text x="90" y="17" text-anchor="middle" font-size="10" fill="#7b1fa2">高层：物体识别</text>
+      </g>
+    </g>
+    
+    <!-- 价值 -->
+    <g transform="translate(20, 230)">
+      <rect width="180" height="30" fill="#e8f5e8" stroke="#4caf50" stroke-width="1" rx="5"/>
+      <text x="90" y="20" text-anchor="middle" font-size="11" font-weight="bold" fill="#2e7d32">💎 宝贵的知识财富</text>
+    </g>
+  </g>
+  
+  <!-- 中间：迁移过程 -->
+  <g transform="translate(320, 80)">
+    <rect x="0" y="0" width="260" height="280" fill="#f8f9fa" stroke="#6c757d" stroke-width="2" rx="10"/>
+    <text x="130" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#495057">迁移学习</text>
+    
+    <!-- 步骤1：冻结特征层 -->
+    <g transform="translate(30, 50)">
+      <rect width="200" height="40" fill="#e3f2fd" stroke="#1976d2" stroke-width="1" rx="5"/>
+      <text x="100" y="15" text-anchor="middle" font-size="12" fill="#0d47a1">步骤1：冻结特征层</text>
+      <text x="100" y="30" text-anchor="middle" font-size="10" fill="#1976d2">保持已学知识不变 🔒</text>
+    </g>
+    
+    <!-- 步骤2：替换分类层 -->
+    <g transform="translate(30, 110)">
+      <rect width="200" height="40" fill="#fff3e0" stroke="#ff9800" stroke-width="1" rx="5"/>
+      <text x="100" y="15" text-anchor="middle" font-size="12" fill="#e65100">步骤2：替换分类层</text>
+      <text x="100" y="30" text-anchor="middle" font-size="10" fill="#f57c00">适配新任务输出 🔄</text>
+    </g>
+    
+    <!-- 步骤3：少量数据训练 -->
+    <g transform="translate(30, 170)">
+      <rect width="200" height="40" fill="#e8f5e8" stroke="#4caf50" stroke-width="1" rx="5"/>
+      <text x="100" y="15" text-anchor="middle" font-size="12" fill="#2e7d32">步骤3：快速训练</text>
+      <text x="100" y="30" text-anchor="middle" font-size="10" fill="#4caf50">只需少量数据 ⚡</text>
+    </g>
+    
+    <!-- 核心优势 -->
+    <g transform="translate(30, 230)">
+      <rect width="200" height="30" fill="#fff5f5" stroke="#e74c3c" stroke-width="1" rx="5"/>
+      <text x="100" y="20" text-anchor="middle" font-size="11" font-weight="bold" fill="#c62828">站在巨人的肩膀上</text>
+    </g>
+  </g>
+  
+  <!-- 右侧：新任务效果 -->
+  <g transform="translate(630, 80)">
+    <rect x="0" y="0" width="220" height="280" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="10"/>
+    <text x="110" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#e65100">猫狗分类器</text>
+    
+    <!-- 数据需求 -->
+    <g transform="translate(20, 50)">
+      <rect width="180" height="30" fill="#e8f5e8" stroke="#4caf50" stroke-width="1" rx="5"/>
+      <text x="90" y="20" text-anchor="middle" font-size="11" fill="#2e7d32">数据：仅需500张图片</text>
+    </g>
+    
+    <!-- 训练时间 -->
+    <g transform="translate(20, 95)">
+      <rect width="180" height="30" fill="#e8f5e8" stroke="#4caf50" stroke-width="1" rx="5"/>
+      <text x="90" y="20" text-anchor="middle" font-size="11" fill="#2e7d32">时间：10分钟训练</text>
+    </g>
+    
+    <!-- 效果 -->
+    <g transform="translate(20, 140)">
+      <rect width="180" height="40" fill="#e8f5e8" stroke="#4caf50" stroke-width="2" rx="5"/>
+      <text x="90" y="15" text-anchor="middle" font-size="12" font-weight="bold" fill="#2e7d32">效果</text>
+      <text x="90" y="30" text-anchor="middle" font-size="11" fill="#4caf50">准确率：95%+</text>
+    </g>
+    
+    <!-- 对比 -->
+    <g transform="translate(20, 200)">
+      <rect width="180" height="50" fill="#ffebee" stroke="#f44336" stroke-width="1" rx="5"/>
+      <text x="90" y="15" text-anchor="middle" font-size="11" font-weight="bold" fill="#d32f2f">对比：从头训练</text>
+      <text x="90" y="30" text-anchor="middle" font-size="10" fill="#f44336">需要10万张图片</text>
+      <text x="90" y="43" text-anchor="middle" font-size="10" fill="#f44336">训练数天，准确率仅70%</text>
+    </g>
+  </g>
+  
+  <!-- 迁移箭头 -->
+  <g>
+    <!-- 从预训练模型到迁移学习 -->
+    <path d="M 280 220 L 310 220" stroke="#4caf50" stroke-width="4" fill="none" marker-end="url(#green-arrow)"/>
+    <text x="295" y="210" text-anchor="middle" font-size="10" fill="#4caf50">迁移</text>
+    
+    <!-- 从迁移学习到新任务 -->
+    <path d="M 590 220 L 620 220" stroke="#ff9800" stroke-width="4" fill="none" marker-end="url(#orange-arrow)"/>
+    <text x="605" y="210" text-anchor="middle" font-size="10" fill="#ff9800">应用</text>
+  </g>
+  
+  <!-- 底部总结 -->
+  <g transform="translate(450, 420)">
+    <rect x="-200" y="0" width="400" height="50" fill="#e8f5e8" stroke="#4caf50" stroke-width="2" rx="10"/>
+    <text x="0" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#2e7d32">迁移学习核心理念</text>
+    <text x="0" y="38" text-anchor="middle" font-size="12" fill="#4caf50">复用预训练知识，用少量数据解决新问题</text>
+  </g>
+  
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="green-arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50"/>
+    </marker>
+    <marker id="orange-arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff9800"/>
+    </marker>
+  </defs>
+</svg>

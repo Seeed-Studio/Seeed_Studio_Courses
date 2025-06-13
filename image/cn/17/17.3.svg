@@ -1,0 +1,138 @@
+<svg viewBox="0 0 900 450" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="900" height="450" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="450" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#2c3e50">卷积操作：滑动窗口计算</text>
+  
+  <!-- 输入图像 -->
+  <g transform="translate(50, 80)">
+    <text x="70" y="-10" text-anchor="middle" font-size="16" font-weight="bold" fill="#34495e">输入图像 (5×5)</text>
+    
+    <!-- 网格 -->
+    <rect x="0" y="0" width="140" height="140" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2"/>
+    <g stroke="#7f8c8d" stroke-width="1">
+      <line x1="28" y1="0" x2="28" y2="140"/>
+      <line x1="56" y1="0" x2="56" y2="140"/>
+      <line x1="84" y1="0" x2="84" y2="140"/>
+      <line x1="112" y1="0" x2="112" y2="140"/>
+      <line x1="0" y1="28" x2="140" y2="28"/>
+      <line x1="0" y1="56" x2="140" y2="56"/>
+      <line x1="0" y1="84" x2="140" y2="84"/>
+      <line x1="0" y1="112" x2="140" y2="112"/>
+    </g>
+    
+    <!-- 数值 -->
+    <g font-size="14" text-anchor="middle" fill="#2c3e50" font-weight="bold">
+      <text x="14" y="18">1</text><text x="42" y="18">2</text><text x="70" y="18">0</text><text x="98" y="18">1</text><text x="126" y="18">2</text>
+      <text x="14" y="46">0</text><text x="42" y="46">3</text><text x="70" y="46">1</text><text x="98" y="46">2</text><text x="126" y="46">0</text>
+      <text x="14" y="74">2</text><text x="42" y="74">1</text><text x="70" y="74">0</text><text x="98" y="74">3</text><text x="126" y="74">1</text>
+      <text x="14" y="102">1</text><text x="42" y="102">0</text><text x="70" y="102">2</text><text x="98" y="102">1</text><text x="126" y="102">0</text>
+      <text x="14" y="130">0</text><text x="42" y="130">1</text><text x="70" y="130">1</text><text x="98" y="130">2</text><text x="126" y="130">3</text>
+    </g>
+    
+    <!-- 高亮当前卷积区域 -->
+    <rect x="0" y="0" width="84" height="84" fill="none" stroke="#3498db" stroke-width="4"/>
+  </g>
+  
+  <!-- 卷积核 -->
+  <g transform="translate(80, 280)">
+    <text x="42" y="-10" text-anchor="middle" font-size="16" font-weight="bold" fill="#34495e">卷积核 (3×3)</text>
+    
+    <rect x="0" y="0" width="84" height="84" fill="#fff5f5" stroke="#e74c3c" stroke-width="3"/>
+    <g stroke="#e74c3c" stroke-width="1">
+      <line x1="28" y1="0" x2="28" y2="84"/>
+      <line x1="56" y1="0" x2="56" y2="84"/>
+      <line x1="0" y1="28" x2="84" y2="28"/>
+      <line x1="0" y1="56" x2="84" y2="56"/>
+    </g>
+    
+    <!-- 卷积核数值 -->
+    <g font-size="14" text-anchor="middle" fill="#e74c3c" font-weight="bold">
+      <text x="14" y="18">-1</text><text x="42" y="18">0</text><text x="70" y="18">1</text>
+      <text x="14" y="46">-1</text><text x="42" y="46">0</text><text x="70" y="46">1</text>
+      <text x="14" y="74">-1</text><text x="42" y="74">0</text><text x="70" y="74">1</text>
+    </g>
+    
+    <text x="42" y="100" text-anchor="middle" font-size="12" fill="#e74c3c">边缘检测器</text>
+  </g>
+  
+  <!-- 操作符号 -->
+  <g transform="translate(250, 150)">
+    <text x="0" y="0" font-size="40" fill="#27ae60" font-weight="bold">⊛</text>
+    <text x="20" y="20" font-size="12" fill="#27ae60">卷积</text>
+  </g>
+  
+  <!-- 滑动过程示意 -->
+  <g transform="translate(350, 80)">
+    <text x="100" y="-10" text-anchor="middle" font-size="16" font-weight="bold" fill="#34495e">滑动过程</text>
+    
+    <!-- 位置1 -->
+    <g transform="translate(0, 20)">
+      <rect x="0" y="0" width="70" height="70" fill="#ecf0f1" stroke="#95a5a6" stroke-width="1"/>
+      <rect x="0" y="0" width="42" height="42" fill="rgba(52, 152, 219, 0.3)" stroke="#3498db" stroke-width="3"/>
+      <text x="21" y="55" text-anchor="middle" font-size="11" fill="#3498db">位置1</text>
+      <text x="21" y="85" text-anchor="middle" font-size="10" fill="#3498db">计算 = -2</text>
+    </g>
+    
+    <!-- 箭头 -->
+    <path d="M 80 50 L 110 50" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- 位置2 -->
+    <g transform="translate(120, 20)">
+      <rect x="0" y="0" width="70" height="70" fill="#ecf0f1" stroke="#95a5a6" stroke-width="1"/>
+      <rect x="14" y="0" width="42" height="42" fill="rgba(142, 68, 173, 0.3)" stroke="#8e44ad" stroke-width="3"/>
+      <text x="35" y="55" text-anchor="middle" font-size="11" fill="#8e44ad">位置2</text>
+      <text x="35" y="85" text-anchor="middle" font-size="10" fill="#8e44ad">计算 = 0</text>
+    </g>
+    
+    <!-- 继续提示 -->
+    <text x="100" y="130" text-anchor="middle" font-size="12" fill="#7f8c8d">...</text>
+  </g>
+  
+  <!-- 箭头指向输出 -->
+  <path d="M 600 150 L 680 150" stroke="#27ae60" stroke-width="4" marker-end="url(#greenarrow)"/>
+  
+  <!-- 输出特征图 -->
+  <g transform="translate(700, 80)">
+    <text x="42" y="-10" text-anchor="middle" font-size="16" font-weight="bold" fill="#34495e">输出 (3×3)</text>
+    
+    <rect x="0" y="0" width="84" height="84" fill="#f0fff4" stroke="#27ae60" stroke-width="3"/>
+    <g stroke="#27ae60" stroke-width="1">
+      <line x1="28" y1="0" x2="28" y2="84"/>
+      <line x1="56" y1="0" x2="56" y2="84"/>
+      <line x1="0" y1="28" x2="84" y2="28"/>
+      <line x1="0" y1="56" x2="84" y2="56"/>
+    </g>
+    
+    <!-- 输出数值 -->
+    <g font-size="14" text-anchor="middle" fill="#27ae60" font-weight="bold">
+      <text x="14" y="18">-2</text><text x="42" y="18">0</text><text x="70" y="18">4</text>
+      <text x="14" y="46">-1</text><text x="42" y="46">2</text><text x="70" y="46">-1</text>
+      <text x="14" y="74">1</text><text x="42" y="74">0</text><text x="70" y="74">-3</text>
+    </g>
+    
+    <!-- 高亮对应计算结果 -->
+    <circle cx="14" cy="14" r="16" fill="none" stroke="#3498db" stroke-width="2"/>
+    <circle cx="42" cy="14" r="16" fill="none" stroke="#8e44ad" stroke-width="2"/>
+  </g>
+  
+  <!-- 关键概念 -->
+  <g transform="translate(50, 400)">
+    <rect x="0" y="0" width="800" height="40" fill="#f8f9fa" stroke="#2c3e50" stroke-width="2" rx="5"/>
+    <text x="400" y="25" text-anchor="middle" font-size="16" fill="#2c3e50">
+      <tspan font-weight="bold">核心概念：</tspan>
+      卷积核在图像上滑动，每个位置计算逐元素乘积的和
+    </text>
+  </g>
+  
+  <!-- 箭头标记定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2c3e50"/>
+    </marker>
+    <marker id="greenarrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60"/>
+    </marker>
+  </defs>
+</svg>
