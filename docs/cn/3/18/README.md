@@ -187,7 +187,7 @@ image, class_result, detect_results = demo.visualize_comparison()
 
 边界框（Bounding Box）是目标检测中最基本的概念，它用一个矩形来框选图像中的目标物体。可以把边界框想象成给物体画了一个"相框"，这个相框恰好能够包含整个物体，同时又尽可能紧贴物体的边缘。
 
-![](../../../../image/cn/18/18.2.svg)
+![边界框的基本概念和表示方法](../../../../image/cn/18/18.2.svg)
 
 > 图 18.2 边界框的基本概念和表示方法
 >
@@ -444,7 +444,7 @@ demo.visualize_bbox_concepts()
 
 在目标检测中，我们需要同时评估"分类准确性"和"定位精确性"。这比图像分类复杂得多，因为即使预测了正确的类别，如果位置不准确，也不能算作成功的检测。
 
-![](../../../../image/cn/18/18.3.svg)
+![目标检测评价指标体系](../../../../image/cn/18/18.3.svg)
 
 > 图 18.3 目标检测评价指标体系
 >
@@ -747,7 +747,7 @@ results, precision, recall, ap = demo.visualize_evaluation_process()
 
 YOLO（You Only Look Once）是目标检测领域的一个革命性架构，它的核心理念是"一次观察就能完成检测"。与传统的两阶段检测方法不同，YOLO 将目标检测重新定义为一个单一的回归问题，直接从图像像素预测边界框坐标和类别概率。
 
-![](../../../../image/cn/18/18.4.svg)
+![YOLO 系列发展历程和技术演进](../../../../image/cn/18/18.4.svg)
 
 > 图 18.4 YOLO 系列发展历程和技术演进
 >
@@ -764,7 +764,7 @@ YOLO 系列的发展经历了多个重要阶段：
 
 **为什么选择 YOLOv8**：
 
-![](../../../../image/cn/18/18.5.svg)
+![YOLOv8 的优势](../../../../image/cn/18/18.5.svg)
 
 > 图 18.5 YOLOv8 的优势
 >
@@ -783,7 +783,7 @@ YOLO 系列的发展经历了多个重要阶段：
 
 YOLOv8 作为 YOLO 系列的重要代表，集成了多年来的技术积累和改进，具有以下突出特点：
 
-![](../../../../image/cn/18/18.6.svg)
+![YOLOv8 架构的核心组件和数据流](../../../../image/cn/18/18.6.svg)
 
 > 图 18.6 YOLOv8 架构的核心组件和数据流
 >
@@ -1787,23 +1787,15 @@ except Exception as e:
 ```python
 import cv2
 import time
-import threading
-from queue import Queue
+import numpy as np
 from collections import deque
+import threading
+import os
 
-class YOLOv8VideoDetection:
-    def __init__(self, model_size='n', source=0, max_fps=30):
-        """
-        实时目标检测系统
-        
-        参数:
-            model_size: YOLOv8 模型大小
-            source: 视频源 (0=默认摄像头, 或视频文件路径)
-            max_fps: 最大处理帧率
-        """
-        print(f"初始化实时检测系统...")
-        print(f"视频源: {source}")
-        print(f"目标 FPS: {max_fps}")
+class JetsonVideoDetection:
+    def __init__(self, model_size='n'):
+        """Jetson平台实时检测系统"""
+        print("初始化Jetson实时检测系统...")
         
         try:
             from ultralytics import YOLO
@@ -1813,463 +1805,319 @@ class YOLOv8VideoDetection:
             print(f"❌ 模型加载失败: {e}")
             return
         
-        self.source = source
-        self.max_fps = max_fps
-        self.min_frame_time = 1.0 / max_fps
-        
-        # 视频捕获设置
         self.cap = None
         self.running = False
-        self.paused = False
-        
-        # 检测参数
         self.confidence_threshold = 0.5
-        self.iou_threshold = 0.45
-        self.max_detections = 100
         
         # 性能监控
         self.fps_history = deque(maxlen=30)
-        self.detection_counts = deque(maxlen=30)
         self.frame_count = 0
-        self.start_time = None
-        
-        # 统计信息
         self.total_detections = 0
-        self.class_statistics = {}
         
-        # 显示设置
-        self.show_fps = True
-        self.show_confidence = True
-        self.show_class_count = True
+        # 类别名称
+        self.class_names_cn = [
+            '人', '自行车', '汽车', '摩托车', '飞机', '公交车', '火车', '卡车', '船',
+            '交通灯', '消防栓', '停车标志', '停车计费器', '长椅', '鸟', '猫', '狗', '马'
+        ]
+
+    def get_csi_gstreamer_pipeline(self, sensor_id=0, capture_width=640, capture_height=480, framerate=30):
+        """创建CSI摄像头的GStreamer管道"""
+        return (
+            f"nvarguscamerasrc sensor-id={sensor_id} ! "
+            f"video/x-raw(memory:NVMM), width=(int){capture_width}, height=(int){capture_height}, "
+            f"format=(string)NV12, framerate=(fraction){framerate}/1 ! "
+            f"nvvidconv ! video/x-raw, format=(string)BGRx ! "
+            f"videoconvert ! video/x-raw, format=(string)BGR ! appsink drop=1"
+        )
+
+    def test_camera_sources(self):
+        """智能检测摄像头源"""
+        print("检测可用摄像头...")
         
-        # 录制功能
-        self.video_writer = None
-        self.recording = False
+        # 检查video设备
+        video_devices = []
+        for i in range(10):
+            device_path = f"/dev/video{i}"
+            if os.path.exists(device_path):
+                video_devices.append(i)
         
-        print("✓ 实时检测系统初始化完成")
-    
-    def initialize_camera(self):
-        """初始化摄像头 - 基于第10课的视频流处理经验"""
+        print(f"发现video设备: {video_devices}")
+        
+        # 测试USB摄像头
+        for device_id in video_devices:
+            print(f"测试USB摄像头 /dev/video{device_id}...")
+            cap = cv2.VideoCapture(device_id)
+            
+            if cap.isOpened():
+                # 设置基本参数
+                cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+                cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+                cap.set(cv2.CAP_PROP_FPS, 30)
+                
+                # 测试读取
+                ret, frame = cap.read()
+                if ret and frame is not None and frame.size > 0:
+                    height, width = frame.shape[:2]
+                    print(f"✓ USB摄像头 {device_id} 可用，分辨率: {width}x{height}")
+                    cap.release()
+                    return device_id, 'usb'
+                else:
+                    print(f"✗ USB摄像头 {device_id} 无法读取帧")
+            else:
+                print(f"✗ 无法打开USB摄像头 {device_id}")
+            
+            cap.release()
+        
+        # 测试CSI摄像头
+        print("测试CSI摄像头...")
         try:
-            self.cap = cv2.VideoCapture(self.source)
+            gst_pipeline = self.get_csi_gstreamer_pipeline()
+            cap = cv2.VideoCapture(gst_pipeline, cv2.CAP_GSTREAMER)
+            
+            if cap.isOpened():
+                ret, frame = cap.read()
+                if ret and frame is not None and frame.size > 0:
+                    height, width = frame.shape[:2]
+                    print(f"✓ CSI摄像头可用，分辨率: {width}x{height}")
+                    cap.release()
+                    return 0, 'csi'
+                else:
+                    print("✗ CSI摄像头无法读取帧")
+            else:
+                print("✗ 无法打开CSI摄像头")
+            
+            cap.release()
+        except Exception as e:
+            print(f"✗ CSI摄像头测试失败: {e}")
+        
+        print("❌ 未找到可用的摄像头")
+        return None, None
+
+    def initialize_camera(self, camera_id, camera_type):
+        """初始化摄像头"""
+        print(f"初始化{camera_type}摄像头...")
+        
+        try:
+            if camera_type == 'csi':
+                # CSI摄像头使用GStreamer
+                gst_pipeline = self.get_csi_gstreamer_pipeline()
+                self.cap = cv2.VideoCapture(gst_pipeline, cv2.CAP_GSTREAMER)
+                print(f"使用GStreamer管道: {gst_pipeline}")
+            else:
+                # USB摄像头
+                self.cap = cv2.VideoCapture(camera_id)
+                
+                if self.cap.isOpened():
+                    # 优化设置
+                    self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+                    self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+                    self.cap.set(cv2.CAP_PROP_FPS, 30)
+                    self.cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+                    
+                    # 尝试设置编码格式
+                    self.cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'))
             
             if not self.cap.isOpened():
-                print(f"❌ 无法打开视频源: {self.source}")
+                print("❌ 摄像头初始化失败")
                 return False
             
-            # 优化摄像头设置（针对 Jetson 平台）
-            if isinstance(self.source, int):  # 摄像头
-                # 设置合适的分辨率和帧率
-                self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-                self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-                self.cap.set(cv2.CAP_PROP_FPS, 30)
-                
-                # 减少缓冲以降低延迟
-                self.cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
-                
-                # 自动曝光和白平衡
-                self.cap.set(cv2.CAP_PROP_AUTO_EXPOSURE, 0.25)
+            # 测试读取
+            ret, test_frame = self.cap.read()
+            if not ret or test_frame is None:
+                print("❌ 无法读取摄像头数据")
+                return False
             
-            # 获取实际视频参数
+            # 获取实际参数
             width = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
             height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
             fps = self.cap.get(cv2.CAP_PROP_FPS)
             
-            print(f"✓ 视频源初始化成功")
-            print(f"  分辨率: {width}×{height}")
+            print(f"✓ 摄像头初始化成功")
+            print(f"  分辨率: {width}x{height}")
             print(f"  帧率: {fps:.1f} FPS")
             
             return True
             
         except Exception as e:
-            print(f"❌ 摄像头初始化失败: {e}")
+            print(f"❌ 摄像头初始化异常: {e}")
             return False
-    
-    def process_frame(self, frame):
-        """处理单帧图像 - 核心检测逻辑"""
-        start_time = time.time()
-        
-        try:
-            # 执行 YOLOv8 检测
-            results = self.model(
-                frame, 
-                conf=self.confidence_threshold,
-                iou=self.iou_threshold,
-                max_det=self.max_detections,
-                verbose=False
-            )[0]
-            
-            # 处理检测结果
-            detection_count = 0
-            if results.boxes is not None:
-                detection_count = len(results.boxes)
-                self.total_detections += detection_count
-                
-                # 更新类别统计
-                class_ids = results.boxes.cls.cpu().numpy().astype(int)
-                for class_id in class_ids:
-                    if class_id not in self.class_statistics:
-                        self.class_statistics[class_id] = 0
-                    self.class_statistics[class_id] += 1
-            
-            # 绘制检测结果
-            annotated_frame = self.draw_detection_results(frame, results)
-            
-            # 计算处理时间
-            process_time = time.time() - start_time
-            
-            return annotated_frame, detection_count, process_time
-            
-        except Exception as e:
-            print(f"帧处理错误: {e}")
-            return frame, 0, 0
-    
-    def draw_detection_results(self, frame, results):
-        """绘制检测结果到图像上"""
+
+    def draw_detections_optimized(self, frame, results):
+        """优化的检测结果绘制"""
         if results.boxes is None:
-            return frame
+            return frame, 0
         
-        # 获取检测数据
         boxes = results.boxes.xyxy.cpu().numpy()
         confidences = results.boxes.conf.cpu().numpy()
         class_ids = results.boxes.cls.cpu().numpy().astype(int)
         
-        # COCO 类别名称
-        class_names = ['人', '自行车', '汽车', '摩托车', '飞机', '公交车', '火车', '卡车', '船',
-                      '交通灯', '消防栓', '停车标志', '停车计费器', '长椅', '鸟', '猫', '狗', '马',
-                      '羊', '牛', '大象', '熊', '斑马', '长颈鹿', '背包', '雨伞', '手提包', '领带',
-                      '手提箱', '飞盘', '滑雪板', '滑雪板', '运动球', '风筝', '棒球棒', '棒球手套',
-                      '滑板', '冲浪板', '网球拍', '瓶子', '酒杯', '杯子', '叉子', '刀', '勺子',
-                      '碗', '香蕉', '苹果', '三明治', '橙子', '西兰花', '胡萝卜', '热狗', '披萨',
-                      '甜甜圈', '蛋糕', '椅子', '沙发', '盆栽植物', '床', '餐桌', '厕所', '电视',
-                      '笔记本电脑', '鼠标', '遥控器', '键盘', '手机', '微波炉', '烤箱', '烤面包机',
-                      '水槽', '冰箱', '书', '时钟', '花瓶', '剪刀', '泰迪熊', '吹风机', '牙刷']
+        detection_count = len(boxes)
         
-        # 颜色映射
+        # 定义颜色
         colors = [
-            (255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0), (255, 0, 255),
-            (0, 255, 255), (128, 0, 0), (0, 128, 0), (0, 0, 128), (128, 128, 0),
-            (128, 0, 128), (0, 128, 128), (255, 128, 0), (255, 0, 128), (128, 255, 0),
-            (0, 255, 128), (128, 0, 255), (0, 128, 255), (255, 192, 0), (192, 255, 0)
+            (255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0), 
+            (255, 0, 255), (0, 255, 255), (128, 0, 128), (255, 165, 0)
         ]
         
-        # 绘制每个检测框
-        for i in range(len(boxes)):
+        for i in range(detection_count):
             x1, y1, x2, y2 = boxes[i].astype(int)
             confidence = confidences[i]
             class_id = class_ids[i]
             
-        # 获取类别名称和颜色
-            class_name = class_names[class_id] if class_id < len(class_names) else f'类别{class_id}'
+            # 获取类别和颜色
+            class_name = self.class_names_cn[class_id] if class_id < len(self.class_names_cn) else f'类别{class_id}'
             color = colors[class_id % len(colors)]
             
-        # 绘制边界框
+            # 绘制边界框
             cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
             
-        # 准备标签
-            if self.show_confidence:
-                label = f'{class_name}: {confidence:.2f}'
-            else:
-                label = class_name
+            # 绘制标签
+            label = f'{class_name}: {confidence:.2f}'
+            label_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)[0]
             
-            # 绘制标签背景
-            (text_width, text_height), _ = cv2.getTextSize(
-                label, cv2.FONT_HERSHEY_SIMPLEX, 0.6, 2
-            )
+            cv2.rectangle(frame, (x1, y1 - label_size[1] - 10), 
+                         (x1 + label_size[0], y1), color, -1)
             
-            cv2.rectangle(frame, (x1, y1 - text_height - 10), 
-                         (x1 + text_width, y1), color, -1)
-            
-            # 绘制标签文字
             cv2.putText(frame, label, (x1, y1 - 5), 
-                       cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
         
-        return frame
-    
-    def add_performance_overlay(self, frame, fps, detection_count):
-        """添加性能信息覆盖层"""
-        if not self.show_fps and not self.show_class_count:
-            return frame
-        
+        return frame, detection_count
+
+    def add_info_overlay(self, frame, fps, detection_count):
+        """添加信息显示"""
         h, w = frame.shape[:2]
         
-        # 创建半透明背景
+        # 半透明背景
         overlay = frame.copy()
-        info_height = 120 if self.show_class_count else 80
-        cv2.rectangle(overlay, (10, 10), (280, 10 + info_height), (0, 0, 0), -1)
+        cv2.rectangle(overlay, (5, 5), (250, 85), (0, 0, 0), -1)
         cv2.addWeighted(overlay, 0.7, frame, 0.3, 0, frame)
         
-        y_offset = 30
-        font = cv2.FONT_HERSHEY_SIMPLEX
-        font_scale = 0.5
-        color = (255, 255, 255)
+        # 显示信息
+        avg_fps = np.mean(self.fps_history) if self.fps_history else 0
         
-        if self.show_fps:
-            # FPS 信息
-            avg_fps = np.mean(self.fps_history) if self.fps_history else 0
-            cv2.putText(frame, f'当前 FPS: {fps:.1f}', (15, y_offset), 
-                       font, font_scale, color, 1)
-            y_offset += 20
-            
-            cv2.putText(frame, f'平均 FPS: {avg_fps:.1f}', (15, y_offset), 
-                       font, font_scale, color, 1)
-            y_offset += 20
-            
-            # 检测信息
-            cv2.putText(frame, f'当前检测: {detection_count}个', (15, y_offset), 
-                       font, font_scale, color, 1)
-            y_offset += 20
-            
-            cv2.putText(frame, f'总检测数: {self.total_detections}', (15, y_offset), 
-                       font, font_scale, color, 1)
-            y_offset += 20
+        info_texts = [
+            f'FPS: {fps:.1f} (avg: {avg_fps:.1f})',
+            f'检测数量: {detection_count}',
+            f'总帧数: {self.frame_count}',
+            f'按q退出'
+        ]
         
-        if self.show_class_count and self.class_statistics:
-            # 显示最常见的类别
-            sorted_classes = sorted(self.class_statistics.items(), 
-                                  key=lambda x: x[1], reverse=True)
-            
-            cv2.putText(frame, '检测统计:', (15, y_offset), 
-                       font, font_scale, (255, 255, 0), 1)
-            y_offset += 15
-            
-            # 显示前3个最常见类别
-            class_names = ['人', '自行车', '汽车', '摩托车', '飞机', '公交车', '火车', '卡车']
-            for i, (class_id, count) in enumerate(sorted_classes[:3]):
-                class_name = class_names[class_id] if class_id < len(class_names) else f'类别{class_id}'
-                cv2.putText(frame, f'{class_name}: {count}', (15, y_offset), 
-                           font, font_scale, color, 1)
-                y_offset += 15
-        
-        # 录制指示器
-        if self.recording:
-            cv2.circle(frame, (w - 30, 30), 10, (0, 0, 255), -1)
-            cv2.putText(frame, 'REC', (w - 55, 35), 
-                       font, 0.4, (255, 255, 255), 1)
+        for i, text in enumerate(info_texts):
+            y_pos = 20 + i * 15
+            cv2.putText(frame, text, (10, y_pos), 
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.4, (255, 255, 255), 1)
         
         return frame
-    
-    def start_recording(self, output_path=None):
-        """开始录制视频"""
-        if self.recording:
-            print("已在录制中")
+
+    def run_detection(self):
+        """运行实时检测"""
+        # 自动检测摄像头
+        camera_id, camera_type = self.test_camera_sources()
+        
+        if camera_id is None:
+            print("❌ 未找到可用摄像头")
             return False
         
-        if output_path is None:
-            output_path = f"detection_recording_{int(time.time())}.mp4"
-        
-        try:
-            # 获取视频参数
-            width = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-            height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-            
-            # 创建视频写入器
-            fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-            self.video_writer = cv2.VideoWriter(
-                output_path, fourcc, 20.0, (width, height)
-            )
-            
-            if self.video_writer.isOpened():
-                self.recording = True
-                print(f"✓ 开始录制: {output_path}")
-                return True
-            else:
-                print("❌ 录制器初始化失败")
-                return False
-                
-        except Exception as e:
-            print(f"录制启动失败: {e}")
-            return False
-    
-    def stop_recording(self):
-        """停止录制视频"""
-        if not self.recording:
-            print("当前未在录制")
-            return
-        
-        try:
-            if self.video_writer:
-                self.video_writer.release()
-                self.video_writer = None
-            
-            self.recording = False
-            print("✓ 录制已停止")
-            
-        except Exception as e:
-            print(f"停止录制时出错: {e}")
-    
-    def run_real_time_detection(self):
-        """运行实时检测主循环"""
-        if not self.initialize_camera():
+        # 初始化摄像头
+        if not self.initialize_camera(camera_id, camera_type):
             return False
         
         print("\n=== 开始实时目标检测 ===")
-        print("操作说明:")
-        print("  q - 退出程序")
-        print("  p - 暂停/继续")
-        print("  r - 开始/停止录制")
-        print("  s - 截图")
-        print("  c - 清除统计")
-        print("  f - 切换 FPS 显示")
+        print("按 'q' 退出检测")
         
         self.running = True
-        self.start_time = time.time()
+        
+        # 设置窗口属性
+        cv2.namedWindow('Jetson YOLOv8 Detection', cv2.WINDOW_AUTOSIZE)
         
         try:
-            while self.running and self.cap.isOpened():
-                frame_start_time = time.time()
+            while self.running:
+                frame_start = time.time()
                 
                 # 读取帧
                 ret, frame = self.cap.read()
                 if not ret:
-                    print("无法读取视频帧")
+                    print("⚠ 读取帧失败")
                     break
                 
-                if not self.paused:
-                    # 处理帧
-                    processed_frame, detection_count, process_time = self.process_frame(frame)
+                self.frame_count += 1
+                
+                try:
+                    # 执行检测
+                    results = self.model(frame, conf=self.confidence_threshold, verbose=False)[0]
                     
-                    # 计算 FPS
-                    frame_time = time.time() - frame_start_time
-                    fps = 1.0 / frame_time if frame_time > 0 else 0
-                    self.fps_history.append(fps)
-                    self.detection_counts.append(detection_count)
+                    # 绘制结果
+                    frame, detection_count = self.draw_detections_optimized(frame, results)
+                    self.total_detections += detection_count
                     
-                    # 添加性能覆盖层
-                    display_frame = self.add_performance_overlay(
-                        processed_frame, fps, detection_count
-                    )
-                    
-                    self.frame_count += 1
-                else:
-                    display_frame = frame
-                    cv2.putText(display_frame, 'PAUSED', (50, 50), 
-                               cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 255), 3)
+                except Exception as e:
+                    print(f"⚠ 检测出错: {e}")
+                    detection_count = 0
+                
+                # 计算FPS
+                frame_time = time.time() - frame_start
+                fps = 1.0 / frame_time if frame_time > 0 else 0
+                self.fps_history.append(fps)
+                
+                # 添加信息显示
+                frame = self.add_info_overlay(frame, fps, detection_count)
                 
                 # 显示图像
-                cv2.imshow('YOLOv8 实时目标检测', display_frame)
-                
-                # 录制视频
-                if self.recording and self.video_writer:
-                    self.video_writer.write(display_frame)
-                
-                # 控制帧率
-                elapsed_time = time.time() - frame_start_time
-                if elapsed_time < self.min_frame_time:
-                    time.sleep(self.min_frame_time - elapsed_time)
+                cv2.imshow('Jetson YOLOv8 Detection', frame)
                 
                 # 处理按键
                 key = cv2.waitKey(1) & 0xFF
-                
                 if key == ord('q'):
-                    print("用户退出")
+                    print("用户退出检测")
                     break
-                elif key == ord('p'):
-                    self.paused = not self.paused
-                    print(f"{'暂停' if self.paused else '继续'}")
-                elif key == ord('r'):
-                    if self.recording:
-                        self.stop_recording()
-                    else:
-                        self.start_recording()
-                elif key == ord('s'):
-                    screenshot_name = f"screenshot_{int(time.time())}.jpg"
-                    cv2.imwrite(screenshot_name, display_frame)
-                    print(f"截图保存: {screenshot_name}")
-                elif key == ord('c'):
-                    self.class_statistics.clear()
-                    self.total_detections = 0
-                    print("统计信息已清除")
-                elif key == ord('f'):
-                    self.show_fps = not self.show_fps
-                    print(f"FPS 显示: {'开启' if self.show_fps else '关闭'}")
                 
-                # 每100帧输出一次统计
+                # 状态输出
                 if self.frame_count % 100 == 0:
-                    avg_fps = np.mean(self.fps_history) if self.fps_history else 0
-                    avg_detections = np.mean(self.detection_counts) if self.detection_counts else 0
-                    print(f"已处理 {self.frame_count} 帧 | "
-                          f"平均 FPS: {avg_fps:.1f} | "
-                          f"平均检测数: {avg_detections:.1f}")
+                    avg_fps = np.mean(self.fps_history)
+                    print(f"已处理 {self.frame_count} 帧，平均FPS: {avg_fps:.1f}")
         
         except KeyboardInterrupt:
-            print("\n检测被用户中断")
+            print("\n检测被中断")
         except Exception as e:
-            print(f"检测过程中出现错误: {e}")
+            print(f"检测过程出错: {e}")
         finally:
             self.cleanup()
         
         return True
-    
+
     def cleanup(self):
         """清理资源"""
-        print("\n清理系统资源...")
+        print("清理系统资源...")
         
         self.running = False
-        
-        if self.recording:
-            self.stop_recording()
         
         if self.cap:
             self.cap.release()
         
         cv2.destroyAllWindows()
         
-        # 输出最终统计
-        if self.start_time:
-            total_time = time.time() - self.start_time
-            avg_fps = self.frame_count / total_time if total_time > 0 else 0
-            
+        # 最终统计
+        if self.frame_count > 0:
+            avg_fps = np.mean(self.fps_history) if self.fps_history else 0
             print(f"\n=== 检测会话统计 ===")
-            print(f"总运行时间: {total_time:.1f}秒")
-            print(f"总处理帧数: {self.frame_count}")
-            print(f"平均处理 FPS: {avg_fps:.1f}")
-            print(f"总检测物体数: {self.total_detections}")
-            
-            if self.class_statistics:
-                print(f"\n类别统计 (Top 5):")
-                sorted_classes = sorted(self.class_statistics.items(), 
-                                      key=lambda x: x[1], reverse=True)
-                class_names = ['人', '自行车', '汽车', '摩托车', '飞机', '公交车']
-                
-                for class_id, count in sorted_classes[:5]:
-                    class_name = class_names[class_id] if class_id < len(class_names) else f'类别{class_id}'
-                    percentage = (count / self.total_detections) * 100 if self.total_detections > 0 else 0
-                    print(f"  {class_name}: {count} 次 ({percentage:.1f}%)")
+            print(f"总帧数: {self.frame_count}")
+            print(f"平均FPS: {avg_fps:.1f}")
+            print(f"总检测数: {self.total_detections}")
 
-# 实时检测演示（注释掉以避免实际运行摄像头）
-def demo_real_time_detection():
-    """实时检测演示函数"""
-    print("=== 实时检测系统演示 ===")
-    print("注意：此演示需要摄像头设备")
-    print("如果您有摄像头，可以取消下面代码的注释来运行")
-    
-    # 取消注释以下代码来运行实时检测
-    # detector = YOLOv8VideoDetection(model_size='n', source=0)
-    # detector.confidence_threshold = 0.5
-    # detector.show_fps = True
-    # detector.show_class_count = True
-    # success = detector.run_real_time_detection()
-    
-    print("实时检测演示代码已准备就绪")
-    print("在有摄像头的环境中取消注释即可运行")
-
-# 运行演示
-demo_real_time_detection()
+# 运行检测系统
+detector = JetsonVideoDetection(model_size='n')
+detector.run_detection()
 ```
 
 > **核心函数**：
 >
-> + `get_gstreamer_pipeline()`: 为Jetson平台的CSI摄像头创建优化的GStreamer管道
-> + `test_camera_sources()`: 自动检测可用的摄像头设备（USB、CSI），确保兼容性
-> + `initialize_video_source()`: 智能初始化视频源，包含Jetson平台特定的优化设置
-> + `add_performance_overlay()`: 添加丰富的实时信息显示，包括FPS、检测统计、录制状态等
-> + `start_recording()/stop_recording()`: 实现视频录制功能，支持动态开始和停止
+> + `test_camera_sources()`：智能检测摄像头，优先测试USB摄像头的连接和读取能力，若失败则切换测试CSI摄像头，确保摄像头可用性。
+> + `initialize_camera()`：按摄像头类型进行初始化。CSI使用GStreamer管道，USB设置分辨率、帧率和MJPEG编码，优化Jetson平台兼容性。
+> + `draw_detections_optimized()`：高效绘制YOLOv8检测结果，标出目标框、置信度及中文标签，优化绘图逻辑以提升实时性能。
+> + `add_info_overlay()`：在视频帧上叠加状态信息，包括FPS、检测数量等，提供系统运行的实时反馈界面。
 >
 
-这个实时检测系统基于第10课学习的视频流处理技术，实现了完整的摄像头实时目标检测功能。系统支持多种交互操作，包括暂停/继续检测、录制视频、截图保存、统计信息显示等。代码优化了摄像头设置以适应 Jetson 平台，并提供了丰富的性能监控功能。
-
-这段代码实现了功能完备的实时检测系统，包括摄像头初始化、视频流处理、检测结果可视化和性能监控。该系统提供了专业级的用户界面和交互体验，包括实时 FPS 显示、检测统计、录制功能、截图保存等。代码还针对 Jetson 平台进行了专门优化，确保在边缘设备上获得最佳性能表现。
+通过这些核心函数的协同工作，系统实现了在Jetson平台上稳定、高效的实时目标检测功能，解决了原有代码在视频显示方面的兼容性问题，确保用户能够获得流畅的检测体验。
 
 ### 4.4. 模型优化与性能调优
 
