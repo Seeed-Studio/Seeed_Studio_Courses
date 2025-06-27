@@ -1,0 +1,163 @@
+<svg width="900" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #333; }
+      .component-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #fff; }
+      .layer-text { font-family: Arial, sans-serif; font-size: 11px; fill: #333; }
+      .feature-text { font-family: Arial, sans-serif; font-size: 10px; fill: #666; }
+      .flow-text { font-family: Arial, sans-serif; font-size: 9px; fill: #555; }
+    </style>
+    <!-- 箭头标记 -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2196f3"/>
+    </marker>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="900" height="600" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="450" y="30" class="title-text" text-anchor="middle">YOLOv8 架构的核心组件和数据流</text>
+  
+  <!-- 输入图像 -->
+  <g>
+    <rect x="50" y="80" width="80" height="80" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="5"/>
+    <text x="90" y="110" class="layer-text" text-anchor="middle">输入图像</text>
+    <text x="90" y="125" class="feature-text" text-anchor="middle">640×640×3</text>
+    <text x="90" y="140" class="feature-text" text-anchor="middle">RGB</text>
+  </g>
+  
+  <!-- Backbone (主干网络) -->
+  <g>
+    <rect x="180" y="60" width="200" height="300" fill="#4caf50" stroke="#333" stroke-width="2" rx="8"/>
+    <text x="280" y="85" class="component-text" text-anchor="middle">Backbone (主干网络)</text>
+    <text x="280" y="100" class="component-text" text-anchor="middle">CSPDarknet</text>
+    
+    <!-- Backbone层级 -->
+    <rect x="200" y="120" width="160" height="40" fill="#66bb6a" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="280" y="135" class="layer-text" text-anchor="middle">Conv + BatchNorm + ReLU</text>
+    <text x="280" y="150" class="feature-text" text-anchor="middle">320×320×64</text>
+    
+    <rect x="200" y="170" width="160" height="40" fill="#81c784" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="280" y="185" class="layer-text" text-anchor="middle">CSP Stage 1</text>
+    <text x="280" y="200" class="feature-text" text-anchor="middle">160×160×128</text>
+    
+    <rect x="200" y="220" width="160" height="40" fill="#a5d6a7" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="280" y="235" class="layer-text" text-anchor="middle">CSP Stage 2</text>
+    <text x="280" y="250" class="feature-text" text-anchor="middle">80×80×256</text>
+    
+    <rect x="200" y="270" width="160" height="40" fill="#c8e6c9" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="280" y="285" class="layer-text" text-anchor="middle">CSP Stage 3</text>
+    <text x="280" y="300" class="feature-text" text-anchor="middle">40×40×512</text>
+    
+    <rect x="200" y="320" width="160" height="30" fill="#dcedc8" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="280" y="335" class="layer-text" text-anchor="middle">40×40×1024</text>
+  </g>
+  
+  <!-- Neck (颈部网络) -->
+  <g>
+    <rect x="420" y="80" width="180" height="280" fill="#ff9800" stroke="#333" stroke-width="2" rx="8"/>
+    <text x="510" y="105" class="component-text" text-anchor="middle">Neck (颈部网络)</text>
+    <text x="510" y="120" class="component-text" text-anchor="middle">PANet + FPN</text>
+    
+    <!-- FPN 上采样路径 -->
+    <rect x="440" y="140" width="140" height="30" fill="#ffb74d" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="510" y="160" class="layer-text" text-anchor="middle">FPN 上采样</text>
+    
+    <rect x="440" y="180" width="140" height="30" fill="#ffcc02" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="510" y="200" class="layer-text" text-anchor="middle">特征融合 P5</text>
+    
+    <rect x="440" y="220" width="140" height="30" fill="#ffd54f" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="510" y="240" class="layer-text" text-anchor="middle">特征融合 P4</text>
+    
+    <rect x="440" y="260" width="140" height="30" fill="#ffe082" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="510" y="280" class="layer-text" text-anchor="middle">特征融合 P3</text>
+    
+    <!-- PANet 下采样路径 -->
+    <rect x="440" y="300" width="140" height="30" fill="#ffecb3" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="510" y="320" class="layer-text" text-anchor="middle">PANet 下采样</text>
+  </g>
+  
+  <!-- Head (检测头) -->
+  <g>
+    <rect x="650" y="100" width="200" height="240" fill="#e91e63" stroke="#333" stroke-width="2" rx="8"/>
+    <text x="750" y="125" class="component-text" text-anchor="middle">Head (检测头)</text>
+    <text x="750" y="140" class="component-text" text-anchor="middle">Anchor-Free</text>
+    
+    <!-- 多尺度检测头 -->
+    <rect x="670" y="160" width="160" height="35" fill="#f06292" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="750" y="175" class="layer-text" text-anchor="middle">P3 检测头 (80×80)</text>
+    <text x="750" y="190" class="feature-text" text-anchor="middle">小物体检测</text>
+    
+    <rect x="670" y="205" width="160" height="35" fill="#f8bbd9" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="750" y="220" class="layer-text" text-anchor="middle">P4 检测头 (40×40)</text>
+    <text x="750" y="235" class="feature-text" text-anchor="middle">中等物体检测</text>
+    
+    <rect x="670" y="250" width="160" height="35" fill="#fce4ec" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="750" y="265" class="layer-text" text-anchor="middle">P5 检测头 (20×20)</text>
+    <text x="750" y="280" class="feature-text" text-anchor="middle">大物体检测</text>
+    
+    <!-- 解耦检测头 -->
+    <rect x="670" y="295" width="75" height="30" fill="#f48fb1" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="707" y="310" class="feature-text" text-anchor="middle" fill="#fff">分类分支</text>
+    <text x="707" y="320" class="feature-text" text-anchor="middle" fill="#fff">80类</text>
+
+    <rect x="755" y="295" width="75" height="30" fill="#f48fb1" stroke="#333" stroke-width="1" rx="3"/>
+    <text x="792" y="310" class="feature-text" text-anchor="middle" fill="#fff">回归分支</text>
+    <text x="792" y="320" class="feature-text" text-anchor="middle" fill="#fff">4坐标</text>
+  </g>
+
+  <!-- 输出 -->
+  <g>
+    <rect x="700" y="380" width="120" height="60" fill="#ce93d8" stroke="#333" stroke-width="2" rx="5"/>
+    <text x="760" y="400" class="layer-text" text-anchor="middle" fill="#fff">最终输出</text>
+    <text x="760" y="415" class="feature-text" text-anchor="middle" fill="#fff">8400×84</text>
+    <text x="760" y="430" class="feature-text" text-anchor="middle" fill="#fff">(类别+坐标)</text>
+  </g>
+  
+  <!-- 数据流箭头 -->
+  <!-- 输入到Backbone -->
+  <path d="M 130 120 L 170 120" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Backbone到Neck -->
+  <path d="M 380 220 L 410 220" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Neck内部数据流 -->
+  <path d="M 390 250 L 430 190" stroke="#2196f3" stroke-width="2" marker-end="url(#arrowhead-blue)" stroke-dasharray="3,3"/>
+  <path d="M 390 285 L 430 230" stroke="#2196f3" stroke-width="2" marker-end="url(#arrowhead-blue)" stroke-dasharray="3,3"/>
+  <path d="M 390 320 L 430 270" stroke="#2196f3" stroke-width="2" marker-end="url(#arrowhead-blue)" stroke-dasharray="3,3"/>
+  
+  <!-- Neck到Head -->
+  <path d="M 600 177 L 640 177" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M 600 222 L 640 222" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M 600 267 L 640 267" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Head到输出 -->
+  <path d="M 750 340 L 750 370" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 技术特点说明 -->
+  <g>
+    <text x="450" y="480" class="title-text" text-anchor="middle">关键技术特点</text>
+    
+    <rect x="100" y="500" width="200" height="80" fill="#e3f2fd" stroke="#2196f3" stroke-width="1" rx="5"/>
+    <text x="200" y="520" class="layer-text" text-anchor="middle" font-weight="bold">无锚框设计</text>
+    <text x="145" y="535" class="feature-text">• 直接预测中心点和宽高</text>
+    <text x="145" y="550" class="feature-text">• 简化网络结构</text>
+    <text x="145" y="565" class="feature-text">• 提高泛化能力</text>
+    
+    <rect x="350" y="500" width="200" height="80" fill="#e8f5e8" stroke="#4caf50" stroke-width="1" rx="5"/>
+    <text x="450" y="520" class="layer-text" text-anchor="middle" font-weight="bold">多尺度特征融合</text>
+    <text x="395" y="535" class="feature-text">• FPN + PANet结构</text>
+    <text x="395" y="550" class="feature-text">• 自顶向下和自底向上</text>
+    <text x="395" y="565" class="feature-text">• 增强特征表达能力</text>
+    
+    <rect x="600" y="500" width="200" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="1" rx="5"/>
+    <text x="700" y="520" class="layer-text" text-anchor="middle" font-weight="bold">解耦检测头</text>
+    <text x="655" y="535" class="feature-text">• 分类和回归分离</text>
+    <text x="655" y="550" class="feature-text">• 减少任务间干扰</text>
+    <text x="655" y="565" class="feature-text">• 提高检测精度</text>
+  </g>
+</svg>

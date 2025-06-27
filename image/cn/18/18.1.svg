@@ -1,0 +1,140 @@
+<svg width="900" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #2c3e50; }
+      .subtitle-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #34495e; }
+      .result-text { font-family: Arial, sans-serif; font-size: 12px; fill: #2c3e50; }
+      .label-text { font-family: Arial, sans-serif; font-size: 11px; fill: #7f8c8d; }
+    </style>
+    <pattern id="checkerboard" patternUnits="userSpaceOnUse" width="20" height="20">
+      <rect width="10" height="10" fill="#ecf0f1"/>
+      <rect x="10" y="10" width="10" height="10" fill="#ecf0f1"/>
+      <rect x="10" y="0" width="10" height="10" fill="#bdc3c7"/>
+      <rect x="0" y="10" width="10" height="10" fill="#bdc3c7"/>
+    </pattern>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="900" height="400" fill="#ffffff"/>
+  
+  <!-- 标题 -->
+  <text x="450" y="30" class="title-text" text-anchor="middle">图像分类 vs 目标检测对比</text>
+  
+  <!-- 图像分类部分 -->
+  <g>
+    <!-- 框架 -->
+    <rect x="50" y="60" width="350" height="320" fill="none" stroke="#3498db" stroke-width="2" rx="10"/>
+    <text x="225" y="85" class="subtitle-text" text-anchor="middle">图像分类 (Image Classification)</text>
+    
+    <!-- 输入图像 -->
+    <rect x="80" y="100" width="140" height="105" fill="url(#checkerboard)" stroke="#34495e" stroke-width="2"/>
+    <text x="150" y="125" class="label-text" text-anchor="middle" style="fill:#000;">输入: 街景图像</text>
+    
+    <!-- 真实感的场景元素 -->
+    <!-- 建筑物 -->
+    <rect x="90" y="135" width="30" height="25" fill="#95a5a6" stroke="#2c3e50" stroke-width="1"/>
+    <rect x="92" y="137" width="26" height="8" fill="#e74c3c"/>
+    <rect x="100" y="145" width="6" height="15" fill="#8b4513"/>
+    <rect x="108" y="148" width="4" height="5" fill="#3498db"/>
+    <rect x="115" y="148" width="4" height="5" fill="#3498db"/>
+    
+    <!-- 汽车 -->
+    <rect x="130" y="155" width="20" height="8" fill="#e74c3c" stroke="#2c3e50" stroke-width="1"/>
+    <rect x="132" y="157" width="16" height="4" fill="#ecf0f1"/>
+    <circle cx="135" cy="163" r="2" fill="#2c3e50"/>
+    <circle cx="145" cy="163" r="2" fill="#2c3e50"/>
+    
+    <!-- 行人 -->
+    <circle cx="170" cy="150" r="3" fill="#f39c12"/>
+    <rect x="168" y="153" width="4" height="8" fill="#3498db"/>
+    <rect x="169" y="161" width="1" height="4" fill="#2c3e50"/>
+    <rect x="171" y="161" width="1" height="4" fill="#2c3e50"/>
+    
+    <!-- 树 -->
+    <rect x="190" y="155" width="3" height="8" fill="#8b4513"/>
+    <circle cx="191.5" cy="152" r="4" fill="#27ae60"/>
+    
+    <!-- 箭头和网络 -->
+    <path d="M 150 215 L 150 245" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="120" y="250" width="60" height="25" fill="#3498db" rx="5"/>
+    <text x="150" y="266" class="result-text" text-anchor="middle" fill="white">CNN模型</text>
+    
+    <path d="M 150 285 L 150 315" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow)"/>
+    
+    <!-- 分类结果 -->
+    <rect x="100" y="320" width="100" height="30" fill="#e8f4f8" stroke="#3498db" stroke-width="2" rx="5"/>
+    <text x="150" y="340" class="result-text" text-anchor="middle" font-weight="bold">街景 (87%)</text>
+    
+    <!-- 限制说明 -->
+    <text x="250" y="130" class="label-text">✗ 无位置信息</text>
+    <text x="250" y="150" class="label-text">✗ 无法定位具体物体</text>
+    <text x="250" y="170" class="label-text">✗ 只能识别主要类别</text>
+  </g>
+  
+  <!-- 分隔线 -->
+  <line x1="450" y1="70" x2="450" y2="350" stroke="#bdc3c7" stroke-width="2"/>
+  
+  <!-- 目标检测部分 -->
+  <g>
+    <!-- 框架 -->
+    <rect x="500" y="60" width="350" height="320" fill="none" stroke="#e74c3c" stroke-width="2" rx="10"/>
+    <text x="675" y="85" class="subtitle-text" text-anchor="middle">目标检测 (Object Detection)</text>
+    
+    <!-- 输入图像（相同场景） -->
+    <rect x="530" y="100" width="140" height="105" fill="url(#checkerboard)" stroke="#34495e" stroke-width="2"/>
+    <text x="600" y="125" class="label-text" text-anchor="middle" style="fill:#000;">输入: 相同街景图像</text>
+    
+    <!-- 相同的场景元素但带检测框 -->
+    <!-- 建筑物 + 检测框 -->
+    <rect x="540" y="135" width="30" height="25" fill="#95a5a6" stroke="#2c3e50" stroke-width="1"/>
+    <rect x="542" y="137" width="26" height="8" fill="#e74c3c"/>
+    <rect x="550" y="145" width="6" height="15" fill="#8b4513"/>
+    <rect x="558" y="148" width="4" height="5" fill="#3498db"/>
+    <rect x="565" y="148" width="4" height="5" fill="#3498db"/>
+    <rect x="538" y="133" width="34" height="29" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+    
+    <!-- 汽车 + 检测框 -->
+    <rect x="580" y="155" width="20" height="8" fill="#e74c3c" stroke="#2c3e50" stroke-width="1"/>
+    <rect x="582" y="157" width="16" height="4" fill="#ecf0f1"/>
+    <circle cx="585" cy="163" r="2" fill="#2c3e50"/>
+    <circle cx="595" cy="163" r="2" fill="#2c3e50"/>
+    <rect x="578" y="153" width="24" height="12" fill="none" stroke="#f39c12" stroke-width="2" stroke-dasharray="3,3"/>
+    
+    <!-- 行人 + 检测框 -->
+    <circle cx="620" cy="150" r="3" fill="#f39c12"/>
+    <rect x="618" y="153" width="4" height="8" fill="#3498db"/>
+    <rect x="619" y="161" width="1" height="4" fill="#2c3e50"/>
+    <rect x="621" y="161" width="1" height="4" fill="#2c3e50"/>
+    <rect x="616" y="147" width="8" height="18" fill="none" stroke="#27ae60" stroke-width="2" stroke-dasharray="3,3"/>
+    
+    <!-- 树 + 检测框 -->
+    <rect x="640" y="155" width="3" height="8" fill="#8b4513"/>
+    <circle cx="641.5" cy="152" r="4" fill="#27ae60"/>
+    <rect x="637" y="148" width="10" height="15" fill="none" stroke="#9b59b6" stroke-width="2" stroke-dasharray="3,3"/>
+    
+    <!-- 箭头和网络 -->
+    <path d="M 600 215 L 600 245" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="570" y="250" width="60" height="25" fill="#e74c3c" rx="5"/>
+    <text x="600" y="266" class="result-text" text-anchor="middle" fill="white">YOLO模型</text>
+    
+    <path d="M 600 285 L 600 315" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow)"/>
+    
+    <!-- 检测结果 -->
+    <rect x="520" y="320" width="160" height="50" fill="#fdf2e9" stroke="#e74c3c" stroke-width="2" rx="5"/>
+    <text x="530" y="335" class="result-text" font-size="10px">建筑: (538,133,572,162)</text>
+    <text x="530" y="350" class="result-text" font-size="10px">车: (578,153,602,165) </text>
+    <text x="530" y="365" class="result-text" font-size="10px">人: (616,147,624,165)</text>
+    
+    <!-- 优势说明 -->
+    <text x="700" y="130" class="label-text">✓ 精确位置信息</text>
+    <text x="700" y="150" class="label-text">✓ 多物体同时检测</text>
+    <text x="700" y="170" class="label-text">✓ 边界框坐标</text>
+  </g>
+  
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2c3e50"/>
+    </marker>
+  </defs>
+</svg>

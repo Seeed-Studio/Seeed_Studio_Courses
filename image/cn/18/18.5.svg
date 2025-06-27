@@ -1,0 +1,103 @@
+<svg viewBox="0 0 700 640" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="700" height="600" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2c3e50"> YOLOv8 的优势</text>
+  
+  <!-- Main reasons section -->
+  <g transform="translate(35, 70)">
+    <rect x="0" y="0" width="630" height="300" fill="#fff" stroke="#e67e22" stroke-width="3" rx="15"/>
+    <text x="315" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#e67e22">核心优势</text>
+    
+    <!-- Reason 1: Performance Balance -->
+    <g transform="translate(20, 60)">
+      <circle cx="20" cy="20" r="18" fill="#27ae60" stroke="#229954" stroke-width="2"/>
+      <text x="20" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fff">1</text>
+      
+      <rect x="50" y="0" width="238" height="100" fill="#e8f8f5" stroke="#27ae60" stroke-width="2" rx="8"/>
+      <text x="169" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#27ae60">性能平衡</text>
+      
+      <text x="70" y="40" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 精度与速度的最佳平衡点</text>
+      <text x="70" y="55" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 适合边缘设备的计算资源约束</text>
+      <text x="70" y="70" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 实时检测性能优秀</text>
+      <text x="70" y="85" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 多种模型尺寸可选 (n/s/m/l/x)</text>
+    </g>
+    
+    <!-- Reason 2: Hardware Compatibility -->
+    <g transform="translate(315, 60)">
+      <circle cx="20" cy="20" r="18" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+      <text x="20" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fff">2</text>
+      
+      <rect x="50" y="0" width="238" height="100" fill="#ebf3fd" stroke="#3498db" stroke-width="2" rx="8"/>
+      <text x="169" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3498db">硬件适配</text>
+      
+      <text x="70" y="40" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 优秀的 CUDA 加速支持</text>
+      <text x="70" y="55" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 高效的 GPU 内存管理</text>
+      <text x="70" y="70" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 支持 TensorRT 优化</text>
+      <text x="70" y="85" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 混合精度推理 (FP16)</text>
+    </g>
+    
+    <!-- Reason 3: Maturity and Stability -->
+    <g transform="translate(20, 180)">
+      <circle cx="20" cy="20" r="18" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+      <text x="20" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fff">3</text>
+      
+      <rect x="50" y="0" width="238" height="100" fill="#f4f1f8" stroke="#9b59b6" stroke-width="2" rx="8"/>
+      <text x="169" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#9b59b6">成熟稳定</text>
+      
+      <text x="70" y="40" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 2023年发布，技术成熟</text>
+      <text x="70" y="55" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 经过充分的工业验证</text>
+      <text x="70" y="70" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 活跃的社区支持</text>
+      <text x="70" y="85" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 完善的错误修复机制</text>
+    </g>
+    
+    <!-- Reason 4: Ease of Use -->
+    <g transform="translate(315, 180)">
+      <circle cx="20" cy="20" r="18" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+      <text x="20" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fff">4</text>
+      
+      <rect x="50" y="0" width="238" height="100" fill="#fef9e7" stroke="#f39c12" stroke-width="2" rx="8"/>
+      <text x="169" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f39c12">易于使用</text>
+      
+      <text x="70" y="40" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 简洁直观的 API 设计</text>
+      <text x="70" y="55" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 丰富的官方文档</text>
+      <text x="70" y="70" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 适合教学和快速原型</text>
+      <text x="70" y="85" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 开箱即用的预训练模型</text>
+    </g>
+  </g>
+  
+  <!-- Comparison section -->
+  <g transform="translate(35, 390)">
+    <rect x="0" y="0" width="630" height="180" fill="#fff" stroke="#34495e" stroke-width="2" rx="15"/>
+    <text x="315" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">与其他版本的对比分析</text>
+    
+    <!-- YOLOv8 advantages -->
+    <g transform="translate(35, 50)">
+      <rect x="0" y="0" width="266" height="110" fill="#e8f8f5" stroke="#27ae60" stroke-width="2" rx="8"/>
+      <text x="133" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#27ae60">YOLOv8 优势</text>
+      
+      <text x="20" y="40" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">✓ Anchor-Free 架构简化部署</text>
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">✓ 解耦检测头提升性能</text>
+      <text x="20" y="70" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">✓ 边缘设备友好的资源需求</text>
+      <text x="20" y="85" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">✓ 成熟的生态系统和工具链</text>
+    </g>
+    
+    <!-- Newer versions limitations -->
+    <g transform="translate(329, 50)">
+      <rect x="0" y="0" width="266" height="110" fill="#fdf2e9" stroke="#e67e22" stroke-width="2" rx="8"/>
+      <text x="133" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#e67e22">更新版本考量</text>
+      
+      <text x="20" y="40" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• YOLOv9-11 性能更强</text>
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 但硬件要求显著提高</text>
+      <text x="20" y="70" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 边缘设备部署复杂度增加</text>
+      <text x="20" y="85" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">• 文档和社区支持仍在完善</text>
+    </g>
+  </g>
+  
+  <!-- Technical advantages section -->
+  <g transform="translate(35, 590)">
+    <rect x="0" y="0" width="630" height="30" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1" rx="5"/>
+    <text x="315" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">YOLOv8 是在性能、稳定性、易用性和硬件适配性之间的最佳平衡选择</text>
+  </g>
+</svg>

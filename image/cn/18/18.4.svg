@@ -1,0 +1,159 @@
+<svg viewBox="0 0 1300 550" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1300" height="500" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="650" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2c3e50">YOLO 系列发展历程和技术演进</text>
+  
+  <!-- Timeline -->
+  <line x1="100" y1="100" x2="1200" y2="100" stroke="#34495e" stroke-width="4"/>
+  
+  <!-- YOLOv1-v2 Early Stage (2016-2017) -->
+  <g transform="translate(180, 80)">
+    <circle cx="0" cy="20" r="8" fill="#e74c3c"/>
+    <line x1="0" y1="20" x2="0" y2="60" stroke="#e74c3c" stroke-width="2"/>
+    <rect x="-90" y="60" width="180" height="140" fill="#fff" stroke="#e74c3c" stroke-width="2" rx="8"/>
+    <text x="0" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#e74c3c">YOLOv1-v2</text>
+    <text x="0" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">早期阶段 (2016-2017)</text>
+    <text x="0" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v1: 开创性"一次检测"理念</text>
+    <text x="0" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v1: 7×7网格，速度快但精度低</text>
+    <text x="0" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v2: 引入锚框机制</text>
+    <text x="0" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v2: 批标准化，多尺度训练</text>
+    <text x="0" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v2: YOLO9000 (9000类检测)</text>
+    <text x="0" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#27ae60">奠定YOLO架构基础</text>
+    <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#e74c3c">2016-2017</text>
+  </g>
+  
+  <!-- YOLOv3-v4 Development Stage (2018-2020) -->
+  <g transform="translate(420, 80)">
+    <circle cx="0" cy="20" r="8" fill="#3498db"/>
+    <line x1="0" y1="20" x2="0" y2="60" stroke="#3498db" stroke-width="2"/>
+    <rect x="-90" y="60" width="180" height="140" fill="#fff" stroke="#3498db" stroke-width="2" rx="8"/>
+    <text x="0" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3498db">YOLOv3-v4</text>
+    <text x="0" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">发展阶段 (2018-2020)</text>
+    <text x="0" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v3: 特征金字塔网络(FPN)</text>
+    <text x="0" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v3: 三尺度检测，Darknet-53</text>
+    <text x="0" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v4: CSPDarknet53 backbone</text>
+    <text x="0" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v4: PANet + SPP模块</text>
+    <text x="0" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v4: Mosaic数据增强</text>
+    <text x="0" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#27ae60">多尺度检测能力突破</text>
+    <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3498db">2018-2020</text>
+  </g>
+  
+  <!-- YOLOv5-v7 Maturity Stage (2020-2022) -->
+  <g transform="translate(660, 80)">
+    <circle cx="0" cy="20" r="8" fill="#9b59b6"/>
+    <line x1="0" y1="20" x2="0" y2="60" stroke="#9b59b6" stroke-width="2"/>
+    <rect x="-90" y="60" width="180" height="140" fill="#fff" stroke="#9b59b6" stroke-width="2" rx="8"/>
+    <text x="0" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#9b59b6">YOLOv5-v7</text>
+    <text x="0" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">成熟阶段 (2020-2022)</text>
+    <text x="0" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v5: PyTorch实现，模型家族</text>
+    <text x="0" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v5: 自动锚框，易用性强</text>
+    <text x="0" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v6: 量化感知训练</text>
+    <text x="0" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v6: 重参数化设计</text>
+    <text x="0" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v7: E-ELAN，辅助训练</text>
+    <text x="0" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#27ae60">工程化与优化并重</text>
+    <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#9b59b6">2020-2022</text>
+  </g>
+  
+  <!-- YOLOv8 (2023) - Highlighted as main focus -->
+  <g transform="translate(900, 80)">
+    <circle cx="0" cy="20" r="12" fill="#e67e22" stroke="#d35400" stroke-width="3"/>
+    <line x1="0" y1="20" x2="0" y2="60" stroke="#e67e22" stroke-width="3"/>
+    <rect x="-90" y="60" width="180" height="140" fill="#fff" stroke="#e67e22" stroke-width="3" rx="8"/>
+    
+    <!-- Star icon to indicate focus -->
+    <polygon points="0,50 5,60 15,60 8,67 10,77 0,72 -10,77 -8,67 -15,60 -5,60" fill="#f1c40f"/>
+    
+    <text x="0" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#e67e22">YOLOv8</text>
+    <text x="0" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">突破阶段 (2023)</text>
+    <text x="0" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• Anchor-Free 设计</text>
+    <text x="0" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 解耦检测头架构</text>
+    <text x="0" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 改进损失函数 (CIoU)</text>
+    <text x="0" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 更好的泛化能力</text>
+    <text x="0" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#27ae60">★ 本课程重点 ★</text>
+    <text x="0" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#e67e22">Jetson平台优化</text>
+    <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#e67e22">2023</text>
+  </g>
+  
+  <!-- YOLOv9-v11 (2024) - Combined as suggested -->
+  <g transform="translate(1140, 80)">
+    <circle cx="0" cy="20" r="8" fill="#95a5a6"/>
+    <line x1="0" y1="20" x2="0" y2="60" stroke="#95a5a6" stroke-width="2"/>
+    <rect x="-90" y="60" width="180" height="140" fill="#fff" stroke="#95a5a6" stroke-width="2" rx="8"/>
+    <text x="0" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#95a5a6">YOLOv9-v11</text>
+    <text x="0" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">最新阶段 (2024)</text>
+    <text x="0" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v9: 可编程梯度信息</text>
+    <text x="0" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v10: 实时端到端检测</text>
+    <text x="0" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v11: 改进架构设计</text>
+    <text x="0" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">持续的性能优化</text>
+    <text x="0" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#e74c3c">硬件要求较高</text>
+    <text x="0" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">边缘设备部署复杂</text>
+    <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#95a5a6">2024</text>
+  </g>
+  
+  <!-- Technical Evolution Trends -->
+  <g transform="translate(50, 310)">
+    <rect x="0" y="0" width="1200" height="200" fill="#fff" stroke="#34495e" stroke-width="2" rx="10"/>
+    <text x="600" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">技术演进趋势</text>
+    
+    <!-- Trend 1: Speed vs Accuracy -->
+    <g transform="translate(50, 50)">
+      <rect x="0" y="0" width="220" height="120" fill="#ecf0f1" stroke="#bdc3c7" rx="5"/>
+      <text x="110" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">速度 vs 精度</text>
+      
+      <!-- Trend line -->
+      <line x1="20" y1="100" x2="200" y2="40" stroke="#3498db" stroke-width="3"/>
+      <circle cx="20" cy="100" r="4" fill="#e74c3c"/>
+      <circle cx="65" cy="80" r="4" fill="#3498db"/>
+      <circle cx="110" cy="65" r="4" fill="#9b59b6"/>
+      <circle cx="155" cy="50" r="4" fill="#e67e22"/>
+      <circle cx="200" cy="40" r="4" fill="#95a5a6"/>
+      
+      <text x="20" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e74c3c">v1-2</text>
+      <text x="65" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#3498db">v3-4</text>
+      <text x="110" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#9b59b6">v5-7</text>
+      <text x="155" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#e67e22">v8</text>
+      <text x="200" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#95a5a6">v9-11</text>
+      
+      <text x="10" y="35" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">高精度</text>
+      <text x="10" y="105" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">高速度</text>
+    </g>
+    
+    <!-- Trend 2: Architecture Evolution -->
+    <g transform="translate(300, 50)">
+      <rect x="0" y="0" width="280" height="120" fill="#ecf0f1" stroke="#bdc3c7" rx="5"/>
+      <text x="140" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">架构演进</text>
+      
+      <text x="70" y="40" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v1-v2: 基础架构建立</text>
+      <text x="70" y="55" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v3-v4: 多尺度特征融合</text>
+      <text x="70" y="70" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">v5-v7: 工程化与量化优化</text>
+      <text x="70" y="85" font-family="Arial, sans-serif" font-size="10" fill="#e67e22">v8: Anchor-Free + 解耦头</text>
+      <text x="70" y="100" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">v9-11: 实时端到端检测</text>
+    </g>
+    
+    <!-- Trend 3: Application Focus -->
+    <g transform="translate(610, 50)">
+      <rect x="0" y="0" width="250" height="120" fill="#ecf0f1" stroke="#bdc3c7" rx="5"/>
+      <text x="125" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">应用导向</text>
+      
+      <text x="70" y="40" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">学术研究 → 工业应用</text>
+      <text x="70" y="55" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">实验验证 → 生产部署</text>
+      <text x="70" y="70" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">GPU优化 → 多硬件支持</text>
+      <text x="70" y="85" font-family="Arial, sans-serif" font-size="10" fill="#e67e22">边缘设备友好性提升</text>
+      <text x="70" y="100" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">实时性要求提高</text>
+    </g>
+    
+    <!-- Trend 4: Hardware Optimization -->
+    <g transform="translate(890, 50)">
+      <rect x="0" y="0" width="260" height="120" fill="#ecf0f1" stroke="#bdc3c7" rx="5"/>
+      <text x="130" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">硬件优化</text>
+      
+      <text x="90" y="40" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">GPU加速优化</text>
+      <text x="90" y="55" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">混合精度推理</text>
+      <text x="90" y="70" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">TensorRT集成</text>
+      <text x="90" y="85" font-family="Arial, sans-serif" font-size="10" fill="#e67e22">Jetson平台优化</text>
+      <text x="90" y="100" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">移动端部署</text>
+    </g>
+  </g>
+</svg>
