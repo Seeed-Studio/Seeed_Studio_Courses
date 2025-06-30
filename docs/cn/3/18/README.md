@@ -98,7 +98,7 @@ class DetectionVsClassificationDemo:
         """可视化分类与检测的对比"""
         print("开始图像分类与目标检测对比演示...")
         
-# 加载演示图片
+        # 加载演示图片
         image = self.load_demo_image()
         if image is None:
             return None, None, None
@@ -206,6 +206,11 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import cv2
 from PIL import Image
+import matplotlib
+
+# 设置中文字体
+matplotlib.rcParams['font.sans-serif'] = ['SimHei']  # 设置字体为黑体，支持显示中文
+matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 
 class BoundingBoxDemo:
     def __init__(self):
@@ -464,6 +469,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 from PIL import Image
+import matplotlib
+
+# 设置中文字体
+matplotlib.rcParams['font.sans-serif'] = ['SimHei']  # 设置字体为黑体，支持显示中文
+matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 
 class DetectionMetricsDemo:
     def __init__(self):
@@ -809,6 +819,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 from PIL import Image
+import matplotlib
+
+# 设置中文字体
+matplotlib.rcParams['font.sans-serif'] = ['SimHei']  # 设置字体为黑体，支持显示中文
+matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 
 class YOLOv8ConceptDemo:
     def __init__(self):
@@ -1070,375 +1085,117 @@ demo.run_architecture_demo()
 以下代码用于检查系统环境并安装 YOLOv8：
 
 ```python
-import cv2
-import time
-import numpy as np
+import subprocess
+import sys
+import torch
+import platform
 
-class YOLOv8VideoDetection:
-    def __init__(self, model_size='n', source=0):
-        """
-        实时目标检测系统
+class YOLOv8Setup:
+    def __init__(self):
+        """YOLOv8 环境配置助手"""
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        print(f"当前设备: {self.device}")
+        print(f"Python 版本: {sys.version}")
+        print(f"PyTorch 版本: {torch.__version__}")
+        print(f"系统平台: {platform.platform()}")
+    
+    def check_system_requirements(self):
+        """检查系统要求"""
+        print("\n=== 系统要求检查 ===")
         
-        参数:
-            model_size: YOLOv8 模型大小 ('n', 's', 'm', 'l', 'x')
-            source: 视频源 (0=USB摄像头, 'csi'=CSI摄像头, 或视频文件路径)
-        """
-        print(f"初始化Jetson实时检测系统...")
-        print(f"视频源: {source}")
+        # 检查 CUDA
+        if torch.cuda.is_available():
+            print(f"✓ CUDA 可用: {torch.version.cuda}")
+            print(f"✓ GPU 设备: {torch.cuda.get_device_name(0)}")
+            
+            # 检查 GPU 内存
+            gpu_memory = torch.cuda.get_device_properties(0).total_memory / 1024**3
+            print(f"✓ GPU 内存: {gpu_memory:.1f}GB")
+            
+            if gpu_memory < 2:
+                print("⚠️  警告: GPU 内存较小，建议使用 YOLOv8n 模型")
+        else:
+            print("❌ CUDA 不可用，将使用 CPU（性能较低）")
+        
+        # 检查内存
+        try:
+            import psutil
+            ram = psutil.virtual_memory().total / 1024**3
+            print(f"✓ 系统内存: {ram:.1f}GB")
+            
+            if ram < 4:
+                print("⚠️  警告: 系统内存较小，建议使用轻量级模型")
+        except ImportError:
+            print("ℹ️  无法检查系统内存（需要安装 psutil）")
+    
+    def install_ultralytics(self):
+        """安装 Ultralytics YOLOv8"""
+        print("\n=== 安装 YOLOv8 ===")
+        
+        try:
+            # 尝试导入 ultralytics
+            import ultralytics
+            print(f"✓ Ultralytics 已安装: {ultralytics.__version__}")
+            return True
+        except ImportError:
+            print("ℹ️  正在安装 Ultralytics...")
+            
+            try:
+                # 使用 pip 安装
+                subprocess.check_call([
+                    sys.executable, "-m", "pip", "install", 
+                    "ultralytics", "--upgrade"
+                ])
+                print("✓ Ultralytics 安装成功")
+                return True
+            except subprocess.CalledProcessError:
+                print("❌ 安装失败，请手动安装: pip install ultralytics")
+                return False
+    
+    def test_installation(self):
+        """测试安装是否成功"""
+        print("\n=== 测试安装 ===")
         
         try:
             from ultralytics import YOLO
-            self.model = YOLO(f'yolov8{model_size}.pt')
-            print(f"✓ 模型加载成功: yolov8{model_size}.pt")
-        except Exception as e:
-            print(f"❌ 模型加载失败: {e}")
-            return
-        
-        self.source = source
-        self.confidence_threshold = 0.5
-        self.cap = None
-        
-        # COCO类别名称（中文，简化版）
-        self.class_names_cn = [
-            '人', '自行车', '汽车', '摩托车', '飞机', '公交车', '火车', '卡车', '船',
-            '交通灯', '消防栓', '停车标志', '停车计费器', '长椅', '鸟', '猫', '狗', '马'
-        ]
-        
-        print("✓ 实时检测系统初始化完成")
-    
-    def get_gstreamer_pipeline(self, sensor_id=0, capture_width=640, capture_height=480, 
-                              display_width=640, display_height=480, framerate=30, flip_method=2):
-        """
-        创建CSI摄像头的GStreamer管道
-        Jetson Nano的CSI摄像头需要使用GStreamer
-        """
-        return (
-            f"nvarguscamerasrc sensor-id={sensor_id} ! "
-            f"video/x-raw(memory:NVMM), width=(int){capture_width}, height=(int){capture_height}, "
-            f"format=(string)NV12, framerate=(fraction){framerate}/1 ! "
-            f"nvvidconv flip-method={flip_method} ! "
-            f"video/x-raw, width=(int){display_width}, height=(int){display_height}, format=(string)BGRx ! "
-            f"videoconvert ! "
-            f"video/x-raw, format=(string)BGR ! appsink"
-        )
-    
-    def test_camera_sources(self):
-        """测试不同的摄像头源"""
-        print("\n=== 摄像头源检测 ===")
-        
-        # 测试USB摄像头 (多个索引)
-        usb_sources = [0, 1, 2]
-        for idx in usb_sources:
-            print(f"测试USB摄像头 /dev/video{idx}...")
-            cap = cv2.VideoCapture(idx)
-            if cap.isOpened():
-                ret, frame = cap.read()
-                if ret and frame is not None:
-                    print(f"✓ USB摄像头 {idx} 可用")
-                    cap.release()
-                    return idx
-                else:
-                    print(f"✗ USB摄像头 {idx} 无法读取帧")
-            else:
-                print(f"✗ 无法打开USB摄像头 {idx}")
-            cap.release()
-        
-        # 测试CSI摄像头
-        print("测试CSI摄像头...")
-        gst_pipeline = self.get_gstreamer_pipeline()
-        cap = cv2.VideoCapture(gst_pipeline, cv2.CAP_GSTREAMER)
-        if cap.isOpened():
-            ret, frame = cap.read()
-            if ret and frame is not None:
-                print("✓ CSI摄像头可用")
-                cap.release()
-                return 'csi'
-            else:
-                print("✗ CSI摄像头无法读取帧")
-        else:
-            print("✗ 无法打开CSI摄像头")
-        cap.release()
-        
-        print("❌ 未找到可用的摄像头")
-        return None
-    
-    def initialize_video_source(self):
-        """初始化视频源 - Jetson平台适配"""
-        print(f"\n初始化视频源: {self.source}")
-        
-        try:
-            if self.source == 'csi':
-                # CSI摄像头使用GStreamer管道
-                print("使用CSI摄像头...")
-                gst_pipeline = self.get_gstreamer_pipeline()
-                print(f"GStreamer管道: {gst_pipeline}")
-                self.cap = cv2.VideoCapture(gst_pipeline, cv2.CAP_GSTREAMER)
-                
-            elif isinstance(self.source, int):
-                # USB摄像头
-                print(f"使用USB摄像头 /dev/video{self.source}...")
-                self.cap = cv2.VideoCapture(self.source)
-                
-                # Jetson平台USB摄像头优化设置
-                if self.cap.isOpened():
-                    # 设置较低的分辨率以提高性能
-                    self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-                    self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-                    self.cap.set(cv2.CAP_PROP_FPS, 30)
-                    
-                    # 设置缓冲区大小
-                    self.cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
-                    
-                    # 尝试设置像素格式
-                    self.cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'))
-                
-            elif isinstance(self.source, str):
-                # 视频文件
-                print(f"使用视频文件: {self.source}")
-                self.cap = cv2.VideoCapture(self.source)
             
-            else:
-                print(f"❌ 不支持的视频源类型: {type(self.source)}")
-                return False
+            # 创建一个轻量级模型进行测试
+            model = YOLO('yolov8n.pt')
+            print("✓ YOLOv8 模型加载成功")
             
-            # 检查是否成功打开
-            if not self.cap.isOpened():
-                print(f"❌ 无法打开视频源")
-                return False
-            
-            # 测试读取帧
-            print("测试帧读取...")
-            ret, test_frame = self.cap.read()
-            if not ret or test_frame is None:
-                print(f"❌ 无法读取视频帧")
-                print("可能的解决方案:")
-                print("  1. 检查摄像头连接")
-                print("  2. 检查摄像头权限: sudo chmod 666 /dev/video*")
-                print("  3. 尝试不同的摄像头索引")
-                print("  4. 重启设备")
-                return False
-            
-            # 获取实际参数
-            width = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-            height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-            fps = self.cap.get(cv2.CAP_PROP_FPS)
-            
-            print(f"✓ 视频源初始化成功")
-            print(f"  实际分辨率: {width}×{height}")
-            print(f"  帧率: {fps:.1f} FPS")
-            print(f"  测试帧尺寸: {test_frame.shape}")
+            # 测试推理
+            import numpy as np
+            test_image = np.random.randint(0, 255, (640, 640, 3), dtype=np.uint8)
+            results = model(test_image, verbose=False)
+            print("✓ 推理测试成功")
             
             return True
             
         except Exception as e:
-            print(f"❌ 视频源初始化失败: {e}")
-            print("建议:")
-            print("  1. 运行摄像头检测: demo.test_camera_sources()")
-            print("  2. 检查系统权限")
-            print("  3. 确认摄像头硬件连接")
+            print(f"❌ 测试失败: {str(e)}")
             return False
     
-    def draw_detections(self, frame, results):
-        """绘制检测结果"""
-        if results.boxes is None:
-            return frame
+    def setup_complete_environment(self):
+        """完整环境配置"""
+        print("=== YOLOv8 环境配置开始 ===")
         
-        # 获取检测数据
-        boxes = results.boxes.xyxy.cpu().numpy()
-        confidences = results.boxes.conf.cpu().numpy()
-        class_ids = results.boxes.cls.cpu().numpy().astype(int)
+        # 1. 检查系统要求
+        self.check_system_requirements()
         
-        # 颜色列表
-        colors = [
-            (255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0), (255, 0, 255),
-            (0, 255, 255), (128, 0, 0), (0, 128, 0), (0, 0, 128), (128, 128, 0)
-        ]
-        
-        # 绘制每个检测框
-        for i in range(len(boxes)):
-            x1, y1, x2, y2 = boxes[i].astype(int)
-            confidence = confidences[i]
-            class_id = class_ids[i]
-            
-            # 获取类别名称和颜色
-            if class_id < len(self.class_names_cn):
-                class_name = self.class_names_cn[class_id]
-            else:
-                class_name = f'类别{class_id}'
-            
-            color = colors[class_id % len(colors)]
-            
-            # 绘制边界框
-            cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
-            
-            # 绘制标签背景
-            label = f'{class_name}: {confidence:.2f}'
-            (text_width, text_height), _ = cv2.getTextSize(
-                label, cv2.FONT_HERSHEY_SIMPLEX, 0.6, 2
-            )
-            cv2.rectangle(frame, (x1, y1 - text_height - 10), 
-                         (x1 + text_width, y1), color, -1)
-            
-            # 绘制标签文字
-            cv2.putText(frame, label, (x1, y1 - 5), 
-                       cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
-        
-        return frame
-    
-    def add_info_overlay(self, frame, fps, detection_count):
-        """添加信息覆盖层"""
-        # 创建半透明背景
-        overlay = frame.copy()
-        cv2.rectangle(overlay, (10, 10), (300, 70), (0, 0, 0), -1)
-        cv2.addWeighted(overlay, 0.7, frame, 0.3, 0, frame)
-        
-        # 添加信息文字
-        info_lines = [
-            f'FPS: {fps:.1f}',
-            f'检测数量: {detection_count}',
-            f'按q退出, p暂停'
-        ]
-        
-        for i, line in enumerate(info_lines):
-            y_pos = 30 + i * 15
-            cv2.putText(frame, line, (15, y_pos), 
-                       cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
-        
-        return frame
-    
-    def run_detection(self):
-        """运行实时检测"""
-        # 如果传入的是'auto'，自动检测摄像头
-        if self.source == 'auto':
-            detected_source = self.test_camera_sources()
-            if detected_source is None:
-                return False
-            self.source = detected_source
-            print(f"自动检测到摄像头: {self.source}")
-        
-        if not self.initialize_video_source():
+        # 2. 安装 YOLOv8
+        if not self.install_ultralytics():
             return False
         
-        print("\n=== 开始实时目标检测 ===")
-        print("操作说明:")
-        print("  'q' - 退出程序")
-        print("  'p' - 暂停/继续")
-        print("  's' - 截图保存")
+        # 3. 测试安装
+        if not self.test_installation():
+            return False
         
-        paused = False
-        frame_count = 0
-        
-        try:
-            while True:
-                frame_start = time.time()
-                
-                # 读取帧
-                ret, frame = self.cap.read()
-                if not ret:
-                    print("无法读取视频帧，可能是视频结束或摄像头断开")
-                    break
-                
-                frame_count += 1
-                
-                # 每30帧输出一次状态
-                if frame_count % 30 == 0:
-                    print(f"已处理 {frame_count} 帧")
-                
-                if not paused:
-                    # 执行检测
-                    try:
-                        results = self.model(frame, conf=self.confidence_threshold, verbose=False)[0]
-                        
-                        # 绘制检测结果
-                        frame = self.draw_detections(frame, results)
-                        
-                        # 计算FPS和检测数量
-                        fps = 1.0 / (time.time() - frame_start) if time.time() - frame_start > 0 else 0
-                        detection_count = len(results.boxes) if results.boxes is not None else 0
-                        
-                        # 添加信息覆盖层
-                        frame = self.add_info_overlay(frame, fps, detection_count)
-                        
-                    except Exception as e:
-                        print(f"检测过程出错: {e}")
-                        # 继续显示原始帧
-                        cv2.putText(frame, 'Detection Error', (50, 50), 
-                                   cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-                else:
-                    # 暂停状态
-                    cv2.putText(frame, 'PAUSED - Press P to continue', (50, 50), 
-                               cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
-                
-                # 显示图像
-                cv2.imshow('YOLOv8 Jetson Detection', frame)
-                
-                # 处理按键
-                key = cv2.waitKey(1) & 0xFF
-                if key == ord('q'):
-                    print("用户退出")
-                    break
-                elif key == ord('p'):
-                    paused = not paused
-                    print(f"{'暂停' if paused else '继续'}")
-                elif key == ord('s'):
-                    screenshot_name = f"jetson_screenshot_{int(time.time())}.jpg"
-                    cv2.imwrite(screenshot_name, frame)
-                    print(f"截图保存: {screenshot_name}")
-        
-        except KeyboardInterrupt:
-            print("\n检测被用户中断")
-        except Exception as e:
-            print(f"检测过程中出现错误: {e}")
-        finally:
-            # 清理资源
-            if self.cap:
-                self.cap.release()
-            cv2.destroyAllWindows()
-            print("✓ 检测结束，资源已清理")
-        
+        print("\n✅ YOLOv8 环境配置完成！")
         return True
 
-# 实时检测演示
-def demo_real_time_detection():
-    """Jetson平台实时检测演示"""
-    print("=== YOLOv8 Jetson实时检测演示 ===")
-    
-    # 方法1: 自动检测摄像头
-    print("\n方法1: 自动检测摄像头")
-    detector = YOLOv8VideoDetection(model_size='n', source='auto')
-    detector.run_detection()
-    
-    # 如果自动检测失败，可以尝试手动指定
-    # 方法2: 手动指定USB摄像头
-    # detector = YOLOv8VideoDetection(model_size='n', source=0)
-    
-    # 方法3: 指定CSI摄像头
-    # detector = YOLOv8VideoDetection(model_size='n', source='csi')
-    
-    # 方法4: 使用视频文件
-    # detector = YOLOv8VideoDetection(model_size='n', source='path/to/video.mp4')
-
-# 摄像头诊断函数
-def diagnose_camera():
-    """诊断摄像头问题"""
-    print("=== Jetson摄像头诊断 ===")
-    
-    detector = YOLOv8VideoDetection(model_size='n', source=0)
-    detector.test_camera_sources()
-    
-    print("\n如果仍有问题，请尝试以下命令:")
-    print("1. 检查摄像头设备: ls /dev/video*")
-    print("2. 设置权限: sudo chmod 666 /dev/video*")
-    print("3. 查看USB设备: lsusb")
-    print("4. 重启摄像头服务: sudo systemctl restart nvargus-daemon")
-
-# 运行演示
-if __name__ == "__main__":
-    # 如果遇到摄像头问题，先运行诊断
-    # diagnose_camera()
-        
-    # 运行检测演示
-    demo_real_time_detection()
+# 运行安装程序
+setup = YOLOv8Setup()
+setup.setup_complete_environment()
 ```
 
 首次运行时，代码会自动检查 CUDA 和 GPU 内存状态，然后安装必要的依赖包。运行 `setup.setup_complete_environment()` 即可完成全部环境配置工作。
@@ -1456,6 +1213,11 @@ try:
     from PIL import Image
     import torch
     import time
+    import matplotlib
+
+    # 设置中文字体
+    matplotlib.rcParams['font.sans-serif'] = ['SimHei']  # 设置字体为黑体，支持显示中文
+    matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
     
     print("✓ 所有依赖库导入成功")
 except ImportError as e:
@@ -1791,6 +1553,11 @@ import numpy as np
 from collections import deque
 import threading
 import os
+import matplotlib
+
+# 设置中文字体
+matplotlib.rcParams['font.sans-serif'] = ['SimHei']  # 设置字体为黑体，支持显示中文
+matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 
 class JetsonVideoDetection:
     def __init__(self, model_size='n'):
@@ -1814,10 +1581,17 @@ class JetsonVideoDetection:
         self.frame_count = 0
         self.total_detections = 0
         
-        # 类别名称
-        self.class_names_cn = [
-            '人', '自行车', '汽车', '摩托车', '飞机', '公交车', '火车', '卡车', '船',
-            '交通灯', '消防栓', '停车标志', '停车计费器', '长椅', '鸟', '猫', '狗', '马'
+        # COCO数据集类别名称（英文）
+        self.class_names_en = [
+            'person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat',
+            'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse',
+            'sheep', 'cow', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie',
+            'suitcase', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove',
+            'skateboard', 'surfboard', 'tennis racket', 'bottle', 'wine glass', 'cup', 'fork', 'knife', 'spoon',
+            'bowl', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza',
+            'donut', 'cake', 'chair', 'couch', 'potted plant', 'bed', 'dining table', 'toilet', 'tv',
+            'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'microwave', 'oven', 'toaster',
+            'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush'
         ]
 
     def get_csi_gstreamer_pipeline(self, sensor_id=0, capture_width=640, capture_height=480, framerate=30):
@@ -1956,7 +1730,9 @@ class JetsonVideoDetection:
         # 定义颜色
         colors = [
             (255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0), 
-            (255, 0, 255), (0, 255, 255), (128, 0, 128), (255, 165, 0)
+            (255, 0, 255), (0, 255, 255), (128, 0, 128), (255, 165, 0),
+            (0, 128, 255), (255, 128, 0), (128, 255, 0), (255, 0, 128),
+            (0, 255, 128), (128, 0, 255), (255, 192, 0), (192, 255, 0)
         ]
         
         for i in range(detection_count):
@@ -1964,8 +1740,8 @@ class JetsonVideoDetection:
             confidence = confidences[i]
             class_id = class_ids[i]
             
-            # 获取类别和颜色
-            class_name = self.class_names_cn[class_id] if class_id < len(self.class_names_cn) else f'类别{class_id}'
+            # 获取英文类别名称和颜色
+            class_name = self.class_names_en[class_id] if class_id < len(self.class_names_en) else f'class{class_id}'
             color = colors[class_id % len(colors)]
             
             # 绘制边界框
@@ -1975,9 +1751,11 @@ class JetsonVideoDetection:
             label = f'{class_name}: {confidence:.2f}'
             label_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)[0]
             
+            # 绘制标签背景
             cv2.rectangle(frame, (x1, y1 - label_size[1] - 10), 
                          (x1 + label_size[0], y1), color, -1)
             
+            # 绘制标签文字
             cv2.putText(frame, label, (x1, y1 - 5), 
                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
         
@@ -1997,9 +1775,9 @@ class JetsonVideoDetection:
         
         info_texts = [
             f'FPS: {fps:.1f} (avg: {avg_fps:.1f})',
-            f'检测数量: {detection_count}',
-            f'总帧数: {self.frame_count}',
-            f'按q退出'
+            f'Detections: {detection_count}',
+            f'Total frames: {self.frame_count}',
+            f'Press q to quit'
         ]
         
         for i, text in enumerate(info_texts):
@@ -2105,8 +1883,9 @@ class JetsonVideoDetection:
             print(f"总检测数: {self.total_detections}")
 
 # 运行检测系统
-detector = JetsonVideoDetection(model_size='n')
-detector.run_detection()
+if __name__ == "__main__":
+    detector = JetsonVideoDetection(model_size='n')
+    detector.run_detection()
 ```
 
 > **核心函数**：
@@ -2132,6 +1911,11 @@ import psutil
 import threading
 import numpy as np
 from collections import deque
+import matplotlib
+
+# 设置中文字体
+matplotlib.rcParams['font.sans-serif'] = ['SimHei']  # 设置字体为黑体，支持显示中文
+matplotlib.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 
 class YOLOv8JetsonOptimizer:
     def __init__(self, model_path='yolov8n.pt'):
