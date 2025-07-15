@@ -1,0 +1,78 @@
+<svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .layer-box { fill: #f8f9fa; stroke: #2c3e50; stroke-width: 2; }
+      .component-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 1.5; }
+      .layer-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; fill: #2c3e50; }
+      .component-text { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; fill: #1976d2; }
+      .arrow { stroke: #34495e; stroke-width: 2; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34495e" />
+    </marker>
+  </defs>
+  
+  <!-- 用户界面层 -->
+  <rect x="50" y="30" width="500" height="80" class="layer-box" />
+  <text x="300" y="50" class="layer-title">用户界面层</text>
+  
+  <rect x="70" y="55" width="120" height="40" class="component-box" />
+  <text x="130" y="78" class="component-text">实时显示</text>
+  
+  <rect x="240" y="55" width="120" height="40" class="component-box" />
+  <text x="300" y="78" class="component-text">参数配置</text>
+  
+  <rect x="410" y="55" width="120" height="40" class="component-box" />
+  <text x="470" y="78" class="component-text">历史查询</text>
+  
+  <!-- 箭头：用户界面层到业务逻辑层 -->
+  <line x1="300" y1="110" x2="300" y2="130" class="arrow" />
+  
+  <!-- 业务逻辑层 -->
+  <rect x="50" y="130" width="500" height="80" class="layer-box" />
+  <text x="300" y="150" class="layer-title">业务逻辑层</text>
+  
+  <rect x="70" y="155" width="120" height="40" class="component-box" />
+  <text x="130" y="178" class="component-text">监控控制</text>
+  
+  <rect x="240" y="155" width="120" height="40" class="component-box" />
+  <text x="300" y="178" class="component-text">报警管理</text>
+  
+  <rect x="410" y="155" width="120" height="40" class="component-box" />
+  <text x="470" y="178" class="component-text">数据管理</text>
+  
+  <!-- 箭头：业务逻辑层到AI处理层 -->
+  <line x1="300" y1="210" x2="300" y2="230" class="arrow" />
+  
+  <!-- AI 处理层 -->
+  <rect x="50" y="230" width="500" height="80" class="layer-box" />
+  <text x="300" y="250" class="layer-title">AI 处理层</text>
+  
+  <rect x="70" y="255" width="120" height="40" class="component-box" />
+  <text x="130" y="278" class="component-text">目标检测</text>
+  
+  <rect x="240" y="255" width="120" height="40" class="component-box" />
+  <text x="300" y="278" class="component-text">结果处理</text>
+  
+  <rect x="410" y="255" width="120" height="40" class="component-box" />
+  <text x="470" y="278" class="component-text">性能优化</text>
+  
+  <!-- 箭头：AI处理层到数据采集层 -->
+  <line x1="300" y1="310" x2="300" y2="330" class="arrow" />
+  
+  <!-- 数据采集层 -->
+  <rect x="50" y="330" width="500" height="80" class="layer-box" />
+  <text x="300" y="350" class="layer-title">数据采集层</text>
+  
+  <rect x="70" y="355" width="120" height="40" class="component-box" />
+  <text x="130" y="378" class="component-text">视频采集</text>
+  
+  <rect x="240" y="355" width="120" height="40" class="component-box" />
+  <text x="300" y="378" class="component-text">帧缓存</text>
+  
+  <rect x="410" y="355" width="120" height="40" class="component-box" />
+  <text x="470" y="378" class="component-text">预处理</text>
+  
+  <!-- 标题 -->
+  <text x="300" y="450" style="font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #2c3e50;">智能监控系统架构图</text>
+</svg>

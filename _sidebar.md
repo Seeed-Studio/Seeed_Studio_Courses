@@ -23,3 +23,4 @@
     * [16-PyTorch基础与神经网络构建](/docs/cn/3/16/README.md)
     * [17-卷积神经网络与迁移学习](/docs/cn/3/17/README.md)
     * [18-目标检测与 YOLO 实践](/docs/cn/3/18/README.md)
+    * [19-智能监控系统实现与优化](/docs/cn/3/19/README.md)

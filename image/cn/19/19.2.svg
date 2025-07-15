@@ -1,0 +1,80 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .class-box { fill: #f8f9fa; stroke: #2c3e50; stroke-width: 2; }
+      .class-header { fill: #3498db; stroke: #2c3e50; stroke-width: 2; }
+      .class-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; fill: white; }
+      .class-description { font-family: Arial, sans-serif; font-size: 11px; fill: #2c3e50; text-anchor: start; }
+      .connection { stroke: #7f8c8d; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .main-system { fill: #e74c3c; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7f8c8d" />
+    </marker>
+  </defs>
+
+  <!-- SmartMonitoringSystem 主控制器 - 中心位置 -->
+  <rect x="300" y="50" width="200" height="100" class="class-box" />
+  <rect x="300" y="50" width="200" height="30" class="class-header main-system" />
+  <text x="400" y="70" class="class-title">SmartMonitoringSystem</text>
+
+  <text x="310" y="95" class="class-description">系统核心协调器</text>
+  <text x="310" y="110" class="class-description">• 管理所有子模块生命周期</text>
+  <text x="310" y="125" class="class-description">• 协调数据流转和处理</text>
+  <text x="310" y="140" class="class-description">• 提供统一的系统控制接口</text>
+
+  <!-- CameraManager - 左侧 -->
+  <rect x="50" y="50" width="180" height="90" class="class-box" />
+  <rect x="50" y="50" width="180" height="30" class="class-header" />
+  <text x="140" y="70" class="class-title">CameraManager</text>
+
+  <text x="60" y="95" class="class-description">摄像头设备管理</text>
+  <text x="60" y="110" class="class-description">• 视频流采集和缓存</text>
+  <text x="60" y="125" class="class-description">• 设备连接管理</text>
+
+  <!-- ObjectDetector - 右侧 -->
+  <rect x="570" y="50" width="180" height="90" class="class-box" />
+  <rect x="570" y="50" width="180" height="30" class="class-header" />
+  <text x="660" y="70" class="class-title">ObjectDetector</text>
+
+  <text x="580" y="95" class="class-description">AI目标检测处理</text>
+  <text x="580" y="110" class="class-description">• YOLOv8模型管理</text>
+  <text x="580" y="125" class="class-description">• 检测结果处理和可视化</text>
+
+  <!-- AlertManager - 左下 -->
+  <rect x="50" y="230" width="180" height="90" class="class-box" />
+  <rect x="50" y="230" width="180" height="30" class="class-header" />
+  <text x="140" y="250" class="class-title">AlertManager</text>
+
+  <text x="60" y="275" class="class-description">智能报警系统</text>
+  <text x="60" y="290" class="class-description">• 报警规则管理</text>
+  <text x="60" y="305" class="class-description">• 条件判断和触发</text>
+
+  <!-- SimpleStorage - 正下方 -->
+  <rect x="310" y="230" width="180" height="90" class="class-box" />
+  <rect x="310" y="230" width="180" height="30" class="class-header" />
+  <text x="400" y="250" class="class-title">SimpleStorage</text>
+
+  <text x="320" y="275" class="class-description">数据持久化存储</text>
+  <text x="320" y="290" class="class-description">• JSON文件存储</text>
+  <text x="320" y="305" class="class-description">• 历史数据管理</text>
+
+  <!-- BasicMonitor - 右下 -->
+  <rect x="570" y="230" width="180" height="90" class="class-box" />
+  <rect x="570" y="230" width="180" height="30" class="class-header" />
+  <text x="660" y="250" class="class-title">BasicMonitor</text>
+
+  <text x="580" y="275" class="class-description">系统性能监控</text>
+  <text x="580" y="290" class="class-description">• FPS统计和帧数监控</text>
+  <text x="580" y="305" class="class-description">• 性能数据收集</text>
+
+  <!-- 连接线 - 从中心向各个子模块 -->
+  <line x1="300" y1="95" x2="230" y2="95" class="connection" />
+  <line x1="500" y1="95" x2="570" y2="95" class="connection" />
+  <line x1="340" y1="150" x2="140" y2="230" class="connection" />
+  <line x1="400" y1="150" x2="400" y2="230" class="connection" />
+  <line x1="460" y1="150" x2="660" y2="230" class="connection" />
+
+  <!-- 标题 -->
+  <text x="400" y="390" style="font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #2c3e50;">系统类设计图</text>
+</svg>
