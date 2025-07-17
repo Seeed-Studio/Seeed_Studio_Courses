@@ -97,7 +97,7 @@
 | ✅ 16 | [PyTorch基础与神经网络构建](../../docs/cn/3/16/README.md) | 掌握Tensor操作与自动求导机制，学习构建并训练基本神经网络模型。 | ✅ [视频链接](https://www.bilibili.com/video/BV1737nz7EGf) |
 | ✅ 17 | [卷积神经网络与迁移学习](../../docs/cn/3/17/README.md) | 理解CNN架构与迁移学习，使用预训练模型进行图像分类实践。 | ✅ [视频链接](https://www.bilibili.com/video/BV1nQNvzAEeV) |
 | ✅ 18 | [目标检测与YOLOv8实践](../../docs/cn/3/18/README.md) | 掌握目标检测原理，了解YOLO架构并在Jetson平台部署实时检测。 | ✅ [视频链接](https://www.bilibili.com/video/BV1eSgUzzEDk) |
-| ✅ 19 | [智能监控系统实现与优化](../../docs/cn/3/19/README.md) | 综合应用设计智能监控系统，实现检测、报警、记录与模型优化。 | ⏳ 视频链接 |
+| ✅ 19 | [智能监控系统实现与优化](../../docs/cn/3/19/README.md) | 综合应用设计智能监控系统，实现检测、报警、记录与模型优化。 | ✅ [视频链接](https://www.bilibili.com/video/BV1c9gwzHEMH) |
 
 ---
 
