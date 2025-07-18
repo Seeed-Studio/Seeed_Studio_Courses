@@ -37,7 +37,43 @@
   <!-- 引入 Docsify 折叠插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
   <!-- MathJax 支持 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-mathjax@latest/docsify-mathjax.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    // 配置 MathJax
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      }
+    };
+    
+    // 监听 Docsify 渲染完成事件，重新渲染数学公式
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    });
+    
+    // 监听页面内容变化，重新渲染数学公式
+    const observer = new MutationObserver(function(mutations) {
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    });
+    
+    // 观察 app 容器的变化
+    observer.observe(document.getElementById('app'), {
+      childList: true,
+      subtree: true
+    });
+  </script>
 </body>
 
 </html>
