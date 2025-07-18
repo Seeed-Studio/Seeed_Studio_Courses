@@ -121,7 +121,9 @@
 
 一个神经元的计算过程可以用数学公式表示：
 
-$ \text{output} = f\left(\sum_{i=1}^n w_i x_i + b\right) $
+$$
+\text{output} = f\left(\sum_{i=1}^n w_i x_i + b\right)
+$$
 
 > 其中：
 >
