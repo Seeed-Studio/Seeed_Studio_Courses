@@ -10,23 +10,6 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
   <!-- 引入 Docsify 的主题样式 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
-  
-  <!-- MathJax 配置 -->
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [[', '], ['\\(', '\\)']],
-        displayMath: [['$', '$'], ['\\[', '\\]']],
-        processEscapes: true,
-        processEnvironments: true
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-      }
-    };
-  </script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -45,27 +28,12 @@
       relativePath: true,
       homepage: 'README.md',
       notFoundPage: true,
-      subMaxLevel: 2, // 设置子标题层级
-      
-      // 页面渲染完成后重新渲染数学公式
-      plugins: [
-        function(hook, vm) {
-          hook.afterEach(function (html) {
-            return html;
-          });
-          hook.doneEach(function() {
-            if (typeof MathJax !== 'undefined') {
-              MathJax.typesetPromise && MathJax.typesetPromise();
-            }
-          });
-        }
-      ]
+      subMaxLevel: 2 // 设置子标题层级
     };
   </script>  
 
   <!-- 引入 Docsify 核心库 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-  
   <!-- 引入 Docsify 折叠插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
 </body>
